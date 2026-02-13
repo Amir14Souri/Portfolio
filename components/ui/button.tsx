@@ -14,7 +14,7 @@ const buttonVariants = cva(
         subtle:
           "bg-zinc-900/5 text-zinc-800 hover:bg-zinc-900/10 dark:bg-white/10 dark:text-white dark:hover:bg-white/20",
         outline:
-          "border border-input bg-transparent text-zinc-900 hover:bg-zinc-100 dark:text-white dark:hover:bg-white/10",
+          "border border-input bg-transparent text-zinc-900 hover:bg-zinc-100 dark:text-white dark:hover:bg-white/15",
         ghost:
           "text-zinc-700 hover:bg-zinc-100 dark:text-zinc-300 dark:hover:bg-white/10",
         simple:

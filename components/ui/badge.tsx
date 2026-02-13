@@ -13,7 +13,7 @@ const badgeVariants = cva(
         muted:
           "border-transparent bg-zinc-100 text-zinc-600 dark:bg-zinc-800 dark:text-zinc-300",
         outline:
-          "border-zinc-200 text-zinc-600 dark:border-zinc-700 dark:text-zinc-200",
+          "border-zinc-400 text-zinc-600 dark:border-zinc-700 dark:text-zinc-200",
         glow:
           "border-transparent bg-gradient-to-r from-blue-600 to-purple-500 text-white shadow shadow-blue-500/30",
       },

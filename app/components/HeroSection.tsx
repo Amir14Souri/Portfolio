@@ -78,21 +78,21 @@ export default function HeroSection() {
   return (
     <section
       id="hero"
-      className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-background px-6">
+      className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-sky-100 dark:bg-slate-950 px-6">
       <div
         className={`absolute inset-0 opacity-100 ${
           isDark
-            ? "bg-[linear-gradient(rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.08)_1px,transparent_1px)]"
-            : "bg-[linear-gradient(rgba(59,130,246,0.12)_1px,transparent_1px),linear-gradient(90deg,rgba(59,130,246,0.12)_1px,transparent_1px)]"
+            ? "bg-[linear-gradient(rgba(255,255,255,0.0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.0.1)_1px,transparent_1px)]"
+            : "bg-[linear-gradient(rgba(59,130,246,0.15)_1px,transparent_1px),linear-gradient(90deg,rgba(59,130,246,0.15)_1px,transparent_1px)]"
         } bg-[size:60px_60px]`}>
         <div
           className={`absolute left-1/2 top-1/2 h-[620px] w-[620px] -translate-x-1/2 -translate-y-1/2 rounded-full blur-[120px] ${
-            isDark ? "bg-blue-500/30" : "bg-blue-400/40"
+            isDark ? "bg-blue-500/20" : "bg-emerald-300/15"
           }`}
         />
         <div
           className={`absolute right-1/4 top-1/4 h-[320px] w-[320px] rounded-full blur-[120px] ${
-            isDark ? "bg-purple-500/25" : "bg-purple-400/30"
+            isDark ? "bg-purple-500/15" : "bg-indigo-300/20"
           }`}
         />
       </div>
@@ -211,7 +211,7 @@ export default function HeroSection() {
               asChild
               size="sm"
               variant="outline"
-              className="border border-border/60 bg-background/60">
+              className="border border-border/60 bg-background/70">
               <a
               className="flex gap-2"
                 href={href}
@@ -231,7 +231,7 @@ export default function HeroSection() {
 
         <div className="flex flex-wrap justify-center gap-3 text-xs text-muted-foreground">
           {QUICK_FACTS.map(({ label, value }) => (
-            <Badge key={label} variant="outline" className="rounded-full px-4 py-1 font-medium bg-black/30">
+            <Badge key={label} variant="outline" className="rounded-full px-4 py-1 font-medium bg-white/30 dark:bg-black/30">
               <span className="text-[0.65rem] uppercase tracking-[0.4em] text-muted-foreground/70">
                 {label}
               </span>

@@ -20,9 +20,12 @@ export default function GlobalBackground() {
   const code = isDark ? "fill-zinc-500/[0.18]" : "fill-zinc-400/[0.30]";
   const amber = isDark ? "fill-amber-400/[0.18]" : "fill-amber-400/[0.30]";
   const green = isDark ? "fill-emerald-400/[0.16]" : "fill-emerald-400/[0.28]";
-  const overlay = isDark
+  const xOverlay = isDark
     ? "bg-[linear-gradient(to_right,transparent_0%,theme(colors.black/60)_35%,theme(colors.black/60)_65%,transparent_100%)]"
-    : "bg-gradient-to-r from-white/80 via-transparent to-white/80";
+    : "bg-[linear-gradient(to_right,transparent_0%,theme(colors.white/60)_35%,theme(colors.white/60)_65%,transparent_100%)]";
+  const yOverlay = isDark
+    ? "bg-gradient-to-b from-transparent from-30% to-black/60"
+    : "bg-gradient-to-b from-transparent from-30% to-white/60";
 
   return (
     <div
@@ -209,8 +212,8 @@ export default function GlobalBackground() {
         </defs>
         <rect width="100%" height="100%" fill="url(#global-pattern)" />
       </svg>
-      <div className={`absolute inset-0 ${overlay}`} />
-      <div className={"absolute inset-0 bg-gradient-to-b from-transparent from-30% to-black/60"} />
+      <div className={`absolute inset-0 ${xOverlay}`} />
+      <div className={`absolute inset-0 ${yOverlay}`} />
     </div>
   );
 }
