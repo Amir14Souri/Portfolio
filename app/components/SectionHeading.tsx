@@ -10,18 +10,13 @@ export default function SectionHeading({
 }) {
   return (
     <div className="mb-12 flex flex-col items-center gap-4 text-center">
-      <Badge
-        variant="muted"
-        className="tracking-[0.35em] text-[11px] text-muted-foreground">
-        {title}
-      </Badge>
       <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
         {title}
       </h2>
       {subtitle && (
         <p className="max-w-2xl text-base text-muted-foreground">{subtitle}</p>
       )}
-      <Separator className="w-16" />
+      <Separator className="mt-4 mx-auto h-0.75 w-16 rounded-full bg-gradient-to-r from-blue-500 to-purple-500" />
     </div>
   );
 }

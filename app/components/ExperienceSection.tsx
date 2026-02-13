@@ -130,7 +130,7 @@ export default function ExperienceSection() {
   return (
     <section
       id="experience"
-      className="relative overflow-hidden bg-zinc-50/60 py-24 px-6 dark:bg-zinc-950/40">
+      className="relative overflow-hidden py-24 px-6">
       <div className="mx-auto max-w-6xl relative z-10">
         <SectionHeading
           title="Experience"

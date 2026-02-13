@@ -28,7 +28,7 @@ export default function EducationSection() {
   return (
     <section
       id="education"
-      className="relative overflow-hidden bg-gradient-to-b from-blue-50/40 via-background to-purple-50/40 py-24 px-6 dark:from-zinc-950/20 dark:via-zinc-950 dark:to-zinc-950/40">
+      className="relative overflow-hidden py-24 px-6">
       <div className="mx-auto max-w-6xl relative z-10">
         <SectionHeading title="Education" subtitle="My academic journey" />
 

@@ -5,7 +5,7 @@ export default function AboutSection() {
   return (
     <section
       id="about"
-      className="relative overflow-hidden bg-gradient-to-b from-zinc-50 via-white to-zinc-50 py-24 px-6 dark:from-zinc-950 dark:via-zinc-900/40 dark:to-zinc-950">
+      className="relative overflow-hidden py-24 px-6">
       <div className="absolute inset-0 opacity-40 dark:opacity-20">
         <div className="absolute left-10 top-10 h-40 w-40 rounded-full bg-blue-200/40 blur-3xl dark:bg-blue-500/10" />
         <div className="absolute bottom-10 right-10 h-32 w-32 rounded-full bg-purple-200/40 blur-3xl dark:bg-purple-500/10" />

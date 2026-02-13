@@ -52,7 +52,7 @@ export default function ResearchInterests() {
   return (
     <section
       id="research"
-      className="relative overflow-hidden bg-background py-24 px-6">
+      className="relative overflow-hidden py-24 px-6">
       <div className="mx-auto max-w-6xl relative z-10">
         <SectionHeading
           title="Research Interests"

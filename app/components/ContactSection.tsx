@@ -45,7 +45,7 @@ export default function ContactSection() {
   return (
     <section
       id="contact"
-      className="relative overflow-hidden bg-gradient-to-b from-background to-zinc-100/40 py-24 px-6 dark:from-zinc-950 dark:to-zinc-900">
+      className="relative overflow-hidden py-24 px-6">
       <div className="mx-auto max-w-6xl relative z-10">
         <SectionHeading
           title="Get in Touch"

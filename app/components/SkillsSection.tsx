@@ -49,7 +49,7 @@ const SPOKEN_LANGUAGES = [
 
 export default function SkillsSection() {
   return (
-    <section id="skills" className="bg-background py-24 px-6">
+    <section id="skills" className="py-24 px-6">
       <div className="mx-auto max-w-6xl">
         <SectionHeading
           title="Skills & Technologies"

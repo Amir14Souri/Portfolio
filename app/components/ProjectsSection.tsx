@@ -59,7 +59,7 @@ export default function ProjectsSection() {
   return (
     <section
       id="projects"
-      className="relative overflow-hidden bg-gradient-to-b from-background via-background/60 to-background py-24 px-6">
+      className="relative overflow-hidden py-24 px-6">
       <div className="relative z-10 mx-auto max-w-6xl">
         <SectionHeading
           title="Projects"
