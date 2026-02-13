@@ -67,7 +67,9 @@ export default function ProjectsSection() {
         />
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {PROJECTS.map((project) => (
-            <Card key={project.title} className="h-full border border-border/50 bg-background/90 shadow-none">
+            <Card
+              key={project.title}
+              className="group h-full border border-border/60 bg-background/90 shadow-none transition hover:-translate-y-1 hover:border-border/40 hover:bg-background">
               <CardContent className="flex h-full flex-col gap-4 p-5">
                 <div className="flex items-start justify-between gap-3">
                   <div className="space-y-2 text-left">
@@ -81,7 +83,7 @@ export default function ProjectsSection() {
                       {project.description}
                     </p>
                   </div>
-                  <Folder className="h-5 w-5 text-blue-500" />
+                  <Folder className="h-6 w-6 text-blue-500" />
                 </div>
                 <div className="flex flex-wrap gap-2">
                   {project.tags.map((tag) => (

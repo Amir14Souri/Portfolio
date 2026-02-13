@@ -34,16 +34,8 @@ const NAV_ITEMS = [
 ];
 
 export default function Navbar() {
-  const [visible, setVisible] = useState(false);
   const [activeSection, setActiveSection] = useState("hero");
-
-  useEffect(() => {
-    const onScroll = () => {
-      setVisible(window.scrollY > window.innerHeight * 0.65);
-    };
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  const [pastHero, setPastHero] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -66,54 +58,87 @@ export default function Navbar() {
     return () => observer.disconnect();
   }, []);
 
+  useEffect(() => {
+    const aboutSection = document.querySelector<HTMLElement>("#about");
+    if (!aboutSection) return;
+
+    const handleScroll = () => {
+      const { top } = aboutSection.getBoundingClientRect();
+      setPastHero(top <= 0);
+    };
+
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const desktopLinks = (
+    <NavigationMenu className="bg-transparent shadow-none">
+      <NavigationMenuList>
+        {NAV_ITEMS.map(({ label, href }) => (
+          <NavigationMenuItem key={href}>
+            <NavigationMenuLink asChild>
+              <a
+                href={href}
+                className={cn(
+                  "rounded-full px-4 py-2 text-sm font-medium transition-colors",
+                  activeSection === href.slice(1)
+                    ? "bg-foreground text-background"
+                    : "text-muted-foreground hover:text-foreground",
+                )}>
+                {label}
+              </a>
+            </NavigationMenuLink>
+          </NavigationMenuItem>
+        ))}
+      </NavigationMenuList>
+    </NavigationMenu>
+  );
+
+  const DesktopNavContent = () => (
+    <div className="mx-auto flex w-full max-w-6xl items-center gap-4 px-4 py-4">
+      <div className="flex flex-1 items-center gap-3">
+        <a
+          href="#hero"
+          className="text-base font-semibold tracking-tight text-foreground">
+          Portfolio
+        </a>
+      </div>
+      <div className="flex flex-1 justify-center">{desktopLinks}</div>
+      <div className="flex flex-1 items-center justify-end gap-2">
+        <ModeToggle />
+      </div>
+    </div>
+  );
+
   return (
-    <nav
-      className={cn(
-        "pointer-events-none fixed inset-x-0 top-0 z-50 flex justify-center transition-all duration-500",
-        visible ? "translate-y-0 opacity-100" : "-translate-y-8 opacity-0",
-      )}>
-      <div className="pointer-events-auto mt-6 w-full max-w-6xl rounded-3xl border border-border/60 bg-background/70 px-6 py-3 shadow-[0_20px_60px_rgba(15,23,42,0.12)] backdrop-blur-xl">
-        <div className="flex items-center justify-between gap-4">
+    <>
+      <nav className="hidden lg:block absolute inset-x-0 top-0 z-40 border-b border-transparent bg-gradient-to-b from-background/85 via-background/40 to-transparent">
+        <DesktopNavContent />
+      </nav>
+
+      <nav
+        className={cn(
+          "hidden lg:block fixed inset-x-0 top-0 z-50 border-b transition-all duration-500 transform-gpu",
+          pastHero
+            ? "opacity-100 translate-y-0 border-border/70 bg-background/95 shadow-sm backdrop-blur pointer-events-auto"
+            : "opacity-0 -translate-y-3 border-transparent bg-transparent pointer-events-none",
+        )}>
+        <DesktopNavContent />
+      </nav>
+
+      <nav className="lg:hidden absolute inset-x-0 top-0 z-40 border-b border-transparent bg-gradient-to-b from-background/90 via-background/40 to-transparent">
+        <div className="mx-auto flex w-full items-center justify-between gap-4 px-4 py-3">
           <a
             href="#hero"
             className="text-base font-semibold tracking-tight text-foreground">
             Portfolio
           </a>
-
-          <div className="hidden items-center gap-4 lg:flex">
-            <NavigationMenu>
-              <NavigationMenuList>
-                {NAV_ITEMS.map(({ label, href }) => (
-                  <NavigationMenuItem key={href}>
-                    <NavigationMenuLink asChild>
-                      <a
-                        href={href}
-                        className={cn(
-                          "rounded-full px-4 py-2 text-sm font-medium transition-colors",
-                          activeSection === href.slice(1)
-                            ? "bg-foreground text-background"
-                            : "text-muted-foreground hover:text-foreground",
-                        )}>
-                        {label}
-                      </a>
-                    </NavigationMenuLink>
-                  </NavigationMenuItem>
-                ))}
-              </NavigationMenuList>
-            </NavigationMenu>
-            <Button asChild variant="glow" size="sm">
-              <a href="#contact">Let&apos;s talk</a>
-            </Button>
-          </div>
-
           <div className="flex items-center gap-2">
             <ModeToggle />
             <Sheet>
               <SheetTrigger asChild>
-                <Button
-                  size="icon"
-                  variant="ghost"
-                  className="lg:hidden">
+                <Button size="icon" variant="ghost">
                   <Menu className="h-5 w-5" />
                   <span className="sr-only">Open navigation</span>
                 </Button>
@@ -140,7 +165,53 @@ export default function Navbar() {
             </Sheet>
           </div>
         </div>
-      </div>
-    </nav>
+      </nav>
+
+      <nav
+        className={cn(
+          "lg:hidden fixed inset-x-0 top-0 z-50 border-b transition-all duration-500 transform-gpu",
+          pastHero
+            ? "border-border/70 bg-background/95 shadow-sm backdrop-blur"
+            : "opacity-0 -translate-y-3 border-transparent bg-transparent pointer-events-none",
+        )}>
+        <div className="mx-auto flex w-full items-center justify-between gap-4 px-4 py-3">
+          <a
+            href="#hero"
+            className="text-base font-semibold tracking-tight text-foreground">
+            Portfolio
+          </a>
+          <div className="flex items-center gap-2">
+            <ModeToggle />
+            <Sheet>
+              <SheetTrigger asChild>
+                <Button size="icon" variant="ghost">
+                  <Menu className="h-5 w-5" />
+                  <span className="sr-only">Open navigation</span>
+                </Button>
+              </SheetTrigger>
+              <SheetContent className="gap-8">
+                <SheetHeader>
+                  <SheetTitle>Navigation</SheetTitle>
+                </SheetHeader>
+                <div className="flex flex-col gap-2">
+                  {NAV_ITEMS.map(({ label, href }) => (
+                    <SheetClose key={href} asChild>
+                      <Button
+                        asChild
+                        variant={
+                          activeSection === href.slice(1) ? "glow" : "outline"
+                        }
+                        className="justify-start">
+                        <a href={href}>{label}</a>
+                      </Button>
+                    </SheetClose>
+                  ))}
+                </div>
+              </SheetContent>
+            </Sheet>
+          </div>
+        </div>
+      </nav>
+    </>
   );
 }

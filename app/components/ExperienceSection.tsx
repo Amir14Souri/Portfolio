@@ -150,17 +150,19 @@ export default function ExperienceSection() {
           </Badge>
         </div>
 
-        <div className="space-y-6">
+        <div className="space-y-4">
           {EXPERIENCES.map((exp) => {
             const config = CATEGORY_CONFIG[exp.category];
             const Icon = config.icon;
             return (
-              <Card key={exp.title} className="bg-card/95">
-                <CardContent className="gap-4 p-6">
+              <Card
+                key={exp.title}
+                className="border border-border/60 bg-background/85 transition hover:-translate-y-1 hover:border-border/40">
+                <CardContent className="gap-3 p-5">
                   <div className="flex flex-wrap items-start justify-between gap-4">
                     <div className="flex items-start gap-4">
-                      <div className={`flex h-12 w-12 items-center justify-center rounded-2xl ${config.bg}`}>
-                        <Icon className={`h-5 w-5 ${config.color}`} />
+                      <div className={`flex h-10 w-10 items-center justify-center rounded-2xl ${config.bg}`}>
+                        <Icon className={`h-4 w-4 ${config.color}`} />
                       </div>
                       <div>
                         <p className="text-sm font-semibold uppercase tracking-wide text-muted-foreground">
@@ -177,7 +179,7 @@ export default function ExperienceSection() {
                     </Badge>
                   </div>
                   <Separator className="opacity-70" />
-                  <ul className="space-y-2 text-sm text-muted-foreground">
+                  <ul className="space-y-1.5 text-sm text-muted-foreground">
                     {exp.points.map((point) => (
                       <li key={point} className="flex gap-2">
                         <span className="mt-2 h-1.5 w-1.5 rounded-full bg-muted-foreground/40" />
@@ -199,10 +201,15 @@ export default function ExperienceSection() {
             {TA_EXPERIENCES.map((ta) => (
               <div
                 key={`${ta.course}-${ta.period}`}
-                className="rounded-2xl border border-border/60 bg-background/70 p-3 text-left">
-                <p className="text-sm font-semibold text-foreground">{ta.course}</p>
-                <p className="text-xs text-muted-foreground">{ta.organization}</p>
-                <p className="text-[11px] font-mono text-muted-foreground/80">{ta.period}</p>
+                className="flex items-start gap-3 rounded-2xl border border-border/60 bg-background/70 p-3 text-left transition hover:-translate-y-0.5">
+                <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-emerald-500/10 text-emerald-500">
+                  <BookOpen className="h-4 w-4" />
+                </div>
+                <div className="min-w-0">
+                  <p className="text-sm font-semibold text-foreground">{ta.course}</p>
+                  <p className="text-xs text-muted-foreground">{ta.organization}</p>
+                  <p className="text-[11px] font-mono text-muted-foreground/80">{ta.period}</p>
+                </div>
               </div>
             ))}
           </div>

@@ -54,21 +54,21 @@ export default function HeroSection() {
   return (
     <section
       id="hero"
-      className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden px-6">
+      className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-background px-6">
       <div
-        className={`absolute inset-0 ${
+        className={`absolute inset-0 opacity-100 ${
           isDark
-            ? "bg-[linear-gradient(rgba(255,255,255,0.06)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.06)_1px,transparent_1px)]"
-            : "bg-[linear-gradient(rgba(59,130,246,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(59,130,246,0.08)_1px,transparent_1px)]"
+            ? "bg-[linear-gradient(rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.08)_1px,transparent_1px)]"
+            : "bg-[linear-gradient(rgba(59,130,246,0.12)_1px,transparent_1px),linear-gradient(90deg,rgba(59,130,246,0.12)_1px,transparent_1px)]"
         } bg-[size:60px_60px]`}>
         <div
           className={`absolute left-1/2 top-1/2 h-[620px] w-[620px] -translate-x-1/2 -translate-y-1/2 rounded-full blur-[120px] ${
-            isDark ? "bg-blue-500/20" : "bg-blue-400/30"
+            isDark ? "bg-blue-500/30" : "bg-blue-400/40"
           }`}
         />
         <div
           className={`absolute right-1/4 top-1/4 h-[320px] w-[320px] rounded-full blur-[120px] ${
-            isDark ? "bg-purple-500/20" : "bg-purple-400/25"
+            isDark ? "bg-purple-500/25" : "bg-purple-400/30"
           }`}
         />
       </div>
@@ -106,13 +106,10 @@ export default function HeroSection() {
         </div>
 
         <div className="flex flex-wrap items-center justify-center gap-3">
-          <Button asChild variant="glow" size="sm">
+          <Button asChild variant="outline" size="sm" className="border-dashed">
             <a href="/resume.pdf" download>
               <FileText className="mr-2 h-4 w-4" /> Download résumé
             </a>
-          </Button>
-          <Button asChild variant="outline" size="sm">
-            <a href="#contact">Contact</a>
           </Button>
         </div>
         <div className="flex flex-wrap items-center justify-center gap-2 text-muted-foreground">
