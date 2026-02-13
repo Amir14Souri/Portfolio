@@ -1,4 +1,7 @@
 import { GraduationCap } from "lucide-react";
+
+import { Badge } from "@/components/ui/badge";
+import { Card, CardContent } from "@/components/ui/card";
 import SectionHeading from "./SectionHeading";
 
 const EDUCATION = [
@@ -25,49 +28,46 @@ export default function EducationSection() {
   return (
     <section
       id="education"
-      className="py-24 px-6 bg-gradient-to-b from-blue-50/30 via-white to-purple-50/30 dark:from-zinc-900/30 dark:via-zinc-950 dark:to-zinc-900/50 transition-colors relative overflow-hidden">
+      className="relative overflow-hidden bg-gradient-to-b from-blue-50/40 via-background to-purple-50/40 py-24 px-6 dark:from-zinc-950/20 dark:via-zinc-950 dark:to-zinc-950/40">
       <div className="mx-auto max-w-6xl relative z-10">
         <SectionHeading title="Education" subtitle="My academic journey" />
 
         <div className="relative">
-          {/* Timeline line */}
-          <div className="absolute left-6 top-0 bottom-0 w-px bg-gradient-to-b from-blue-500 via-purple-500 to-pink-500 hidden sm:block" />
+          <div className="absolute left-6 top-0 hidden h-full w-px bg-gradient-to-b from-blue-500 via-purple-500 to-pink-500 sm:block" />
 
-          <div className="space-y-8">
-            {EDUCATION.map((edu, i) => (
-              <div key={i} className="relative flex gap-6">
-                {/* Timeline dot */}
-                <div className="hidden sm:flex flex-col items-center">
-                  <div className="relative z-10 flex h-12 w-12 shrink-0 items-center justify-center rounded-full border-2 border-blue-500/30 bg-white dark:bg-zinc-950">
-                    <GraduationCap
-                      size={20}
-                      className="text-blue-600 dark:text-blue-400"
-                    />
+          <div className="space-y-10">
+            {EDUCATION.map((edu) => (
+              <div key={edu.degree} className="relative flex gap-6">
+                <div className="hidden sm:flex w-12 flex-col items-center">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-full border border-blue-500/40 bg-background text-blue-500">
+                    <GraduationCap className="h-5 w-5" />
                   </div>
                 </div>
-
-                {/* Content card */}
-                <div className="flex-1 rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900 p-6 transition-all hover:border-zinc-300 dark:hover:border-zinc-700">
-                  <div className="flex flex-wrap items-start justify-between gap-2 mb-2">
-                    <div>
-                      <h3 className="text-lg font-semibold text-zinc-900 dark:text-white">
-                        {edu.degree}
-                      </h3>
-                      <p className="text-blue-600 dark:text-blue-400 font-medium">
-                        {edu.institution}
-                      </p>
+                <Card className="flex-1 bg-card/95">
+                  <CardContent className="space-y-3 p-6">
+                    <div className="flex flex-wrap items-start justify-between gap-3">
+                      <div>
+                        <h3 className="text-xl font-semibold text-foreground">
+                          {edu.degree}
+                        </h3>
+                        <p className="text-sm font-medium text-blue-500">
+                          {edu.institution}
+                        </p>
+                      </div>
+                      <Badge variant="outline" className="text-xs">
+                        {edu.period}
+                      </Badge>
                     </div>
-                    <span className="text-sm font-mono text-zinc-500 dark:text-zinc-400 bg-zinc-100 dark:bg-zinc-800 px-3 py-1 rounded-full">
-                      {edu.period}
-                    </span>
-                  </div>
-                  <p className="text-sm text-zinc-500 dark:text-zinc-400 mb-2">
-                    {edu.location} &bull; GPA: {edu.gpa}
-                  </p>
-                  <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                    {edu.description}
-                  </p>
-                </div>
+                    <p className="text-sm text-muted-foreground">
+                      {edu.location}
+                    </p>
+                    {edu.description && (
+                      <p className="text-sm leading-relaxed text-muted-foreground">
+                        {edu.description}
+                      </p>
+                    )}
+                  </CardContent>
+                </Card>
               </div>
             ))}
           </div>

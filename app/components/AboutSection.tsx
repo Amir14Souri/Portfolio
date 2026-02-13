@@ -1,36 +1,38 @@
+import { Card, CardContent } from "@/components/ui/card";
 import SectionHeading from "./SectionHeading";
 
 export default function AboutSection() {
   return (
     <section
       id="about"
-      className="py-24 px-6 bg-gradient-to-b from-zinc-50 to-white dark:from-zinc-900/50 dark:to-zinc-950 transition-colors relative overflow-hidden">
-      {/* Subtle background blurs */}
-      <div className="absolute inset-0 opacity-30 dark:opacity-10">
-        <div className="absolute top-10 left-10 w-32 h-32 bg-blue-100 dark:bg-blue-900/20 rounded-full blur-xl" />
-        <div className="absolute bottom-20 right-20 w-24 h-24 bg-purple-100 dark:bg-purple-900/20 rounded-full blur-xl" />
+      className="relative overflow-hidden bg-gradient-to-b from-zinc-50 via-white to-zinc-50 py-24 px-6 dark:from-zinc-950 dark:via-zinc-900/40 dark:to-zinc-950">
+      <div className="absolute inset-0 opacity-40 dark:opacity-20">
+        <div className="absolute left-10 top-10 h-40 w-40 rounded-full bg-blue-200/40 blur-3xl dark:bg-blue-500/10" />
+        <div className="absolute bottom-10 right-10 h-32 w-32 rounded-full bg-purple-200/40 blur-3xl dark:bg-purple-500/10" />
       </div>
-      <div className="mx-auto max-w-6xl relative z-10">
-        <SectionHeading title="About Me" />
-        <div className="rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900 p-8 sm:p-10">
-          <p className="text-zinc-700 dark:text-zinc-300 leading-relaxed text-lg">
-            I'm a Computer Engineering student at Sharif University of
-            Technology, ranked 14th among more than 145,000 participants in
-            Iran's national university entrance exam. Alongside my academic
-            studies, I've worked on collaborative software projects,
-            strengthening my skills in backend systems, infrastructure, and
-            problem-solving. I'm particularly interested in Artificial
-            Intelligence and enjoy building practical systems that bridge theory
-            and real-world applications.
-          </p>
-
-          <p className="mt-4 text-zinc-700 dark:text-zinc-300 leading-relaxed text-lg">
-            Beyond academics, I enjoy reading across a range of topics,
-            particularly in science, technology, and self-development. I'm always looking for
-            opportunities to collaborate, learn, and contribute to impactful
-            projects.
-          </p>
-        </div>
+      <div className="relative z-10 mx-auto max-w-5xl">
+        <SectionHeading
+          title="About Me"
+          subtitle="A concise overview of my journey, motivations, and values"
+        />
+        <Card className="bg-background/90">
+          <CardContent className="space-y-5 p-8 text-lg leading-relaxed text-muted-foreground">
+            <p>
+              I&apos;m a Computer Engineering student at Sharif University of Technology,
+              ranked 14th among more than 145,000 participants in Iran&apos;s
+              national university entrance exam. I thrive in collaborative
+              engineering environments where backend systems, infrastructure,
+              and machine learning intersect.
+            </p>
+            <p>
+              Beyond coursework I design and deploy practical systems that bridge
+              theory with impact—whether that&apos;s research tooling, teaching, or
+              developer platforms. I&apos;m relentlessly curious, always reading
+              about science, technology, and self-development, and I&apos;m eager to
+              partner on projects that demand rigor and craft.
+            </p>
+          </CardContent>
+        </Card>
       </div>
     </section>
   );

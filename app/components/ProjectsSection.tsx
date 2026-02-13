@@ -1,11 +1,14 @@
-import { ExternalLink, Github, Folder } from "lucide-react";
+import { ExternalLink, Folder, Github } from "lucide-react";
+
+import { Badge } from "@/components/ui/badge";
+import { Card, CardContent } from "@/components/ui/card";
 import SectionHeading from "./SectionHeading";
 
 const PROJECTS = [
   {
     title: "AI-Powered Chatbot",
     description:
-      "A conversational AI assistant built with transformer models, supporting multi-turn dialogue and context-aware responses.",
+      "Conversational assistant built on transformer stacks with retrieval grounding and adaptive memory.",
     tags: ["Python", "PyTorch", "FastAPI", "React"],
     github: "https://github.com/yourusername/chatbot",
     live: "",
@@ -13,7 +16,7 @@ const PROJECTS = [
   {
     title: "E-Commerce Platform",
     description:
-      "Full-stack online store with product management, cart, payments, and real-time inventory tracking.",
+      "Composable storefront with product operations, Stripe payments, and live inventory telemetry.",
     tags: ["Next.js", "TypeScript", "PostgreSQL", "Stripe"],
     github: "https://github.com/yourusername/ecommerce",
     live: "https://myecommerce.example.com",
@@ -21,15 +24,15 @@ const PROJECTS = [
   {
     title: "Portfolio Website",
     description:
-      "A modern, responsive single-page portfolio built with Next.js and Tailwind CSS, featuring dark mode and smooth navigation.",
-    tags: ["Next.js", "Tailwind CSS", "TypeScript"],
+      "Polished single-page portfolio with shadcn UI, scroll-linked navigation, and GSAP flourishes.",
+    tags: ["Next.js", "Tailwind", "TypeScript"],
     github: "https://github.com/yourusername/portfolio",
     live: "",
   },
   {
     title: "Distributed Task Scheduler",
     description:
-      "A fault-tolerant distributed system for scheduling and executing tasks across multiple worker nodes.",
+      "Fault-tolerant orchestrator for scheduling compute-heavy jobs across Kubernetes clusters.",
     tags: ["Go", "gRPC", "Redis", "Docker"],
     github: "https://github.com/yourusername/scheduler",
     live: "",
@@ -37,7 +40,7 @@ const PROJECTS = [
   {
     title: "Image Classification Pipeline",
     description:
-      "End-to-end ML pipeline for classifying medical images with data augmentation, training, and deployment.",
+      "End-to-end ML workflow for medical imaging with automated augmentation and monitoring.",
     tags: ["Python", "TensorFlow", "Docker", "GCP"],
     github: "https://github.com/yourusername/image-classifier",
     live: "",
@@ -45,7 +48,7 @@ const PROJECTS = [
   {
     title: "Real-Time Chat Application",
     description:
-      "Instant messaging platform with WebSocket-based real-time communication, user authentication, and file sharing.",
+      "Realtime collaboration layer with WebSocket transport, presence, and attachment streaming.",
     tags: ["Node.js", "Socket.io", "React", "MongoDB"],
     github: "https://github.com/yourusername/chat-app",
     live: "",
@@ -56,31 +59,46 @@ export default function ProjectsSection() {
   return (
     <section
       id="projects"
-      className="py-24 px-6 bg-gradient-to-b from-white via-zinc-50 to-white dark:from-zinc-950 dark:via-zinc-900/50 dark:to-zinc-950 transition-colors relative overflow-hidden">
-      <div className="mx-auto max-w-6xl relative z-10">
+      className="relative overflow-hidden bg-gradient-to-b from-background via-background/60 to-background py-24 px-6">
+      <div className="relative z-10 mx-auto max-w-6xl">
         <SectionHeading
           title="Projects"
-          subtitle="A selection of projects I've built and contributed to"
+          subtitle="A curated sample of products, infrastructure efforts, and research tooling"
         />
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {PROJECTS.map((project, i) => (
-            <div
-              key={i}
-              className="group flex flex-col rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900 p-6 transition-all hover:border-zinc-300 dark:hover:border-zinc-700 hover:shadow-lg dark:hover:shadow-zinc-900/50">
-              <div className="flex items-center justify-between mb-4">
-                <Folder
-                  size={24}
-                  className="text-blue-600 dark:text-blue-400"
-                />
-                <div className="flex gap-2">
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {PROJECTS.map((project) => (
+            <Card key={project.title} className="h-full border border-border/50 bg-background/90 shadow-none">
+              <CardContent className="flex h-full flex-col gap-4 p-5">
+                <div className="flex items-start justify-between gap-3">
+                  <div className="space-y-2 text-left">
+                    <p className="text-[11px] uppercase tracking-[0.35em] text-muted-foreground">
+                      Case Study
+                    </p>
+                    <h3 className="text-base font-semibold text-foreground">
+                      {project.title}
+                    </h3>
+                    <p className="text-sm leading-relaxed text-muted-foreground">
+                      {project.description}
+                    </p>
+                  </div>
+                  <Folder className="h-5 w-5 text-blue-500" />
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  {project.tags.map((tag) => (
+                    <Badge key={tag} variant="outline" className="rounded-full border-dashed px-3 py-0.5 text-[11px] font-medium">
+                      {tag}
+                    </Badge>
+                  ))}
+                </div>
+                <div className="mt-auto flex gap-3 text-muted-foreground">
                   {project.github && (
                     <a
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors"
-                      aria-label="GitHub">
-                      <Github size={18} />
+                      className="inline-flex items-center gap-1 text-xs hover:text-foreground">
+                      <Github className="h-4 w-4" />
+                      Code
                     </a>
                   )}
                   {project.live && (
@@ -88,29 +106,14 @@ export default function ProjectsSection() {
                       href={project.live}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors"
-                      aria-label="Live demo">
-                      <ExternalLink size={18} />
+                      className="inline-flex items-center gap-1 text-xs hover:text-foreground">
+                      <ExternalLink className="h-4 w-4" />
+                      Live
                     </a>
                   )}
                 </div>
-              </div>
-              <h3 className="text-lg font-semibold text-zinc-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-                {project.title}
-              </h3>
-              <p className="mt-2 flex-1 text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed">
-                {project.description}
-              </p>
-              <div className="mt-4 flex flex-wrap gap-2">
-                {project.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="rounded-full bg-zinc-200/60 dark:bg-zinc-800 px-2.5 py-0.5 text-xs font-medium text-zinc-600 dark:text-zinc-400">
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            </div>
+              </CardContent>
+            </Card>
           ))}
         </div>
       </div>

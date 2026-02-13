@@ -1,6 +1,8 @@
 "use client";
 
 import { useRef, useState } from "react";
+import { Badge } from "@/components/ui/badge";
+import { Card, CardContent } from "@/components/ui/card";
 import SectionHeading from "./SectionHeading";
 
 /* ── Data ── */
@@ -107,46 +109,46 @@ function SkillMarquee({ category }: { category: SkillCategory }) {
   const duration = category.speed ?? 30;
 
   return (
-    <div className="space-y-4">
-      {/* Badge */}
-      <div className="flex items-center gap-3 px-1">
-        <span
-          className={`${category.bgAccent} text-white text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-full`}>
-          {category.badge}
-        </span>
-        <div className="h-px flex-1 bg-zinc-200 dark:bg-zinc-800" />
-      </div>
-
-      {/* Marquee track */}
-      <div
-        className="overflow-hidden"
-        onMouseEnter={() => setPaused(true)}
-        onMouseLeave={() => setPaused(false)}>
-        <div
-          ref={trackRef}
-          className="flex gap-4 w-max"
-          style={{
-            animation: `marquee-scroll ${duration}s linear infinite`,
-            animationPlayState: paused ? "paused" : "running",
-          }}>
-          {items.map((skill, i) => (
-            <div
-              key={`${skill.name}-${i}`}
-              className="flex items-center gap-3 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 px-5 py-3 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 select-none">
-              {/* Colour-coded monogram */}
-              <span
-                className="inline-flex h-9 w-9 items-center justify-center rounded-md text-xs font-bold text-white shrink-0"
-                style={{ backgroundColor: skill.color }}>
-                {skill.abbr}
-              </span>
-              <span className="text-sm font-medium text-zinc-700 dark:text-zinc-300 whitespace-nowrap">
-                {skill.name}
-              </span>
-            </div>
-          ))}
+    <Card className="bg-card/90">
+      <CardContent className="space-y-4 p-6">
+        <div className="flex items-center gap-3">
+          <Badge
+            variant="glow"
+            className={`${category.bgAccent} text-xs font-semibold uppercase tracking-[0.3em] text-white`}
+          >
+            {category.badge}
+          </Badge>
+          <div className="h-px flex-1 bg-border" />
         </div>
-      </div>
-    </div>
+        <div
+          className="overflow-hidden"
+          onMouseEnter={() => setPaused(true)}
+          onMouseLeave={() => setPaused(false)}>
+          <div
+            ref={trackRef}
+            className="flex w-max gap-4"
+            style={{
+              animation: `marquee-scroll ${duration}s linear infinite`,
+              animationPlayState: paused ? "paused" : "running",
+            }}>
+            {items.map((skill, i) => (
+              <div
+                key={`${skill.name}-${i}`}
+                className="flex items-center gap-3 rounded-xl border border-border/60 bg-background/80 px-5 py-3 shadow-sm transition duration-200 hover:-translate-y-0.5 hover:shadow-lg">
+                <span
+                  className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-lg text-xs font-bold text-white"
+                  style={{ backgroundColor: skill.color }}>
+                  {skill.abbr}
+                </span>
+                <span className="whitespace-nowrap text-sm font-medium text-foreground">
+                  {skill.name}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </CardContent>
+    </Card>
   );
 }
 
@@ -156,7 +158,7 @@ export default function SkillsSection() {
   return (
     <section
       id="skills"
-      className="relative py-24 px-6 bg-gradient-to-b from-zinc-50 via-blue-50/20 to-zinc-50 dark:from-zinc-900/50 dark:via-zinc-900/80 dark:to-zinc-900/50 transition-colors overflow-hidden">
+      className="relative overflow-hidden bg-gradient-to-b from-zinc-50 via-blue-50/20 to-zinc-50 py-24 px-6 dark:from-zinc-950/30 dark:via-zinc-900/70 dark:to-zinc-950/30">
       <div className="mx-auto max-w-6xl relative z-10">
         <SectionHeading
           title="Skills & Technologies"
@@ -164,7 +166,7 @@ export default function SkillsSection() {
         />
 
         {/* Marquee rows */}
-        <div className="space-y-10 mt-4">
+        <div className="mt-4 space-y-10">
           {CATEGORIES.map((cat) => (
             <SkillMarquee key={cat.id} category={cat} />
           ))}
@@ -172,20 +174,14 @@ export default function SkillsSection() {
 
         {/* Spoken languages */}
         <div className="mt-20 text-center">
-          <span className="inline-flex items-center gap-2 bg-indigo-500 text-white px-4 py-2 rounded-full text-sm font-semibold uppercase tracking-wider shadow-lg mb-8">
+          <Badge variant="glow" className="mb-8 text-xs uppercase tracking-[0.4em] text-white">
             Spoken Languages
-          </span>
+          </Badge>
           <div className="flex flex-wrap justify-center gap-4">
-            {[
-              "English — Fluent",
-              "Persian (Farsi) — Native",
-              "French — Intermediate",
-            ].map((lang) => (
-              <span
-                key={lang}
-                className="rounded-full border border-zinc-200 dark:border-zinc-700 bg-white dark:bg-zinc-800 px-6 py-3 text-sm text-zinc-700 dark:text-zinc-300 font-medium shadow-sm hover:shadow-md transition-shadow">
+            {["English — Fluent", "Persian (Farsi) — Native", "French — Intermediate"].map((lang) => (
+              <Badge key={lang} variant="outline" className="rounded-full border-border/80 px-6 py-3 text-sm font-medium">
                 {lang}
-              </span>
+              </Badge>
             ))}
           </div>
         </div>

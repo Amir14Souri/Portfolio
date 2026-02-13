@@ -20,13 +20,13 @@ export default function Home() {
       <main className="relative z-10">
         <HeroSection />
         <AboutSection />
-        <ResearchInterests />
-        <EducationSection />
-        <ExperienceSection />
-        <AcademicServiceSection />
         <ProjectsSection />
-        <SkillsSection />
+        <ExperienceSection />
         {/* <PublicationsSection /> */}
+        <EducationSection />
+        <ResearchInterests />
+        <SkillsSection />
+        <AcademicServiceSection />
         <ContactSection />
       </main>
       <Footer />

@@ -1,7 +1,6 @@
 "use client";
 
 import { useTheme } from "next-themes";
-import { useEffect, useState } from "react";
 
 /**
  * A single full-page SVG overlay with scattered tech patterns:
@@ -10,28 +9,38 @@ import { useEffect, useState } from "react";
  * tile behind every section seamlessly.
  */
 export default function GlobalBackground() {
-  const { theme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-  const isDark = mounted ? theme === "dark" : true;
+  const { resolvedTheme } = useTheme();
+  const isDark = resolvedTheme ? resolvedTheme === "dark" : true;
 
   // --- colour helpers (keep it readable) ---
-  const line = isDark ? "stroke-blue-400/[0.10]" : "stroke-blue-400/[0.16]";
+  const line = isDark ? "stroke-blue-400/[0.2]" : "stroke-blue-400/[0.32]";
   const line2 = isDark
-    ? "stroke-purple-400/[0.08]"
-    : "stroke-purple-400/[0.14]";
+    ? "stroke-purple-400/[0.16]"
+    : "stroke-purple-400/[0.28]";
   const line3 = isDark
-    ? "stroke-indigo-400/[0.07]"
-    : "stroke-indigo-400/[0.12]";
-  const dot = isDark ? "fill-blue-400/[0.12]" : "fill-blue-400/[0.20]";
-  const dot2 = isDark ? "fill-purple-400/[0.10]" : "fill-purple-400/[0.18]";
-  const dot3 = isDark ? "fill-indigo-400/[0.09]" : "fill-indigo-400/[0.16]";
-  const hex = isDark ? "stroke-zinc-400/[0.07]" : "stroke-zinc-400/[0.12]";
-  const code = isDark ? "fill-zinc-500/[0.09]" : "fill-zinc-400/[0.15]";
-  const amber = isDark ? "fill-amber-400/[0.09]" : "fill-amber-400/[0.15]";
-  const green = isDark ? "fill-emerald-400/[0.08]" : "fill-emerald-400/[0.14]";
+    ? "stroke-indigo-400/[0.14]"
+    : "stroke-indigo-400/[0.24]";
+  const dot = isDark ? "fill-blue-400/[0.24]" : "fill-blue-400/[0.40]";
+  const dot2 = isDark ? "fill-purple-400/[0.20]" : "fill-purple-400/[0.36]";
+  const dot3 = isDark ? "fill-indigo-400/[0.18]" : "fill-indigo-400/[0.32]";
+  const code = isDark ? "fill-zinc-500/[0.18]" : "fill-zinc-400/[0.30]";
+  const amber = isDark ? "fill-amber-400/[0.18]" : "fill-amber-400/[0.30]";
+  const green = isDark ? "fill-emerald-400/[0.16]" : "fill-emerald-400/[0.28]";
+
+  // return <div aria-hidden
+  //     className="pointer-events-none fixed inset-0 z-0 overflow-hidden dark:bg-black">
+  //   <DotGrid
+  //     dotSize={3}
+  //     gap={50}
+  //     baseColor="#271E37"
+  //     activeColor="#5227FF"
+  //     proximity={120}
+  //     shockRadius={100}
+  //     shockStrength={10}
+  //     resistance={750}
+  //     returnDuration={1}
+  //   />
+  // </div>;
 
   return (
     <div
@@ -42,7 +51,7 @@ export default function GlobalBackground() {
         xmlns="http://www.w3.org/2000/svg"
         preserveAspectRatio="none">
         {/* ─── HEXAGONAL GRID (tiled via pattern) ─── */}
-        <defs>
+        {/* <defs>
           <pattern
             id="global-hex"
             x="0"
@@ -58,7 +67,7 @@ export default function GlobalBackground() {
             />
           </pattern>
         </defs>
-        <rect width="100%" height="100%" fill="url(#global-hex)" />
+        <rect width="100%" height="100%" fill="url(#global-hex)" /> */}
 
         {/* ─── NEURAL-NETWORK CONSTELLATION (scattered) ─── */}
         {/* Connections */}

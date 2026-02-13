@@ -1,3 +1,6 @@
+import { Badge } from "@/components/ui/badge";
+import { Separator } from "@/components/ui/separator";
+
 export default function SectionHeading({
   title,
   subtitle,
@@ -6,16 +9,19 @@ export default function SectionHeading({
   subtitle?: string;
 }) {
   return (
-    <div className="mb-12 text-center">
-      <h2 className="text-3xl font-bold tracking-tight text-zinc-900 dark:text-white sm:text-4xl">
+    <div className="mb-12 flex flex-col items-center gap-4 text-center">
+      <Badge
+        variant="muted"
+        className="tracking-[0.35em] text-[11px] text-muted-foreground">
+        {title}
+      </Badge>
+      <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
         {title}
       </h2>
       {subtitle && (
-        <p className="mt-3 text-zinc-500 dark:text-zinc-400 max-w-2xl mx-auto">
-          {subtitle}
-        </p>
+        <p className="max-w-2xl text-base text-muted-foreground">{subtitle}</p>
       )}
-      <div className="mt-4 mx-auto h-1 w-16 rounded-full bg-gradient-to-r from-blue-500 to-purple-500" />
+      <Separator className="w-16" />
     </div>
   );
 }

@@ -1,4 +1,8 @@
-import { Briefcase, FlaskConical, BookOpen } from "lucide-react";
+import { BookOpen, Briefcase, FlaskConical } from "lucide-react";
+
+import { Badge } from "@/components/ui/badge";
+import { Card, CardContent } from "@/components/ui/card";
+import { Separator } from "@/components/ui/separator";
 import SectionHeading from "./SectionHeading";
 
 type ExperienceCategory = "technical" | "research";
@@ -126,122 +130,79 @@ export default function ExperienceSection() {
   return (
     <section
       id="experience"
-      className="py-24 px-6 bg-zinc-50 dark:bg-zinc-900/50 transition-colors relative overflow-hidden">
+      className="relative overflow-hidden bg-zinc-50/60 py-24 px-6 dark:bg-zinc-950/40">
       <div className="mx-auto max-w-6xl relative z-10">
         <SectionHeading
           title="Experience"
           subtitle="Technical, research, and teaching experiences"
         />
 
-        {/* Category legend */}
-        <div className="flex flex-wrap justify-center gap-4 mb-10">
-          {(
-            Object.entries(CATEGORY_CONFIG) as [
-              ExperienceCategory,
-              (typeof CATEGORY_CONFIG)[ExperienceCategory],
-            ][]
-          ).map(([key, { label, icon: Icon, color, bg }]) => (
-            <div key={key} className="flex items-center gap-2 text-sm">
-              <span
-                className={`flex items-center justify-center h-7 w-7 rounded-lg ${bg}`}>
-                <Icon size={14} className={color} />
-              </span>
-              <span className="text-zinc-600 dark:text-zinc-400 font-medium">
-                {label}
-              </span>
-            </div>
+        <div className="mb-12 flex flex-wrap justify-center gap-4">
+          {Object.entries(CATEGORY_CONFIG).map(([key, { label, icon: Icon, color }]) => (
+            <Badge key={key} variant="outline" className="gap-2 rounded-2xl px-4 py-2 text-xs font-medium">
+              <Icon className={`h-4 w-4 ${color}`} />
+              {label}
+            </Badge>
           ))}
-          <div className="flex items-center gap-2 text-sm">
-            <span className="flex items-center justify-center h-7 w-7 rounded-lg bg-emerald-500/10">
-              <BookOpen
-                size={14}
-                className="text-emerald-600 dark:text-emerald-400"
-              />
-            </span>
-            <span className="text-zinc-600 dark:text-zinc-400 font-medium">
-              Teaching Assistance
-            </span>
-          </div>
+          <Badge variant="outline" className="gap-2 rounded-2xl px-4 py-2 text-xs font-medium">
+            <BookOpen className="h-4 w-4 text-emerald-500" />
+            Teaching Assistance
+          </Badge>
         </div>
 
-        {/* Main experiences (technical + research) */}
         <div className="space-y-6">
-          {EXPERIENCES.map((exp, i) => {
+          {EXPERIENCES.map((exp) => {
             const config = CATEGORY_CONFIG[exp.category];
             const Icon = config.icon;
             return (
-              <div
-                key={i}
-                className="rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-6 sm:p-8 transition-all hover:border-zinc-300 dark:hover:border-zinc-700 hover:shadow-lg dark:hover:shadow-zinc-900/50">
-                <div className="flex flex-wrap items-start gap-4">
-                  <div
-                    className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-xl ${config.bg}`}>
-                    <Icon size={20} className={config.color} />
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <div className="flex flex-wrap items-start justify-between gap-2">
+              <Card key={exp.title} className="bg-card/95">
+                <CardContent className="gap-4 p-6">
+                  <div className="flex flex-wrap items-start justify-between gap-4">
+                    <div className="flex items-start gap-4">
+                      <div className={`flex h-12 w-12 items-center justify-center rounded-2xl ${config.bg}`}>
+                        <Icon className={`h-5 w-5 ${config.color}`} />
+                      </div>
                       <div>
-                        <h3 className="text-lg font-semibold text-zinc-900 dark:text-white">
+                        <p className="text-sm font-semibold uppercase tracking-wide text-muted-foreground">
+                          {config.label}
+                        </p>
+                        <h3 className="text-xl font-semibold text-foreground">
                           {exp.title}
                         </h3>
-                        <p className={`font-medium ${config.color}`}>
-                          {exp.organization}
-                        </p>
+                        <p className="text-sm text-muted-foreground">{exp.organization}</p>
                       </div>
-                      <span className="text-sm font-mono text-zinc-500 dark:text-zinc-400 bg-zinc-100 dark:bg-zinc-800 px-3 py-1 rounded-full">
-                        {exp.period}
-                      </span>
                     </div>
-                    <ul className="mt-3 space-y-1.5">
-                      {exp.points.map((point, j) => (
-                        <li
-                          key={j}
-                          className="flex items-start gap-2 text-sm text-zinc-600 dark:text-zinc-400">
-                          <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-zinc-400 dark:bg-zinc-600" />
-                          {point}
-                        </li>
-                      ))}
-                    </ul>
+                    <Badge variant="outline" className="text-xs">
+                      {exp.period}
+                    </Badge>
                   </div>
-                </div>
-              </div>
+                  <Separator className="opacity-70" />
+                  <ul className="space-y-2 text-sm text-muted-foreground">
+                    {exp.points.map((point) => (
+                      <li key={point} className="flex gap-2">
+                        <span className="mt-2 h-1.5 w-1.5 rounded-full bg-muted-foreground/40" />
+                        <span>{point}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </CardContent>
+              </Card>
             );
           })}
         </div>
 
-        {/* Teaching Assistance — compact sub-section */}
-        <div className="mt-10">
-          <div className="flex items-center gap-2 mb-4">
-            <BookOpen
-              size={16}
-              className="text-emerald-600 dark:text-emerald-400"
-            />
-            <h3 className="text-sm font-semibold uppercase tracking-wider text-zinc-500 dark:text-zinc-400">
-              Teaching Assistance
-            </h3>
+        <div className="mt-12">
+          <div className="mb-4 flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.4em] text-muted-foreground">
+            <BookOpen className="h-4 w-4 text-emerald-500" /> Teaching Assistance
           </div>
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-            {TA_EXPERIENCES.map((ta, i) => (
+            {TA_EXPERIENCES.map((ta) => (
               <div
-                key={i}
-                className="flex items-center gap-3 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 px-4 py-3 transition-all hover:border-emerald-300 dark:hover:border-emerald-500/40">
-                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-emerald-500/10">
-                  <BookOpen
-                    size={16}
-                    className="text-emerald-600 dark:text-emerald-400"
-                  />
-                </div>
-                <div className="min-w-0">
-                  <p className="text-sm font-semibold text-zinc-900 dark:text-white leading-tight truncate mb-1">
-                    {ta.course}
-                  </p>
-                  <p className="text-xs text-zinc-500 dark:text-zinc-400 truncate">
-                    {ta.organization}
-                  </p>
-                  <p className="text-[11px] font-mono text-zinc-400 dark:text-zinc-500">
-                    {ta.period}
-                  </p>
-                </div>
+                key={`${ta.course}-${ta.period}`}
+                className="rounded-2xl border border-border/60 bg-background/70 p-3 text-left">
+                <p className="text-sm font-semibold text-foreground">{ta.course}</p>
+                <p className="text-xs text-muted-foreground">{ta.organization}</p>
+                <p className="text-[11px] font-mono text-muted-foreground/80">{ta.period}</p>
               </div>
             ))}
           </div>

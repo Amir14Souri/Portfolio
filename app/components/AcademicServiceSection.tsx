@@ -1,4 +1,7 @@
-import { Users, Mic, UserCheck, Handshake, CalendarDays } from "lucide-react";
+import { CalendarDays, Handshake, Mic, UserCheck, Users } from "lucide-react";
+
+import { Badge } from "@/components/ui/badge";
+import { Card, CardContent } from "@/components/ui/card";
 import SectionHeading from "./SectionHeading";
 
 const SERVICES = [
@@ -68,7 +71,7 @@ export default function AcademicServiceSection() {
   return (
     <section
       id="service"
-      className="py-24 px-6 bg-zinc-50 dark:bg-zinc-900/50 transition-colors relative overflow-hidden">
+      className="relative overflow-hidden bg-background py-24 px-6">
       <div className="mx-auto max-w-6xl relative z-10">
         <SectionHeading
           title="Academic Service"
@@ -78,23 +81,21 @@ export default function AcademicServiceSection() {
           {SERVICES.map((s, i) => {
             const Icon = s.icon;
             return (
-              <div
-                key={i}
-                className="group flex flex-col items-center gap-3 rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-5 text-center transition-all hover:border-indigo-300 dark:hover:border-indigo-500/40 hover:shadow-md dark:hover:shadow-zinc-900/50">
-                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 group-hover:bg-indigo-500/20 transition-colors">
-                  <Icon size={20} />
-                </div>
-                <h3 className="text-sm font-semibold text-zinc-900 dark:text-white leading-tight">
-                  {s.role}
-                </h3>
-                <p className="text-xs text-indigo-600 dark:text-indigo-400 font-medium leading-snug">
-                  {s.event}
-                </p>
-                <div className="flex items-center gap-1 text-[11px] font-mono text-zinc-500 dark:text-zinc-400 bg-zinc-100 dark:bg-zinc-800 px-2 py-0.5 rounded-full">
-                  <CalendarDays size={10} />
-                  {s.period}
-                </div>
-              </div>
+              <Card key={i} className="bg-card/90 text-center">
+                <CardContent className="flex flex-col items-center gap-3 p-6">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-indigo-500/15 text-indigo-600">
+                    <Icon className="h-5 w-5" />
+                  </div>
+                  <h3 className="text-sm font-semibold text-foreground">
+                    {s.role}
+                  </h3>
+                  <p className="text-xs font-medium text-indigo-500">{s.event}</p>
+                  <Badge variant="outline" className="gap-1 text-[11px]">
+                    <CalendarDays className="h-3 w-3" />
+                    {s.period}
+                  </Badge>
+                </CardContent>
+              </Card>
             );
           })}
         </div>
