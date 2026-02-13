@@ -9,10 +9,15 @@ import {
   Linkedin,
   Mail,
   MapPin,
+  Menu,
+  Moon,
+  Sun,
+  X,
 } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { useEffect, useState } from "react";
 
 const SOCIAL_LINKS = [
   {
@@ -47,9 +52,27 @@ const QUICK_FACTS = [
   },
 ];
 
+const NAV_ITEMS = [
+  { label: "About", href: "#about" },
+  { label: "Research", href: "#research" },
+  { label: "Education", href: "#education" },
+  { label: "Experience", href: "#experience" },
+  { label: "Service", href: "#service" },
+  { label: "Projects", href: "#projects" },
+  { label: "Skills", href: "#skills" },
+  { label: "Contact", href: "#contact" },
+];
+
 export default function HeroSection() {
-  const { resolvedTheme } = useTheme();
-  const isDark = resolvedTheme ? resolvedTheme === "dark" : true;
+  const { resolvedTheme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const isDark = mounted ? resolvedTheme === "dark" : true;
 
   return (
     <section
@@ -73,10 +96,90 @@ export default function HeroSection() {
         />
       </div>
 
+      {/* ── Hero navbar (transparent overlay) ── */}
+      <nav className="absolute top-0 left-0 right-0 z-20">
+        <div className="mx-auto max-w-6xl flex items-center justify-between px-6 py-4">
+          <a
+            href="#hero"
+            className={`text-lg font-semibold tracking-tight transition-colors ${
+              isDark
+                ? "text-white hover:text-zinc-300"
+                : "text-zinc-900 hover:text-zinc-600"
+            }`}>
+            Portfolio
+          </a>
+
+          {/* Desktop nav links */}
+          <div className="hidden lg:flex items-center gap-1">
+            {NAV_ITEMS.map(({ label, href }) => (
+              <a
+                key={href}
+                href={href}
+                className={`px-3 py-1.5 rounded-full text-sm font-medium transition-colors ${
+                  isDark
+                    ? "text-zinc-400 hover:text-white hover:bg-white/10"
+                    : "text-zinc-500 hover:text-zinc-900 hover:bg-zinc-900/5"
+                }`}>
+                {label}
+              </a>
+            ))}
+          </div>
+
+          <div className="flex items-center gap-2">
+            {/* Theme toggle */}
+            <button
+              onClick={() => setTheme(isDark ? "light" : "dark")}
+              className={`p-2 rounded-full transition-colors ${
+                isDark
+                  ? "text-zinc-400 hover:text-white hover:bg-white/10"
+                  : "text-zinc-500 hover:text-zinc-900 hover:bg-zinc-900/5"
+              }`}
+              aria-label="Toggle theme">
+              {mounted && (isDark ? <Sun size={18} /> : <Moon size={18} />)}
+            </button>
+
+            {/* Mobile menu button */}
+            <button
+              onClick={() => setMobileOpen(!mobileOpen)}
+              className={`lg:hidden p-2 rounded-full transition-colors ${
+                isDark
+                  ? "text-zinc-400 hover:text-white hover:bg-white/10"
+                  : "text-zinc-500 hover:text-zinc-900 hover:bg-zinc-900/5"
+              }`}
+              aria-label="Toggle menu">
+              {mobileOpen ? <X size={18} /> : <Menu size={18} />}
+            </button>
+          </div>
+        </div>
+
+        {/* Mobile nav dropdown */}
+        {mobileOpen && (
+          <div
+            className={`lg:hidden border-t mx-4 rounded-b-xl backdrop-blur-xl ${
+              isDark
+                ? "bg-zinc-900/90 border-white/10"
+                : "bg-white/90 border-zinc-200"
+            }`}>
+            <div className="flex flex-col px-4 py-3 gap-1">
+              {NAV_ITEMS.map(({ label, href }) => (
+                <a
+                  key={href}
+                  href={href}
+                  onClick={() => setMobileOpen(false)}
+                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+                    isDark
+                      ? "text-zinc-400 hover:text-white hover:bg-white/10"
+                      : "text-zinc-500 hover:text-zinc-900 hover:bg-zinc-900/5"
+                  }`}>
+                  {label}
+                </a>
+              ))}
+            </div>
+          </div>
+        )}
+      </nav>
+
       <div className="relative z-10 flex w-full max-w-4xl flex-col items-center gap-8 text-center">
-        <Badge variant="muted" className="tracking-[0.35em] text-[11px]">
-          NEXT.JS • RESEARCH PORTFOLIO
-        </Badge>
         <div className="relative">
           <div className="absolute -inset-1 rounded-full bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 opacity-70 blur-md" />
           <div className="relative h-40 w-40 overflow-hidden rounded-full border border-white/20">
