@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useTheme } from "next-themes";
 import {
   ArrowDown,
+  ChevronDown,
   FileText,
   Github,
   Linkedin,
@@ -39,16 +40,16 @@ const SOCIAL_LINKS = [
 
 const QUICK_FACTS = [
   {
-    label: "Role",
-    value: "Computer Engineering @ Sharif UT",
+    label: "Major",
+    value: "B.Sc • Computer Engineering",
+  },
+  {
+    label: "University",
+    value: "Sharif University of Technology",
   },
   {
     label: "Focus",
-    value: "Robust ML • Research Engineering",
-  },
-  {
-    label: "Interests",
-    value: "AI, infra, distributed systems",
+    value: "AI & ML • Software Development • Research",
   },
 ];
 
@@ -197,46 +198,40 @@ export default function HeroSection() {
           <h1 className="text-4xl font-semibold tracking-tight text-foreground sm:text-5xl md:text-6xl">
             Amirhossein Souri
           </h1>
-          <p className="text-base text-muted-foreground sm:text-lg">
-            BSc Computer Engineering student at Sharif University of Technology. I
-            craft human-centric research tools, ML systems, and developer
-            platforms with a calm aesthetic and production rigor.
-          </p>
           <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground">
             <MapPin className="h-4 w-4" />
-            Tehran, Iran · Open for research collaborations
+            Tehran, Iran
           </div>
         </div>
 
-        <div className="flex flex-wrap items-center justify-center gap-3">
-          <Button asChild variant="outline" size="sm" className="border-dashed">
-            <a href="/resume.pdf" download>
-              <FileText className="mr-2 h-4 w-4" /> Download résumé
-            </a>
-          </Button>
-        </div>
         <div className="flex flex-wrap items-center justify-center gap-2 text-muted-foreground">
           {SOCIAL_LINKS.map(({ label, href, icon: Icon }) => (
             <Button
               key={label}
               asChild
-              size="icon"
-              variant="ghost"
+              size="sm"
+              variant="outline"
               className="border border-border/60 bg-background/60">
               <a
+              className="flex gap-2"
                 href={href}
                 target={href.startsWith("http") ? "_blank" : undefined}
                 rel={href.startsWith("http") ? "noopener noreferrer" : undefined}>
                 <Icon className="h-4 w-4" />
-                <span className="sr-only">{label}</span>
+                <span>{label}</span>
               </a>
             </Button>
           ))}
+          <Button asChild variant="default" size="sm">
+            <a href="/resume.pdf" download>
+              <FileText className="mr-2 h-4 w-4" /> Resume
+            </a>
+          </Button>
         </div>
 
         <div className="flex flex-wrap justify-center gap-3 text-xs text-muted-foreground">
           {QUICK_FACTS.map(({ label, value }) => (
-            <Badge key={label} variant="outline" className="rounded-full px-4 py-1 font-medium">
+            <Badge key={label} variant="outline" className="rounded-full px-4 py-1 font-medium bg-black/30">
               <span className="text-[0.65rem] uppercase tracking-[0.4em] text-muted-foreground/70">
                 {label}
               </span>
@@ -248,12 +243,11 @@ export default function HeroSection() {
 
       <Button
         asChild
-        variant="ghost"
-        size="sm"
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 text-muted-foreground">
+        variant="simple"
+        size="icon"
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 text-muted-foreground animate-bounce">
         <a href="#about" className="flex items-center gap-2">
-          Scroll
-          <ArrowDown className="h-4 w-4" />
+          <ArrowDown className="h-6 w-6" />
         </a>
       </Button>
     </section>

@@ -17,6 +17,8 @@ const buttonVariants = cva(
           "border border-input bg-transparent text-zinc-900 hover:bg-zinc-100 dark:text-white dark:hover:bg-white/10",
         ghost:
           "text-zinc-700 hover:bg-zinc-100 dark:text-zinc-300 dark:hover:bg-white/10",
+        simple:
+          "text-zinc-700 dark:text-zinc-300",
         glow:
           "bg-gradient-to-br from-blue-600 to-purple-500 text-white shadow-lg shadow-blue-500/30 hover:brightness-110",
       },
