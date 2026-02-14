@@ -55,12 +55,12 @@ const QUICK_FACTS = [
 
 const NAV_ITEMS = [
   { label: "About", href: "#about" },
-  { label: "Research", href: "#research" },
-  { label: "Education", href: "#education" },
-  { label: "Experience", href: "#experience" },
-  { label: "Service", href: "#service" },
   { label: "Projects", href: "#projects" },
+  { label: "Experience", href: "#experience" },
+  { label: "Education", href: "#education" },
+  { label: "Interests", href: "#research" },
   { label: "Skills", href: "#skills" },
+  { label: "Service", href: "#service" },
   { label: "Contact", href: "#contact" },
 ];
 

@@ -6,12 +6,12 @@ import { Sun, Moon, Menu, X } from "lucide-react";
 
 const NAV_ITEMS = [
   { label: "About", href: "#about" },
-  { label: "Research Interests", href: "#research" },
-  { label: "Education", href: "#education" },
-  { label: "Experience", href: "#experience" },
-  { label: "Academic Service", href: "#service" },
   { label: "Projects", href: "#projects" },
+  { label: "Experience", href: "#experience" },
+  { label: "Education", href: "#education" },
+  { label: "Interests", href: "#research" },
   { label: "Skills", href: "#skills" },
+  { label: "Service", href: "#service" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -64,7 +64,7 @@ export default function Navbar() {
           ? "translate-y-0 opacity-100"
           : "-translate-y-full opacity-0 pointer-events-none"
       }`}>
-      <div className="bg-background/80 backdrop-blur-xl border-b border-border">
+      <div className="bg-white/60 dark:bg-black/60 backdrop-blur-xl border-b border-foreground/20">
         <div className="mx-auto max-w-6xl flex items-center justify-between px-6 py-3">
           <a
             href="#hero"

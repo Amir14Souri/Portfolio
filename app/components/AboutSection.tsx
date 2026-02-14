@@ -19,17 +19,17 @@ export default function AboutSection() {
           <CardContent className="space-y-5 p-8 text-lg leading-relaxed text-muted-foreground">
             <p>
               I&apos;m a Computer Engineering student at Sharif University of Technology,
-              ranked 14th among more than 145,000 participants in Iran&apos;s
-              national university entrance exam. I thrive in collaborative
-              engineering environments where backend systems, infrastructure,
-              and machine learning intersect.
+              ranked 14th among more than 145,000 participants in Iran&apos;s national 
+              university entrance exam. Alongside my academic studies, I&apos;ve worked on 
+              collaborative software projects, strengthening my skills in backend systems, 
+              infrastructure, and problem-solving. I&apos;m particularly interested in Artificial 
+              Intelligence and enjoy building practical systems that bridge theory and 
+              real-world applications.
             </p>
             <p>
-              Beyond coursework I design and deploy practical systems that bridge
-              theory with impact—whether that&apos;s research tooling, teaching, or
-              developer platforms. I&apos;m relentlessly curious, always reading
-              about science, technology, and self-development, and I&apos;m eager to
-              partner on projects that demand rigor and craft.
+              Beyond academics, I enjoy reading across a range of topics, particularly in 
+              science, technology, and self-development. I&apos;m always looking for opportunities 
+              to collaborate, learn, and contribute to impactful projects.
             </p>
           </CardContent>
         </Card>

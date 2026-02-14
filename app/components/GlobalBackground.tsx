@@ -1,5 +1,6 @@
 "use client";
 
+import { cn } from "@/lib/utils";
 import { useTheme } from "next-themes";
 
 export default function GlobalBackground() {
@@ -7,19 +8,19 @@ export default function GlobalBackground() {
   const isDark = resolvedTheme ? resolvedTheme === "dark" : true;
 
   // --- colour helpers (keep it readable) ---
-  const line = isDark ? "stroke-blue-400/[0.2]" : "stroke-blue-400/[0.32]";
+  const line = isDark ? "stroke-blue-400/[0.30]" : "stroke-blue-400/[0.40]";
   const line2 = isDark
-    ? "stroke-purple-400/[0.16]"
-    : "stroke-purple-400/[0.28]";
+    ? "stroke-purple-400/[0.25]"
+    : "stroke-purple-400/[0.35]";
   const line3 = isDark
-    ? "stroke-indigo-400/[0.14]"
-    : "stroke-indigo-400/[0.24]";
-  const dot = isDark ? "fill-blue-400/[0.24]" : "fill-blue-400/[0.40]";
-  const dot2 = isDark ? "fill-purple-400/[0.20]" : "fill-purple-400/[0.36]";
-  const dot3 = isDark ? "fill-indigo-400/[0.18]" : "fill-indigo-400/[0.32]";
-  const code = isDark ? "fill-zinc-500/[0.18]" : "fill-zinc-400/[0.30]";
-  const amber = isDark ? "fill-amber-400/[0.18]" : "fill-amber-400/[0.30]";
-  const green = isDark ? "fill-emerald-400/[0.16]" : "fill-emerald-400/[0.28]";
+    ? "stroke-indigo-400/[0.22]"
+    : "stroke-indigo-400/[0.30]";
+  const dot = isDark ? "fill-blue-400/[0.38]" : "fill-blue-400/[0.62]";
+  const dot2 = isDark ? "fill-purple-400/[0.30]" : "fill-purple-400/[0.45]";
+  const dot3 = isDark ? "fill-indigo-400/[0.26]" : "fill-indigo-400/[0.40]";
+  const code = isDark ? "fill-zinc-500/[0.26]" : "fill-zinc-400/[0.38]";
+  const amber = isDark ? "fill-amber-400/[0.26]" : "fill-amber-400/[0.38]";
+  const green = isDark ? "fill-emerald-400/[0.25]" : "fill-emerald-400/[0.35]";
   const xOverlay = isDark
     ? "bg-[linear-gradient(to_right,transparent_0%,theme(colors.black/60)_35%,theme(colors.black/60)_65%,transparent_100%)]"
     : "bg-[linear-gradient(to_right,transparent_0%,theme(colors.white/60)_35%,theme(colors.white/60)_65%,transparent_100%)]";
@@ -83,7 +84,7 @@ export default function GlobalBackground() {
                 y1={y1}
                 x2={x2}
                 y2={y2}
-                className={i % 3 === 0 ? line : i % 3 === 1 ? line2 : line3}
+                className={cn(i % 3 === 0 ? line : i % 3 === 1 ? line2 : line3, "motion-safe:animate-pulse")}
                 strokeWidth="0.8"
               />
             ))}
