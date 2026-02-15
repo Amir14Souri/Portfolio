@@ -24,7 +24,6 @@ export default function Home() {
         <ExperienceSection />
         {/* <PublicationsSection /> */}
         <EducationSection />
-        <ResearchInterests />
         <SkillsSection />
         <AcademicServiceSection />
         <ContactSection />

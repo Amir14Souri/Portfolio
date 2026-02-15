@@ -22,12 +22,14 @@ export default function AboutSection() {
               ranked 14th among more than 145,000 participants in Iran&apos;s national
               university entrance exam. Alongside my academic studies, I&apos;ve worked on
               collaborative software projects, strengthening my skills in backend systems,
-              infrastructure, and problem-solving. I&apos;m particularly interested in Artificial
-              Intelligence and enjoy building practical systems that bridge theory and
-              real-world applications.
+              infrastructure, and problem-solving.
             </p>
             <p>
-              Beyond academics, I enjoy reading across a range of topics, particularly in
+              I&apos;m particularly interested in Artificial
+              Intelligence, especially areas like machine learning, generative models, and
+              applying AI to real-world systems, and I enjoy exploring new topics and approaches
+              within AI and related fields. I enjoy building practical solutions that bridge
+              theory and application. Beyond academics, I enjoy reading across a range of topics, particularly in
               science, technology, and self-development. I&apos;m always looking for opportunities
               to collaborate, learn, and contribute to impactful projects.
             </p>
