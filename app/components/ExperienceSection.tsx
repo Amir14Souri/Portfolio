@@ -179,7 +179,7 @@ export default function ExperienceSection() {
                     </Badge>
                   </div>
                   <Separator className="opacity-70" />
-                  <ul className="space-y-1.5 text-sm text-muted-foreground">
+                  <ul className="space-y-1.5 text-sm text-muted-foreground md:ps-6">
                     {exp.points.map((point) => (
                       <li key={point} className="flex gap-2">
                         <span className="mt-2 h-1.5 w-1.5 rounded-full bg-muted-foreground/40" />
@@ -193,11 +193,11 @@ export default function ExperienceSection() {
           })}
         </div>
 
-        <div className="mt-12">
-          <div className="mb-4 flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.4em] text-muted-foreground">
+        <div className="mt-4">
+          {/* <div className="mb-4 flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.4em] text-muted-foreground">
             <BookOpen className="h-4 w-4 text-emerald-500" /> Teaching Assistance
-          </div>
-          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          </div> */}
+          <div className="grid gap-x-4 gap-y-3 sm:grid-cols-2 lg:grid-cols-3">
             {TA_EXPERIENCES.map((ta) => (
               <div
                 key={`${ta.course}-${ta.period}`}
@@ -206,7 +206,7 @@ export default function ExperienceSection() {
                   <BookOpen className="h-4 w-4" />
                 </div>
                 <div className="min-w-0">
-                  <p className="text-sm font-semibold text-foreground">{ta.course}</p>
+                  <p className="text-sm font-semibold text-foreground pb-0.5">{ta.course}</p>
                   <p className="text-xs text-muted-foreground">{ta.organization}</p>
                   <p className="text-[11px] font-mono text-muted-foreground/80">{ta.period}</p>
                 </div>

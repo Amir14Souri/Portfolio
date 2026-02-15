@@ -6,52 +6,84 @@ import SectionHeading from "./SectionHeading";
 
 const PROJECTS = [
   {
-    title: "AI-Powered Chatbot",
+    title: "ML Models Collection",
     description:
-      "Conversational assistant built on transformer stacks with retrieval grounding and adaptive memory.",
-    tags: ["Python", "PyTorch", "FastAPI", "React"],
-    github: "https://github.com/yourusername/chatbot",
+      "Collection of some Machine Learning models, including explanation, formulas, and examples in jupyter notebooks. Both Implementation and Scikit-Learn usage are provided.",
+    tags: ["Python", "Jupyter", "Scikit-Learn"],
+    github: "https://github.com/ML-Exercises/",
     live: "",
   },
   {
-    title: "E-Commerce Platform",
+    title: "AI Practical Exercises",
     description:
-      "Composable storefront with product operations, Stripe payments, and live inventory telemetry.",
-    tags: ["Next.js", "TypeScript", "PostgreSQL", "Stripe"],
-    github: "https://github.com/yourusername/ecommerce",
-    live: "https://myecommerce.example.com",
+      "Practical assignments of Artificial Intelligence course, containing implementations of various AI algorithms.",
+    tags: ["Python", "Jupyter", "NumPy", "PyTorch"],
+    github: "https://github.com/Amir14Souri/AI-Exercises",
+    live: "",
+  },
+  {
+    title: "AI Security Exercises",
+    description:
+      "Practical tasks completed for research project applications at the RIML lab, containing basic attacks to unlearned models.",
+    tags: ["Python", "Jupyter", "PyTorch"],
+    github: "https://github.com/Amir14Souri/LabTask",
+    live: "",
+  },
+  {
+    title: "Vim (Clone)",
+    description:
+      "Project of Fundamentals of Programming course, implementing most of the important commands of Vim editor.",
+    tags: ["C", "Vim", "Ncurses"],
+    github: "https://github.com/Amir14Souri/Vim-simulator",
+    live: "",
+  },
+  {
+    title: "Stronghold: Crusader (Clone)",
+    description:
+      "Project of Advanced Programming course, implementing a real-time simple version of the game with some extra functionalities.",
+    tags: ["Java", "JavaFX", "Git"],
+    github: "https://github.com/Amir14Souri/project-group-09",
+    live: "",
+  },
+  {
+    title: "aa Game",
+    description:
+      "Practical assignment of Advanced Programming course, implementing a version of aa game.",
+    tags: ["Java", "JavaFX"],
+    github: "https://github.com/Amir14Souri/AA",
+    live: "",
+  },
+  {
+    title: "Todo List",
+    description:
+      "A simple todo list with persistent local storage",
+    tags: ["Python", "Flask", "HTML", "CSS"],
+    github: "https://github.com/Amir14Souri/Todo-List",
+    live: "",
+  },
+  {
+    title: "Hardwar Website",
+    description:
+      "",
+    tags: ["Python", "Django", "JavaScript", "React", "PostgreSQL", "Docker"],
+    github: "https://github.com/Amir14Souri/#",
+    live: "https://hardwar-sharif.ir",
+  },
+  {
+    title: "BugsBuzzy Website",
+    description:
+      "",
+    tags: ["Python", "Django", "PostgreSQL"],
+    github: "https://github.com/Amir14Souri/#",
+    live: "https://bugsbuzzy.ir",
   },
   {
     title: "Portfolio Website",
     description:
-      "Polished single-page portfolio with shadcn UI, scroll-linked navigation, and GSAP flourishes.",
-    tags: ["Next.js", "Tailwind", "TypeScript"],
-    github: "https://github.com/yourusername/portfolio",
-    live: "",
-  },
-  {
-    title: "Distributed Task Scheduler",
-    description:
-      "Fault-tolerant orchestrator for scheduling compute-heavy jobs across Kubernetes clusters.",
-    tags: ["Go", "gRPC", "Redis", "Docker"],
-    github: "https://github.com/yourusername/scheduler",
-    live: "",
-  },
-  {
-    title: "Image Classification Pipeline",
-    description:
-      "End-to-end ML workflow for medical imaging with automated augmentation and monitoring.",
-    tags: ["Python", "TensorFlow", "Docker", "GCP"],
-    github: "https://github.com/yourusername/image-classifier",
-    live: "",
-  },
-  {
-    title: "Real-Time Chat Application",
-    description:
-      "Realtime collaboration layer with WebSocket transport, presence, and attachment streaming.",
-    tags: ["Node.js", "Socket.io", "React", "MongoDB"],
-    github: "https://github.com/yourusername/chat-app",
-    live: "",
+      "",
+    tags: ["JavaScript", "Next.js"],
+    github: "https://github.com/Amir14Souri/#",
+    live: "https://amir.souuri.ir",
   },
 ];
 
@@ -73,9 +105,6 @@ export default function ProjectsSection() {
               <CardContent className="flex h-full flex-col gap-4 p-5">
                 <div className="flex items-start justify-between gap-3">
                   <div className="space-y-2 text-left">
-                    <p className="text-[11px] uppercase tracking-[0.35em] text-muted-foreground">
-                      Case Study
-                    </p>
                     <h3 className="text-base font-semibold text-foreground">
                       {project.title}
                     </h3>
@@ -83,7 +112,7 @@ export default function ProjectsSection() {
                       {project.description}
                     </p>
                   </div>
-                  <Folder className="h-6 w-6 text-blue-500" />
+                  <Folder className="min-h-5 min-w-5 max-h-5 max-w-5 text-blue-500" />
                 </div>
                 <div className="flex flex-wrap gap-2">
                   {project.tags.map((tag) => (

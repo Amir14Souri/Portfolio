@@ -65,6 +65,18 @@ const SERVICES = [
     event: "ICPC • CE, SUT",
     period: "Apr 2023 - May 2023",
   },
+  {
+    icon: Handshake,
+    role: "Shora",
+    event: "",
+    period: "",
+  },
+  {
+    icon: Handshake,
+    role: "SSC",
+    event: "",
+    period: "",
+  },
 ];
 
 export default function AcademicServiceSection() {
