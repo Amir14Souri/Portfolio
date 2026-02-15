@@ -33,13 +33,13 @@ export default function EducationSection() {
         <SectionHeading title="Education" subtitle="My academic journey" />
 
         <div className="relative">
-          <div className="absolute left-6 top-0 hidden h-full w-px bg-gradient-to-b from-blue-500 via-purple-500 to-pink-500 sm:block" />
+          <div className="absolute left-6 top-0 hidden h-full w-px bg-gradient-to-b from-blue-500 to-purple-500 sm:block" />
 
           <div className="space-y-10">
             {EDUCATION.map((edu) => (
               <div key={edu.degree} className="relative flex gap-6">
                 <div className="hidden sm:flex w-12 flex-col items-center">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-full border border-blue-500/40 bg-background text-blue-500">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-full border border-blue-500/40 bg-blue-500/8 text-blue-500 backdrop-blur-sm">
                     <GraduationCap className="h-5 w-5" />
                   </div>
                 </div>

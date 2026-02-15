@@ -130,11 +130,11 @@ const CATEGORIES: SkillCategory[] = [
   }
 ];
 
-const SPOKEN_LANGUAGES = [
-  "English — Fluent",
-  "Persian (Farsi) — Native",
-  "French — Intermediate",
-];
+const SPOKEN_LANGUAGES = {
+  "English": "Fluent",
+  "Persian (Farsi)": "Native",
+  "French": "Intermediate",
+};
 
 export default function SkillsSection() {
   const { resolvedTheme } = useTheme();
@@ -158,7 +158,7 @@ export default function SkillsSection() {
                   <h3 className="text-lg font-semibold text-foreground">
                     {category.title}
                   </h3>
-                  <span className="bg-indigo-500/15 text-indigo-600 flex h-5 w-5 items-center justify-center rounded-full text-xs font-medium">
+                  <span className="border border-blue-500/40 bg-blue-500/10 text-blue-500 flex h-6 w-6 items-center justify-center rounded-full text-xs font-medium">
                     {category.skills.length}
                   </span>
                 </div>
@@ -194,17 +194,18 @@ export default function SkillsSection() {
 
         <div className="mt-14 border-t border-white/20 pt-10 text-center">
           <Badge
-            variant="outline"
-            className="mb-5 rounded-full border-border/80 px-4 py-1 text-xs uppercase tracking-[0.35em]">
+            variant="muted"
+            className="cursor-default mb-5 rounded-full border-border/80 px-4 py-1 text-xs uppercase tracking-[0.35em]">
             Spoken Languages
           </Badge>
           <div className="flex flex-wrap justify-center gap-3">
-            {SPOKEN_LANGUAGES.map((language) => (
-              <span
-                key={language}
-                className="cursor-default rounded-full border border-transparent bg-secondary px-4 py-2 text-sm text-secondary-foreground transition-colors hover:bg-secondary/80">
-                {language}
-              </span>
+            {Object.entries(SPOKEN_LANGUAGES).map(([language, level]) => (
+              <Badge key={language} variant="outline" className="cursor-default rounded-full px-4 py-1 font-medium bg-white/30 dark:bg-black/30">
+                <span className="text-foreground/80">{language}</span>
+                <span className="ml-2 text-[0.85rem] uppercase tracking-[0.4em] text-muted-foreground/70">
+                  {level}
+                </span>
+              </Badge>
             ))}
           </div>
         </div>

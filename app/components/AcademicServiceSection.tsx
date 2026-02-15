@@ -95,13 +95,13 @@ export default function AcademicServiceSection() {
             return (
               <Card key={i} className="bg-card/90 text-center">
                 <CardContent className="flex flex-col items-center gap-3 p-6">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-indigo-500/15 text-indigo-600">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-500/10 text-blue-500">
                     <Icon className="h-5 w-5" />
                   </div>
                   <h3 className="text-sm font-semibold text-foreground">
                     {s.role}
                   </h3>
-                  <p className="text-xs font-medium text-indigo-500">{s.event}</p>
+                  <p className="text-xs font-medium text-blue-500">{s.event}</p>
                   <Badge variant="outline" className="gap-1 text-[11px]">
                     <CalendarDays className="h-3 w-3" />
                     {s.period}
