@@ -21,7 +21,7 @@ const SKILL_GROUPS: SkillGroup[] = [
     icon: Code2,
     title: "Programming Languages",
     color: "text-blue-600 dark:text-blue-400",
-    bg: "bg-blue-500/10",
+    bg: "bg-cyan-500/10",
     tools: [
       { name: "Python", logo: "🐍" },
       { name: "TypeScript", logo: "📘" },
@@ -37,7 +37,7 @@ const SKILL_GROUPS: SkillGroup[] = [
     icon: Wrench,
     title: "Frameworks & Libraries",
     color: "text-emerald-600 dark:text-emerald-400",
-    bg: "bg-emerald-500/10",
+    bg: "bg-cyan-500/10",
     tools: [
       { name: "React", logo: "⚛️" },
       { name: "Next.js", logo: "▲" },
@@ -141,8 +141,8 @@ export default function SkillsSection() {
                   </h3>
                 </div>
                 <div className="relative">
-                  <RotatingToolsCarousel 
-                    tools={group.tools} 
+                  <RotatingToolsCarousel
+                    tools={group.tools}
                   />
                 </div>
               </div>
@@ -164,7 +164,7 @@ export default function SkillsSection() {
             <div className="flex flex-wrap gap-3">
               {[
                 "English — Fluent",
-                "Persian (Farsi) — Native", 
+                "Persian (Farsi) — Native",
                 "French — Intermediate"
               ].map((language) => (
                 <span

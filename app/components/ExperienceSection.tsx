@@ -28,7 +28,7 @@ const CATEGORY_CONFIG: Record<
   technical: {
     label: "Technical",
     icon: Briefcase,
-    color: "text-blue-600 dark:text-blue-400",
+    color: "text-blue-500",
     bg: "bg-blue-500/10",
   },
   research: {
@@ -145,7 +145,7 @@ export default function ExperienceSection() {
             </Badge>
           ))}
           <Badge variant="outline" className="gap-2 rounded-2xl px-4 py-2 text-xs font-medium">
-            <BookOpen className="h-4 w-4 text-emerald-500" />
+            <BookOpen className="h-4 w-4 text-cyan-500" />
             Teaching Assistance
           </Badge>
         </div>
@@ -194,15 +194,12 @@ export default function ExperienceSection() {
         </div>
 
         <div className="mt-4">
-          {/* <div className="mb-4 flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.4em] text-muted-foreground">
-            <BookOpen className="h-4 w-4 text-emerald-500" /> Teaching Assistance
-          </div> */}
           <div className="grid gap-x-4 gap-y-3 sm:grid-cols-2 lg:grid-cols-3">
             {TA_EXPERIENCES.map((ta) => (
               <div
                 key={`${ta.course}-${ta.period}`}
                 className="flex items-start gap-3 rounded-2xl border border-border/60 bg-background/70 p-3 text-left transition hover:-translate-y-0.5">
-                <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-emerald-500/10 text-emerald-500">
+                <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-cyan-500/10 text-cyan-500">
                   <BookOpen className="h-4 w-4" />
                 </div>
                 <div className="min-w-0">

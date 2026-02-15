@@ -15,7 +15,7 @@ const badgeVariants = cva(
         outline:
           "border-zinc-400 text-zinc-600 dark:border-zinc-700 dark:text-zinc-200",
         glow:
-          "border-transparent bg-gradient-to-r from-blue-600 to-purple-500 text-white shadow shadow-blue-500/30",
+          "border-transparent bg-gradient-to-r from-blue-600 to-emerald-500 text-white shadow shadow-cyan-500/30",
       },
     },
     defaultVariants: {
@@ -26,7 +26,7 @@ const badgeVariants = cva(
 
 export interface BadgeProps
   extends React.HTMLAttributes<HTMLDivElement>,
-    VariantProps<typeof badgeVariants> {}
+  VariantProps<typeof badgeVariants> { }
 
 function Badge({ className, variant, ...props }: BadgeProps) {
   return (

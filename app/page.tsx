@@ -28,8 +28,8 @@ export default function Home() {
         <SkillsSection />
         <AcademicServiceSection />
         <ContactSection />
+        <Footer />
       </main>
-      <Footer />
     </>
   );
 }

@@ -20,7 +20,7 @@ const buttonVariants = cva(
         simple:
           "text-zinc-700 dark:text-zinc-300",
         glow:
-          "bg-gradient-to-br from-blue-600 to-purple-500 text-white shadow-lg shadow-blue-500/30 hover:brightness-110",
+          "bg-gradient-to-br from-blue-600 to-emerald-500 text-white shadow-lg shadow-cyan-500/30 hover:brightness-110",
       },
       size: {
         default: "h-11 px-5",
@@ -38,7 +38,7 @@ const buttonVariants = cva(
 
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
-    VariantProps<typeof buttonVariants> {
+  VariantProps<typeof buttonVariants> {
   asChild?: boolean
 }
 

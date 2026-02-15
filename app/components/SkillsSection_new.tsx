@@ -20,7 +20,7 @@ const SKILL_CATEGORIES: SkillCategory[] = [
     id: "languages",
     title: "Programming Languages",
     badge: "Languages",
-    badgeColor: "bg-blue-500",
+    badgeColor: "bg-cyan-500",
     tools: [
       { name: "Python", logo: "🐍" },
       { name: "TypeScript", logo: "📘" },
@@ -36,7 +36,7 @@ const SKILL_CATEGORIES: SkillCategory[] = [
     id: "frameworks",
     title: "Frameworks & Libraries",
     badge: "Frameworks",
-    badgeColor: "bg-emerald-500",
+    badgeColor: "bg-cyan-500",
     tools: [
       { name: "React", logo: "⚛️" },
       { name: "Next.js", logo: "▲" },

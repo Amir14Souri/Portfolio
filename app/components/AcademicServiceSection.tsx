@@ -1,4 +1,4 @@
-import { CalendarDays, Handshake, Mic, UserCheck, Users } from "lucide-react";
+import { CalendarDays } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
@@ -6,73 +6,73 @@ import SectionHeading from "./SectionHeading";
 
 const SERVICES = [
   {
-    icon: Users,
+    logo: "/logos/byte.svg",
     role: "Senior Editor",
     event: "Byte Publication • CE, SUT",
     period: "May 2025 - Present",
   },
   {
-    icon: Mic,
+    logo: "/logos/emeet.svg",
     role: "Technical & Graphical Design Staff",
     event: "Emeet • EE, SUT",
     period: "Aug 2025 - Oct 2025",
   },
   {
-    icon: UserCheck,
+    logo: "/logos/hardwar.svg",
     role: "Vice President & Technical Lead",
     event: "Hardwar • CE, SUT",
     period: "Feb 2025 - May 2025",
   },
   {
-    icon: Handshake,
+    logo: "/logos/icpc.svg",
     role: "Technical Staff",
     event: "ICPC • CE, SUT",
     period: "Dec 2024",
   },
   {
-    icon: Handshake,
+    logo: "/logos/codocodile.svg",
     role: "Executive Staff",
     event: "CodoCodile • CE, SUT",
     period: "Nov 2024",
   },
   {
-    icon: Handshake,
+    logo: "/logos/rayan.svg",
     role: "Social Media Lead",
     event: "Rayan AI Contest • CE, SUT",
     period: "Aug 2024 - Oct 2024",
   },
   {
-    icon: Handshake,
+    logo: "/logos/s4.svg",
     role: "Marketing & Executive Staff",
     event: "S4 • CE, SUT",
     period: "May 2024",
   },
   {
-    icon: Handshake,
+    logo: "/logos/wss.svg",
     role: "Content Lead & Social Media Staff",
     event: "WSS • CE, SUT",
     period: "Nov 2023 - Mar 2024",
   },
   {
-    icon: Handshake,
+    logo: "/logos/codocodile.svg",
     role: "Social Media Staff",
     event: "CodoCodile • CE, SUT",
     period: "Sep 2023 - Nov 2023",
   },
   {
-    icon: Handshake,
+    logo: "/logos/icpc.svg",
     role: "Executive Staff",
     event: "ICPC • CE, SUT",
     period: "Apr 2023 - May 2023",
   },
   {
-    icon: Handshake,
+    logo: "/logos/guild.svg",
     role: "Shora",
     event: "",
     period: "",
   },
   {
-    icon: Handshake,
+    logo: "/logos/ssc.svg",
     role: "SSC",
     event: "",
     period: "",
@@ -91,17 +91,28 @@ export default function AcademicServiceSection() {
         />
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {SERVICES.map((s, i) => {
-            const Icon = s.icon;
             return (
               <Card key={i} className="bg-card/90 text-center">
                 <CardContent className="flex flex-col items-center gap-3 p-6">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-500/10 text-blue-500">
-                    <Icon className="h-5 w-5" />
+                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-cyan-500/10 p-2 text-cyan-500">
+                    <div
+                      className="h-10 w-10 bg-cyan-500"
+                      style={{
+                        maskImage: `url(${s.logo})`,
+                        maskSize: "contain",
+                        maskPosition: "center",
+                        maskRepeat: "no-repeat",
+                        WebkitMaskImage: `url(${s.logo})`,
+                        WebkitMaskSize: "contain",
+                        WebkitMaskPosition: "center",
+                        WebkitMaskRepeat: "no-repeat",
+                      }}
+                    />
                   </div>
                   <h3 className="text-sm font-semibold text-foreground">
                     {s.role}
                   </h3>
-                  <p className="text-xs font-medium text-blue-500">{s.event}</p>
+                  <p className="text-xs font-medium text-cyan-500">{s.event}</p>
                   <Badge variant="outline" className="gap-1 text-[11px]">
                     <CalendarDays className="h-3 w-3" />
                     {s.period}

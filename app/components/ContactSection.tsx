@@ -66,7 +66,7 @@ export default function ContactSection() {
                 {...externalProps}
                 className="group rounded-2xl border border-border/60 bg-background/70 p-4 transition hover:-translate-y-0.5">
                 <div className="flex items-center gap-3">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-500/10 text-blue-500">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-cyan-500/10 text-cyan-500">
                     <Icon className="h-4 w-4" />
                   </div>
                   <div className="min-w-0">

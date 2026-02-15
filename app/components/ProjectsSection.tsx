@@ -112,7 +112,7 @@ export default function ProjectsSection() {
                       {project.description}
                     </p>
                   </div>
-                  <Folder className="min-h-5 min-w-5 max-h-5 max-w-5 text-blue-500" />
+                  <Folder className="min-h-5 min-w-5 max-h-5 max-w-5 text-cyan-500" />
                 </div>
                 <div className="flex flex-wrap gap-2">
                   {project.tags.map((tag) => (

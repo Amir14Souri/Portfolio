@@ -16,7 +16,7 @@ export default function SectionHeading({
       {subtitle && (
         <p className="max-w-2xl text-base text-muted-foreground">{subtitle}</p>
       )}
-      <Separator className="mt-4 mx-auto h-0.75 w-16 rounded-full bg-gradient-to-r from-blue-500 to-purple-500" />
+      <Separator className="mt-4 mx-auto h-0.75 w-16 rounded-full bg-gradient-to-r from-blue-500 to-emerald-500" />
     </div>
   );
 }

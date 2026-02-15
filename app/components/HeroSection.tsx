@@ -80,20 +80,17 @@ export default function HeroSection() {
       id="hero"
       className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-sky-100 dark:bg-slate-950 px-6">
       <div
-        className={`absolute inset-0 opacity-100 ${
-          isDark
-            ? "bg-[linear-gradient(rgba(255,255,255,0.0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.0.1)_1px,transparent_1px)]"
-            : "bg-[linear-gradient(rgba(59,130,246,0.15)_1px,transparent_1px),linear-gradient(90deg,rgba(59,130,246,0.15)_1px,transparent_1px)]"
-        } bg-[size:60px_60px]`}>
+        className={`absolute inset-0 opacity-100 ${isDark
+          ? "bg-[linear-gradient(rgba(255,255,255,0.0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.0.1)_1px,transparent_1px)]"
+          : "bg-[linear-gradient(rgba(59,130,246,0.15)_1px,transparent_1px),linear-gradient(90deg,rgba(59,130,246,0.15)_1px,transparent_1px)]"
+          } bg-[size:60px_60px]`}>
         <div
-          className={`absolute left-1/2 top-1/2 h-[620px] w-[620px] -translate-x-1/2 -translate-y-1/2 rounded-full blur-[120px] ${
-            isDark ? "bg-blue-500/20" : "bg-emerald-300/15"
-          }`}
+          className={`absolute left-1/2 top-1/2 h-[620px] w-[620px] -translate-x-1/2 -translate-y-1/2 rounded-full blur-[120px] ${isDark ? "bg-blue-500/20" : "bg-emerald-300/15"
+            }`}
         />
         <div
-          className={`absolute right-1/4 top-1/4 h-[320px] w-[320px] rounded-full blur-[120px] ${
-            isDark ? "bg-purple-500/15" : "bg-indigo-300/20"
-          }`}
+          className={`absolute right-1/4 top-1/4 h-[320px] w-[320px] rounded-full blur-[120px] ${isDark ? "bg-purple-500/15" : "bg-indigo-300/20"
+            }`}
         />
       </div>
 
@@ -102,11 +99,10 @@ export default function HeroSection() {
         <div className="mx-auto max-w-6xl flex items-center justify-between px-6 py-4">
           <a
             href="#hero"
-            className={`text-lg font-semibold tracking-tight transition-colors ${
-              isDark
-                ? "text-white hover:text-zinc-300"
-                : "text-zinc-900 hover:text-zinc-600"
-            }`}>
+            className={`text-lg font-semibold tracking-tight transition-colors ${isDark
+              ? "text-white hover:text-zinc-300"
+              : "text-zinc-900 hover:text-zinc-600"
+              }`}>
             Portfolio
           </a>
 
@@ -116,11 +112,10 @@ export default function HeroSection() {
               <a
                 key={href}
                 href={href}
-                className={`px-3 py-1.5 rounded-full text-sm font-medium transition-colors ${
-                  isDark
-                    ? "text-zinc-400 hover:text-white hover:bg-white/10"
-                    : "text-zinc-500 hover:text-zinc-900 hover:bg-zinc-900/5"
-                }`}>
+                className={`px-3 py-1.5 rounded-full text-sm font-medium transition-colors ${isDark
+                  ? "text-zinc-400 hover:text-white hover:bg-white/10"
+                  : "text-zinc-500 hover:text-zinc-900 hover:bg-zinc-900/5"
+                  }`}>
                 {label}
               </a>
             ))}
@@ -130,11 +125,10 @@ export default function HeroSection() {
             {/* Theme toggle */}
             <button
               onClick={() => setTheme(isDark ? "light" : "dark")}
-              className={`p-2 rounded-full transition-colors ${
-                isDark
-                  ? "text-zinc-400 hover:text-white hover:bg-white/10"
-                  : "text-zinc-500 hover:text-zinc-900 hover:bg-zinc-900/5"
-              }`}
+              className={`p-2 rounded-full transition-colors ${isDark
+                ? "text-zinc-400 hover:text-white hover:bg-white/10"
+                : "text-zinc-500 hover:text-zinc-900 hover:bg-zinc-900/5"
+                }`}
               aria-label="Toggle theme">
               {mounted && (isDark ? <Sun size={18} /> : <Moon size={18} />)}
             </button>
@@ -142,11 +136,10 @@ export default function HeroSection() {
             {/* Mobile menu button */}
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
-              className={`lg:hidden p-2 rounded-full transition-colors ${
-                isDark
-                  ? "text-zinc-400 hover:text-white hover:bg-white/10"
-                  : "text-zinc-500 hover:text-zinc-900 hover:bg-zinc-900/5"
-              }`}
+              className={`lg:hidden p-2 rounded-full transition-colors ${isDark
+                ? "text-zinc-400 hover:text-white hover:bg-white/10"
+                : "text-zinc-500 hover:text-zinc-900 hover:bg-zinc-900/5"
+                }`}
               aria-label="Toggle menu">
               {mobileOpen ? <X size={18} /> : <Menu size={18} />}
             </button>
@@ -156,22 +149,20 @@ export default function HeroSection() {
         {/* Mobile nav dropdown */}
         {mobileOpen && (
           <div
-            className={`lg:hidden border-t mx-4 rounded-b-xl backdrop-blur-xl ${
-              isDark
-                ? "bg-zinc-900/90 border-white/10"
-                : "bg-white/90 border-zinc-200"
-            }`}>
+            className={`lg:hidden border-t mx-4 rounded-b-xl backdrop-blur-xl ${isDark
+              ? "bg-zinc-900/90 border-white/10"
+              : "bg-white/90 border-zinc-200"
+              }`}>
             <div className="flex flex-col px-4 py-3 gap-1">
               {NAV_ITEMS.map(({ label, href }) => (
                 <a
                   key={href}
                   href={href}
                   onClick={() => setMobileOpen(false)}
-                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
-                    isDark
-                      ? "text-zinc-400 hover:text-white hover:bg-white/10"
-                      : "text-zinc-500 hover:text-zinc-900 hover:bg-zinc-900/5"
-                  }`}>
+                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${isDark
+                    ? "text-zinc-400 hover:text-white hover:bg-white/10"
+                    : "text-zinc-500 hover:text-zinc-900 hover:bg-zinc-900/5"
+                    }`}>
                   {label}
                 </a>
               ))}
@@ -213,7 +204,7 @@ export default function HeroSection() {
               variant="outline"
               className="border border-border/60 bg-background/70">
               <a
-              className="flex gap-2"
+                className="flex gap-2"
                 href={href}
                 target={href.startsWith("http") ? "_blank" : undefined}
                 rel={href.startsWith("http") ? "noopener noreferrer" : undefined}>

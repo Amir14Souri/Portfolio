@@ -131,9 +131,9 @@ const CATEGORIES: SkillCategory[] = [
 ];
 
 const SPOKEN_LANGUAGES = {
-  "English": "Fluent",
-  "Persian (Farsi)": "Native",
-  "French": "Intermediate",
+  "Persian": "Native Proficiency",
+  "English": "Professional Working Proficiency",
+  "German": "Elementary Proficiency",
 };
 
 export default function SkillsSection() {
@@ -158,7 +158,7 @@ export default function SkillsSection() {
                   <h3 className="text-lg font-semibold text-foreground">
                     {category.title}
                   </h3>
-                  <span className="border border-blue-500/40 bg-blue-500/10 text-blue-500 flex h-6 w-6 items-center justify-center rounded-full text-xs font-medium">
+                  <span className="border border-cyan-500/40 bg-cyan-500/10 text-cyan-500 flex h-6 w-6 items-center justify-center rounded-full text-xs font-medium">
                     {category.skills.length}
                   </span>
                 </div>
@@ -194,17 +194,17 @@ export default function SkillsSection() {
 
         <div className="mt-14 border-t border-white/20 pt-10 text-center">
           <Badge
-            variant="muted"
-            className="cursor-default mb-5 rounded-full border-border/80 px-4 py-1 text-xs uppercase tracking-[0.35em]">
+            variant="glow"
+            className="cursor-default mb-5 rounded-full border-border/80 px-4 py-1 text-xs uppercase tracking-[0.35em] text-orange/80">
             Spoken Languages
           </Badge>
           <div className="flex flex-wrap justify-center gap-3">
             {Object.entries(SPOKEN_LANGUAGES).map(([language, level]) => (
               <Badge key={language} variant="outline" className="cursor-default rounded-full px-4 py-1 font-medium bg-white/30 dark:bg-black/30">
-                <span className="text-foreground/80">{language}</span>
-                <span className="ml-2 text-[0.85rem] uppercase tracking-[0.4em] text-muted-foreground/70">
-                  {level}
+                <span className="text-[0.85rem] uppercase tracking-[0.4em] text-foreground/80">
+                  {language}
                 </span>
+                <span className="ml-2 text-muted-foreground/70">{level}</span>
               </Badge>
             ))}
           </div>
