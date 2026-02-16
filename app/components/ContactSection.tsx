@@ -1,6 +1,7 @@
 import { Github, Globe, Linkedin, Mail, MapPin, Phone } from "lucide-react";
 
 import SectionHeading from "./SectionHeading";
+import { Card } from "@/components/ui/card";
 
 const CONTACT_LINKS = [
   {
@@ -60,11 +61,12 @@ export default function ContactSection() {
                 : {}
               : {};
             return (
-              <Wrapper
+              <Card
+                variant="active"
                 key={label}
                 {...(href ? { href } : {})}
                 {...externalProps}
-                className="group rounded-2xl border border-border/60 bg-background/70 p-4 transition hover:-translate-y-0.5">
+                className="group p-4">
                 <div className="flex items-center gap-3">
                   <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-cyan-500/10 text-cyan-500">
                     <Icon className="h-4 w-4" />
@@ -78,7 +80,7 @@ export default function ContactSection() {
                     </p>
                   </div>
                 </div>
-              </Wrapper>
+              </Card>
             );
           })}
         </div>

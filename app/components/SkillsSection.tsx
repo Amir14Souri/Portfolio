@@ -148,11 +148,11 @@ export default function SkillsSection() {
           subtitle="A concise readout of the stacks and tools I rely on"
         />
 
-        <div className="mt-8 columns-1 gap-5 md:columns-2 lg:columns-3">
+        <div className="mt-8 columns-1 gap-4 md:columns-2 lg:columns-3">
           {CATEGORIES.map((category) => (
             <Card
               key={category.id}
-              className="mb-5 break-inside-avoid border border-border/60 bg-card/70 shadow-none">
+              className="mb-4 break-inside-avoid">
               <CardContent className="p-6">
                 <div className="flex items-center justify-between gap-3">
                   <h3 className="text-lg font-semibold text-foreground">
@@ -179,7 +179,7 @@ export default function SkillsSection() {
                     return (
                       <span
                         key={skill.name}
-                        className="flex cursor-default items-center gap-2 rounded-full border border-border/70 bg-background/80 px-3 py-1 text-sm text-foreground/90"
+                        className="flex cursor-default items-center gap-2 rounded-full border border-border/80 bg-white/40 dark:bg-black/40 px-3 py-1 text-sm text-foreground/90"
                       >
                         {Icon && <Icon className="min-h-4 min-w-4 max-h-4 max-w-4" style={{ color: skill.color }} />}
                         {skill.name}
@@ -192,10 +192,10 @@ export default function SkillsSection() {
           ))}
         </div>
 
-        <div className="mt-14 border-t border-white/20 pt-10 text-center">
+        <div className="mt-14 border-t border-black/20 dark:border-white/20 pt-10 text-center">
           <Badge
             variant="glow"
-            className="cursor-default mb-5 rounded-full border-border/80 px-4 py-1 text-xs uppercase tracking-[0.35em] text-orange/80">
+            className="cursor-default mb-5 rounded-full border-border/80 px-4 py-1 text-xs uppercase tracking-[0.35em] font-bold">
             Spoken Languages
           </Badge>
           <div className="flex flex-wrap justify-center gap-3">

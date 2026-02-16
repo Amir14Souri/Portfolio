@@ -92,7 +92,7 @@ export default function AcademicServiceSection() {
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {SERVICES.map((s, i) => {
             return (
-              <Card key={i} className="bg-card/90 text-center">
+              <Card variant="active" key={i} className="text-center">
                 <CardContent className="flex flex-col items-center gap-3 p-6">
                   <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-cyan-500/10 p-2 text-cyan-500">
                     <div

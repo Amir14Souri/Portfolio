@@ -15,7 +15,7 @@ export default function AboutSection() {
           title="About Me"
           subtitle="A concise overview of my journey, motivations, and values"
         />
-        <Card className="bg-background/90">
+        <Card>
           <CardContent className="space-y-5 p-8 text-lg leading-relaxed text-muted-foreground">
             <p>
               I&apos;m a Computer Engineering student at Sharif University of Technology,

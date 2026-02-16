@@ -202,7 +202,7 @@ export default function HeroSection() {
               asChild
               size="sm"
               variant="outline"
-              className="border border-border/60 bg-background/70">
+              className="border border-border/60 bg-background/80">
               <a
                 className="flex gap-2"
                 href={href}

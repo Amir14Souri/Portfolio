@@ -35,7 +35,7 @@ export default function EducationSection() {
         <div className="relative">
           <div className="absolute left-6 top-0 hidden h-full w-px bg-gradient-to-b from-emerald-500 to-blue-500 sm:block" />
 
-          <div className="space-y-10">
+          <div className="space-y-6">
             {EDUCATION.map((edu) => (
               <div key={edu.degree} className="relative flex gap-6">
                 <div className="hidden sm:flex w-12 flex-col items-center">
@@ -43,7 +43,7 @@ export default function EducationSection() {
                     <GraduationCap className="h-5 w-5" />
                   </div>
                 </div>
-                <Card className="flex-1 bg-card/95">
+                <Card className="flex-1">
                   <CardContent className="space-y-3 p-6">
                     <div className="flex flex-wrap items-start justify-between gap-3">
                       <div>

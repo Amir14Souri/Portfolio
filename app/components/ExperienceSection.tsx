@@ -156,9 +156,9 @@ export default function ExperienceSection() {
             const Icon = config.icon;
             return (
               <Card
-                key={exp.title}
-                className="border border-border/60 bg-background/85 transition hover:-translate-y-1 hover:border-border/40">
-                <CardContent className="gap-3 p-5">
+                variant="active"
+                key={exp.title}>
+                <CardContent className="gap-4 p-5">
                   <div className="flex flex-wrap items-start justify-between gap-4">
                     <div className="flex items-start gap-4">
                       <div className={`flex h-10 w-10 items-center justify-center rounded-2xl ${config.bg}`}>
@@ -178,7 +178,7 @@ export default function ExperienceSection() {
                       {exp.period}
                     </Badge>
                   </div>
-                  <Separator className="opacity-70" />
+                  <Separator />
                   <ul className="space-y-1.5 text-sm text-muted-foreground md:ps-6">
                     {exp.points.map((point) => (
                       <li key={point} className="flex gap-2">
@@ -194,11 +194,12 @@ export default function ExperienceSection() {
         </div>
 
         <div className="mt-4">
-          <div className="grid gap-x-4 gap-y-3 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {TA_EXPERIENCES.map((ta) => (
-              <div
+              <Card
+                variant="active"
                 key={`${ta.course}-${ta.period}`}
-                className="flex items-start gap-3 rounded-2xl border border-border/60 bg-background/70 p-3 text-left transition hover:-translate-y-0.5">
+                className="flex items-start gap-3 p-3 text-left">
                 <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-cyan-500/10 text-cyan-500">
                   <BookOpen className="h-4 w-4" />
                 </div>
@@ -207,7 +208,7 @@ export default function ExperienceSection() {
                   <p className="text-xs text-muted-foreground">{ta.organization}</p>
                   <p className="text-[11px] font-mono text-muted-foreground/80">{ta.period}</p>
                 </div>
-              </div>
+              </Card>
             ))}
           </div>
         </div>

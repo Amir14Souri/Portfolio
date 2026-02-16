@@ -62,7 +62,7 @@ export default function ResearchInterests() {
           {INTERESTS.map(({ icon: Icon, title, description }) => (
             <div
               key={title}
-              className="rounded-2xl border border-border/60 bg-background/70 p-4 text-left transition hover:-translate-y-0.5 hover:border-border/40">
+              className="rounded-2xl border border-border/60 bg-background/80 p-4 text-left transition hover:-translate-y-0.5 hover:border-border/40">
               <div className="mb-3 inline-flex h-9 w-9 items-center justify-center rounded-xl bg-cyan-500/10 text-cyan-500">
                 <Icon size={18} />
               </div>
