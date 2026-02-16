@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useTheme } from "next-themes";
 import {
   ArrowDown,
-  ChevronDown,
+
   FileText,
   Github,
   Linkedin,
@@ -20,7 +20,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
 import NeuralNetworkBg from "@/app/components/NeuralNetworkBg";
-import { cn } from "@/lib/utils";
+import Avatar from "./Avatar";
 
 const SOCIAL_LINKS = [
   {
@@ -166,19 +166,20 @@ export default function HeroSection() {
 
       <div className="relative z-10 flex w-full max-w-4xl flex-col items-center gap-8 text-center">
         <div className="relative">
-          <div className="relative h-40 w-40 overflow-hidden rounded-full border border-white/20">
+          <div className="absolute -inset-0.5 rounded-full bg-cyan-500 blur-xs" />
+          <div className="relative h-48 w-48 overflow-hidden rounded-full border border-white/20">
             <Image
-              src="/photo.png"
+              src="/photo.jpg"
               alt="Amirhossein Souri"
               fill
-              className="object-cover bg-cyan-500"
+              className="object-cover"
               priority
             />
           </div>
         </div>
 
         <div className="space-y-4">
-          <h1 className="text-4xl font-semibold tracking-tight text-foreground sm:text-5xl md:text-6xl">
+          <h1 className="text-4xl font-semibold tracking-tight text-foreground sm:text-4xl md:text-5xl">
             Amirhossein Souri
           </h1>
           <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground">
