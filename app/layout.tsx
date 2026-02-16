@@ -30,7 +30,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head />
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gradient-to-b from-slate-50 via-blue-50/30 to-slate-50 dark:from-zinc-950 dark:via-zinc-900/40 dark:to-zinc-950 text-zinc-900 dark:text-white transition-colors duration-200`}>
+        className={`${geistSans.variable} ${geistMono.variable} antialiased text-zinc-900 dark:text-white transition-colors duration-200`}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <TooltipProvider>{children}</TooltipProvider>
         </ThemeProvider>

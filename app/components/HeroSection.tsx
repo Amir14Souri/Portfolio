@@ -19,6 +19,8 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
+import NeuralNetworkBg from "@/app/components/NeuralNetworkBg";
+import { cn } from "@/lib/utils";
 
 const SOCIAL_LINKS = [
   {
@@ -78,21 +80,12 @@ export default function HeroSection() {
   return (
     <section
       id="hero"
-      className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-sky-100 dark:bg-slate-950 px-6">
-      <div
-        className={`absolute inset-0 opacity-100 ${isDark
-          ? "bg-[linear-gradient(rgba(255,255,255,0.0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.0.1)_1px,transparent_1px)]"
-          : "bg-[linear-gradient(rgba(59,130,246,0.15)_1px,transparent_1px),linear-gradient(90deg,rgba(59,130,246,0.15)_1px,transparent_1px)]"
-          } bg-[size:60px_60px]`}>
-        <div
-          className={`absolute left-1/2 top-1/2 h-[620px] w-[620px] -translate-x-1/2 -translate-y-1/2 rounded-full blur-[120px] ${isDark ? "bg-blue-500/20" : "bg-emerald-300/15"
-            }`}
-        />
-        <div
-          className={`absolute right-1/4 top-1/4 h-[320px] w-[320px] rounded-full blur-[120px] ${isDark ? "bg-purple-500/15" : "bg-indigo-300/20"
-            }`}
-        />
-      </div>
+      className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden px-6"
+    >
+      <div className="absolute inset-0 bg-zinc-50 dark:bg-zinc-950"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent from-85% to-cyan-500/20"></div>
+      {/* 2D Neural Network animated background */}
+      <NeuralNetworkBg />
 
       {/* ── Hero navbar (transparent overlay) ── */}
       <nav className="absolute top-0 left-0 right-0 z-20">
@@ -173,13 +166,12 @@ export default function HeroSection() {
 
       <div className="relative z-10 flex w-full max-w-4xl flex-col items-center gap-8 text-center">
         <div className="relative">
-          <div className="absolute -inset-1 rounded-full bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 opacity-70 blur-md" />
           <div className="relative h-40 w-40 overflow-hidden rounded-full border border-white/20">
             <Image
-              src="/photo.jpg"
-              alt="Portrait of Amirhossein Souri"
+              src="/photo.png"
+              alt="Amirhossein Souri"
               fill
-              className="object-cover"
+              className="object-cover bg-cyan-500"
               priority
             />
           </div>

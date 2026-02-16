@@ -7,26 +7,33 @@ export default function GlobalBackground() {
   const { resolvedTheme } = useTheme();
   const isDark = resolvedTheme ? resolvedTheme === "dark" : true;
 
+  const getColor = (darkColor: string, lightColor: string) =>
+    isDark ? darkColor : lightColor;
+
   // --- colour helpers (keep it readable) ---
-  const line = isDark ? "stroke-blue-400/[0.30]" : "stroke-blue-400/[0.40]";
-  const line2 = isDark
-    ? "stroke-purple-400/[0.25]"
-    : "stroke-purple-400/[0.35]";
-  const line3 = isDark
-    ? "stroke-indigo-400/[0.22]"
-    : "stroke-indigo-400/[0.30]";
-  const dot = isDark ? "fill-blue-400/[0.38]" : "fill-blue-400/[0.62]";
-  const dot2 = isDark ? "fill-purple-400/[0.30]" : "fill-purple-400/[0.45]";
-  const dot3 = isDark ? "fill-indigo-400/[0.26]" : "fill-indigo-400/[0.40]";
-  const code = isDark ? "fill-zinc-500/[0.26]" : "fill-zinc-400/[0.38]";
-  const amber = isDark ? "fill-amber-400/[0.26]" : "fill-amber-400/[0.38]";
-  const green = isDark ? "fill-emerald-400/[0.25]" : "fill-emerald-400/[0.35]";
-  const xOverlay = isDark
-    ? "bg-[linear-gradient(to_right,transparent_0%,theme(colors.black/60)_35%,theme(colors.black/60)_65%,transparent_100%)]"
-    : "bg-[linear-gradient(to_right,transparent_0%,theme(colors.white/60)_35%,theme(colors.white/60)_65%,transparent_100%)]";
-  const yOverlay = isDark
-    ? "bg-gradient-to-b from-transparent from-30% to-black/60"
-    : "bg-gradient-to-b from-transparent from-30% to-white/60";
+  const line = getColor("stroke-blue-400/[0.30]", "stroke-blue-400/[0.40]");
+  const line2 = getColor(
+    "stroke-purple-400/[0.25]",
+    "stroke-purple-400/[0.35]",
+  );
+  const line3 = getColor(
+    "stroke-indigo-400/[0.22]",
+    "stroke-indigo-400/[0.30]",
+  );
+  const dot = getColor("fill-blue-400/[0.38]", "fill-blue-400/[0.62]");
+  const dot2 = getColor("fill-purple-400/[0.30]", "fill-purple-400/[0.45]");
+  const dot3 = getColor("fill-indigo-400/[0.26]", "fill-indigo-400/[0.40]");
+  const code = getColor("fill-zinc-500/[0.26]", "fill-zinc-400/[0.38]");
+  const amber = getColor("fill-amber-400/[0.26]", "fill-amber-400/[0.38]");
+  const green = getColor("fill-emerald-400/[0.25]", "fill-emerald-400/[0.35]");
+  const xOverlay = getColor(
+    "bg-[linear-gradient(to_right,transparent_0%,theme(colors.black/60)_35%,theme(colors.black/60)_65%,transparent_100%)]",
+    "bg-[linear-gradient(to_right,transparent_0%,theme(colors.white/60)_35%,theme(colors.white/60)_65%,transparent_100%)]",
+  );
+  const yOverlay = getColor(
+    "bg-gradient-to-b from-transparent from-30% to-black/60",
+    "bg-gradient-to-b from-transparent from-30% to-white/60",
+  );
 
   return (
     <div
