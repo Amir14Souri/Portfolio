@@ -20,7 +20,6 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
 import NeuralNetworkBg from "@/app/components/NeuralNetworkBg";
-import Avatar from "./Avatar";
 
 const SOCIAL_LINKS = [
   {
@@ -60,7 +59,6 @@ const NAV_ITEMS = [
   { label: "Projects", href: "#projects" },
   { label: "Experience", href: "#experience" },
   { label: "Education", href: "#education" },
-  { label: "Interests", href: "#research" },
   { label: "Skills", href: "#skills" },
   { label: "Service", href: "#service" },
   { label: "Contact", href: "#contact" },
@@ -83,21 +81,21 @@ export default function HeroSection() {
       className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden px-6"
     >
       <div className="absolute inset-0 bg-zinc-50 dark:bg-zinc-950"></div>
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent from-85% to-cyan-500/20"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent from-85% to-cyan-600/20 dark:to-cyan-500/20"></div>
       {/* 2D Neural Network animated background */}
       <NeuralNetworkBg />
 
       {/* ── Hero navbar (transparent overlay) ── */}
-      <nav className="absolute top-0 left-0 right-0 z-20">
-        <div className="mx-auto max-w-6xl flex items-center justify-between px-6 py-4">
-          <a
-            href="#hero"
-            className={`text-lg font-semibold tracking-tight transition-colors ${isDark
-              ? "text-white hover:text-zinc-300"
-              : "text-zinc-900 hover:text-zinc-600"
+      <nav className="absolute top-0 left-0 right-0 z-20 border-b-1 border-zinc-950/10 dark:border-zinc-50/10">
+        <div className="mx-auto max-w-6xl flex items-center justify-between px-6 py-3">
+            <a
+              href="#hero"
+            className={`tracking-tight transition-colors font-playpen text-2xl font-semibold italic ${isDark
+                ? "text-white hover:text-zinc-300"
+                : "text-zinc-900 hover:text-zinc-600"
               }`}>
-            Portfolio
-          </a>
+              Souri
+            </a>
 
           {/* Desktop nav links */}
           <div className="hidden lg:flex items-center gap-1">
@@ -166,7 +164,7 @@ export default function HeroSection() {
 
       <div className="relative z-10 flex w-full max-w-4xl flex-col items-center gap-8 text-center">
         <div className="relative">
-          <div className="absolute -inset-0.5 rounded-full bg-cyan-500 blur-xs" />
+          <div className="absolute -inset-0.75 rounded-full bg-cyan-700/60 dark:bg-cyan-500/60 blur-xs" />
           <div className="relative h-48 w-48 overflow-hidden rounded-full border border-white/20">
             <Image
               src="/photo.jpg"
@@ -194,8 +192,7 @@ export default function HeroSection() {
               key={label}
               asChild
               size="sm"
-              variant="outline"
-              className="border border-border/60 bg-background/80">
+              variant="outline">
               <a
                 className="flex gap-2"
                 href={href}

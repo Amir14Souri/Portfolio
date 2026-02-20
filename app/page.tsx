@@ -1,7 +1,6 @@
 import Navbar from "./components/Navbar";
 import HeroSection from "./components/HeroSection";
 import AboutSection from "./components/AboutSection";
-import ResearchInterests from "./components/ResearchInterests";
 import EducationSection from "./components/EducationSection";
 import ExperienceSection from "./components/ExperienceSection";
 import AcademicServiceSection from "./components/AcademicServiceSection";

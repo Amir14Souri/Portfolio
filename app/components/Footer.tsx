@@ -2,7 +2,7 @@ import { Heart } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="border-t border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 py-5 px-6 transition-colors">
+    <footer className="border-t border-zinc-200 dark:border-zinc-800 bg-zinc-100 dark:bg-zinc-900 py-5 px-6 transition-colors">
       <div className="mx-auto max-w-5xl flex flex-col items-center gap-2 text-center">
         <p className="flex items-center gap-1.5 text-sm text-zinc-400 dark:text-zinc-600">
           &copy; {new Date().getFullYear()} Amirhossein Souri. All rights reserved.

@@ -9,7 +9,6 @@ const NAV_ITEMS = [
   { label: "Projects", href: "#projects" },
   { label: "Experience", href: "#experience" },
   { label: "Education", href: "#education" },
-  { label: "Interests", href: "#research" },
   { label: "Skills", href: "#skills" },
   { label: "Service", href: "#service" },
   { label: "Contact", href: "#contact" },
@@ -68,8 +67,8 @@ export default function Navbar() {
         <div className="mx-auto max-w-6xl flex items-center justify-between px-6 py-3">
           <a
             href="#hero"
-            className="text-lg font-semibold tracking-tight text-foreground hover:text-muted-foreground transition-colors">
-            Portfolio
+            className="text-2xl font-semibold italic tracking-tight text-foreground hover:text-muted-foreground transition-colors font-playpen">
+            Souri
           </a>
 
           {/* Desktop nav */}

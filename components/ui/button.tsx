@@ -10,11 +10,11 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          "bg-zinc-900 text-white hover:bg-zinc-800 dark:bg-white dark:text-zinc-900 dark:hover:bg-zinc-200",
+          "bg-zinc-900 text-white hover:bg-zinc-700 dark:bg-white dark:text-zinc-900 dark:hover:bg-zinc-300",
         subtle:
           "bg-zinc-900/5 text-zinc-800 hover:bg-zinc-900/10 dark:bg-white/10 dark:text-white dark:hover:bg-white/20",
         outline:
-          "border border-input bg-transparent text-zinc-900 hover:bg-zinc-100 dark:text-white dark:hover:bg-white/15",
+          "border border-border/60 bg-background/80 text-zinc-900 hover:bg-zinc-900/15 dark:text-white dark:hover:bg-white/15",
         ghost:
           "text-zinc-700 hover:bg-zinc-100 dark:text-zinc-300 dark:hover:bg-white/10",
         simple:
