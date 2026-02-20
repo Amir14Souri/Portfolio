@@ -1,24 +1,6 @@
 import { BookOpen, ExternalLink } from "lucide-react";
-import SectionHeading from "./SectionHeading";
-
-const PUBLICATIONS = [
-  {
-    title: "A Novel Approach to [Research Topic]",
-    authors: "Your Name, Co-Author A, Co-Author B",
-    venue: "Proceedings of the International Conference on XYZ (ICXYZ 2025)",
-    year: "2025",
-    link: "https://doi.org/10.xxxx/xxxxx",
-    status: "Published",
-  },
-  {
-    title: "Improving Performance of [Method] Using [Technique]",
-    authors: "Your Name, Advisor Name",
-    venue: "Journal of Computational Science, Vol. XX, No. X",
-    year: "2024",
-    link: "",
-    status: "Under Review",
-  },
-];
+import SectionHeading from "../components/SectionHeading";
+import { PUBLICATIONS } from "@/app/portfolio";
 
 export default function PublicationsSection() {
   return (
@@ -65,11 +47,10 @@ export default function PublicationsSection() {
                     {pub.year}
                   </span>
                   <span
-                    className={`text-xs font-medium px-2 py-0.5 rounded-full ${
-                      pub.status === "Published"
-                        ? "bg-green-100 text-green-700 dark:bg-green-500/10 dark:text-green-400"
-                        : "bg-amber-100 text-amber-700 dark:bg-amber-500/10 dark:text-amber-400"
-                    }`}>
+                    className={`text-xs font-medium px-2 py-0.5 rounded-full ${pub.status === "Published"
+                      ? "bg-green-100 text-green-700 dark:bg-green-500/10 dark:text-green-400"
+                      : "bg-amber-100 text-amber-700 dark:bg-amber-500/10 dark:text-amber-400"
+                      }`}>
                     {pub.status}
                   </span>
                 </div>

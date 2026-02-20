@@ -2,82 +2,8 @@ import { CalendarDays } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
-import SectionHeading from "./SectionHeading";
-
-const SERVICES = [
-  {
-    logo: "/logos/byte.svg",
-    role: "Senior Editor",
-    event: "Byte Publication • CE, SUT",
-    period: "May 2025 - Present",
-  },
-  {
-    logo: "/logos/emeet.svg",
-    role: "Technical & Graphical Design Staff",
-    event: "Emeet • EE, SUT",
-    period: "Aug 2025 - Oct 2025",
-  },
-  {
-    logo: "/logos/hardwar.svg",
-    role: "Vice President & Technical Lead",
-    event: "Hardwar • CE, SUT",
-    period: "Feb 2025 - May 2025",
-  },
-  {
-    logo: "/logos/icpc.svg",
-    role: "Technical Staff",
-    event: "ICPC • CE, SUT",
-    period: "Dec 2024",
-  },
-  {
-    logo: "/logos/codocodile.svg",
-    role: "Executive Staff",
-    event: "CodoCodile • CE, SUT",
-    period: "Nov 2024",
-  },
-  {
-    logo: "/logos/rayan.svg",
-    role: "Social Media Lead",
-    event: "Rayan AI Contest • CE, SUT",
-    period: "Aug 2024 - Oct 2024",
-  },
-  {
-    logo: "/logos/s4.svg",
-    role: "Marketing & Executive Staff",
-    event: "S4 • CE, SUT",
-    period: "May 2024",
-  },
-  {
-    logo: "/logos/wss.svg",
-    role: "Content Lead & Social Media Staff",
-    event: "WSS • CE, SUT",
-    period: "Nov 2023 - Mar 2024",
-  },
-  {
-    logo: "/logos/codocodile.svg",
-    role: "Social Media Staff",
-    event: "CodoCodile • CE, SUT",
-    period: "Sep 2023 - Nov 2023",
-  },
-  {
-    logo: "/logos/icpc.svg",
-    role: "Executive Staff",
-    event: "ICPC • CE, SUT",
-    period: "Apr 2023 - May 2023",
-  },
-  {
-    logo: "/logos/guild.svg",
-    role: "Shora",
-    event: "",
-    period: "",
-  },
-  {
-    logo: "/logos/ssc.svg",
-    role: "SSC",
-    event: "",
-    period: "",
-  },
-];
+import SectionHeading from "../components/SectionHeading";
+import { ACADEMIC_SERVICES } from "@/app/portfolio";
 
 export default function AcademicServiceSection() {
   return (
@@ -90,7 +16,7 @@ export default function AcademicServiceSection() {
           subtitle="Voluntary contributions to the academic community"
         />
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {SERVICES.map((s, i) => {
+          {ACADEMIC_SERVICES.map((s, i) => {
             return (
               <Card variant="active" key={i} className="text-center">
                 <CardContent className="flex flex-col items-center gap-3 p-6">

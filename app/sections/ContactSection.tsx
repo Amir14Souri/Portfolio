@@ -1,46 +1,6 @@
-import { Github, Globe, Linkedin, Mail, MapPin, Phone } from "lucide-react";
-
-import SectionHeading from "./SectionHeading";
+import SectionHeading from "../components/SectionHeading";
 import { Card } from "@/components/ui/card";
-
-const CONTACT_LINKS = [
-  {
-    icon: Mail,
-    label: "Email",
-    value: "your.email@example.com",
-    href: "mailto:your.email@example.com",
-  },
-  {
-    icon: Github,
-    label: "GitHub",
-    value: "github.com/yourusername",
-    href: "https://github.com/yourusername",
-  },
-  {
-    icon: Linkedin,
-    label: "LinkedIn",
-    value: "linkedin.com/in/yourusername",
-    href: "https://linkedin.com/in/yourusername",
-  },
-  {
-    icon: Globe,
-    label: "Website",
-    value: "yourwebsite.com",
-    href: "https://yourwebsite.com",
-  },
-  {
-    icon: Phone,
-    label: "Phone",
-    value: "+1 (234) 567-8900",
-    href: "tel:+12345678900",
-  },
-  {
-    icon: MapPin,
-    label: "Location",
-    value: "City, Country",
-    href: "",
-  },
-];
+import { CONTACT_LINKS } from "@/app/portfolio";
 
 export default function ContactSection() {
   return (
@@ -54,7 +14,6 @@ export default function ContactSection() {
         />
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {CONTACT_LINKS.map(({ icon: Icon, label, value, href }) => {
-            const Wrapper = href ? "a" : "div";
             const externalProps = href
               ? href.startsWith("http")
                 ? { target: "_blank" as const, rel: "noopener noreferrer" }

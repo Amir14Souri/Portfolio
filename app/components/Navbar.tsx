@@ -3,16 +3,7 @@
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 import { Sun, Moon, Menu, X } from "lucide-react";
-
-const NAV_ITEMS = [
-  { label: "About", href: "#about" },
-  { label: "Projects", href: "#projects" },
-  { label: "Experience", href: "#experience" },
-  { label: "Education", href: "#education" },
-  { label: "Skills", href: "#skills" },
-  { label: "Service", href: "#service" },
-  { label: "Contact", href: "#contact" },
-];
+import { NAV_ITEMS, SITE } from "@/app/portfolio";
 
 export default function Navbar() {
   const { theme, setTheme } = useTheme();
@@ -58,17 +49,16 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        visible
-          ? "translate-y-0 opacity-100"
-          : "-translate-y-full opacity-0 pointer-events-none"
-      }`}>
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${visible
+        ? "translate-y-0 opacity-100"
+        : "-translate-y-full opacity-0 pointer-events-none"
+        }`}>
       <div className="bg-white/60 dark:bg-black/60 backdrop-blur-xl border-b border-foreground/20">
         <div className="mx-auto max-w-6xl flex items-center justify-between px-6 py-3">
           <a
             href="#hero"
             className="text-2xl font-semibold italic tracking-tight text-foreground hover:text-muted-foreground transition-colors font-playpen">
-            Souri
+            {SITE.brand}
           </a>
 
           {/* Desktop nav */}
@@ -77,11 +67,10 @@ export default function Navbar() {
               <a
                 key={href}
                 href={href}
-                className={`px-3 py-1.5 rounded-full text-sm font-medium transition-colors ${
-                  activeSection === href.slice(1)
-                    ? "bg-foreground text-background"
-                    : "text-muted-foreground hover:text-foreground"
-                }`}>
+                className={`px-3 py-1.5 rounded-full text-sm font-medium transition-colors ${activeSection === href.slice(1)
+                  ? "bg-foreground text-background"
+                  : "text-muted-foreground hover:text-foreground"
+                  }`}>
                 {label}
               </a>
             ))}
@@ -114,11 +103,10 @@ export default function Navbar() {
                   key={href}
                   href={href}
                   onClick={() => setMobileOpen(false)}
-                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
-                    activeSection === href.slice(1)
-                      ? "bg-foreground text-background"
-                      : "text-muted-foreground hover:text-foreground hover:bg-accent"
-                  }`}>
+                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${activeSection === href.slice(1)
+                    ? "bg-foreground text-background"
+                    : "text-muted-foreground hover:text-foreground hover:bg-accent"
+                    }`}>
                   {label}
                 </a>
               ))}

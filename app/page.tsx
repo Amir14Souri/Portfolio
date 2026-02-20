@@ -1,13 +1,13 @@
 import Navbar from "./components/Navbar";
-import HeroSection from "./components/HeroSection";
-import AboutSection from "./components/AboutSection";
-import EducationSection from "./components/EducationSection";
-import ExperienceSection from "./components/ExperienceSection";
-import AcademicServiceSection from "./components/AcademicServiceSection";
-import ProjectsSection from "./components/ProjectsSection";
-import SkillsSection from "./components/SkillsSection";
+import HeroSection from "./sections/HeroSection";
+import AboutSection from "./sections/AboutSection";
+import EducationSection from "./sections/EducationSection";
+import ExperienceSection from "./sections/ExperienceSection";
+import AcademicServiceSection from "./sections/AcademicServiceSection";
+import ProjectsSection from "./sections/ProjectsSection";
+import SkillsSection from "./sections/SkillsSection";
 // import PublicationsSection from "./components/PublicationsSection";
-import ContactSection from "./components/ContactSection";
+import ContactSection from "./sections/ContactSection";
 import Footer from "./components/Footer";
 import GlobalBackground from "./components/GlobalBackground";
 

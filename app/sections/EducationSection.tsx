@@ -2,27 +2,8 @@ import { GraduationCap } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
-import SectionHeading from "./SectionHeading";
-
-const EDUCATION = [
-  {
-    degree: "B.Sc. in Computer Engineering",
-    institution: "Sharif University of Technology",
-    location: "Tehran Iran",
-    period: "2022 - Present",
-    gpa: "",
-    description:
-      "Started with basics like programming, Focus on AI an ML",
-  },
-  {
-    degree: "Diploma of Mathematics and Physics",
-    institution: "Shahid Beheshti High School",
-    location: "Tehran, Iran",
-    period: "2019 - 2022",
-    gpa: "",
-    description: "",
-  },
-];
+import SectionHeading from "../components/SectionHeading";
+import { EDUCATION } from "@/app/portfolio";
 
 export default function EducationSection() {
   return (
