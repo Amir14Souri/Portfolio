@@ -13,19 +13,17 @@ export default function ContactSection() {
           subtitle="Feel free to reach out for collaborations, questions, or just a friendly hello"
         />
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-          {CONTACT_LINKS.map(({ icon: Icon, label, value, href }) => {
-            const externalProps = href
-              ? href.startsWith("http")
-                ? { target: "_blank" as const, rel: "noopener noreferrer" }
-                : {}
-              : {};
-            return (
+          {CONTACT_LINKS.map(({ icon: Icon, label, value, href }) => (
+            <a
+              key={label}
+              href={href}
+              {...(href?.startsWith("http")
+                ? { target: "_blank", rel: "noopener noreferrer" }
+                : {})}
+              className="cursor-pointer">
               <Card
                 variant="active"
-                key={label}
-                {...(href ? { href } : {})}
-                {...externalProps}
-                className="group p-4">
+                className="group p-4 h-full">
                 <div className="flex items-center gap-3">
                   <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-cyan-500/10 text-cyan-500">
                     <Icon className="h-4 w-4" />
@@ -40,8 +38,8 @@ export default function ContactSection() {
                   </div>
                 </div>
               </Card>
-            );
-          })}
+            </a>
+          ))}
         </div>
       </div>
     </section>

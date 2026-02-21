@@ -233,7 +233,7 @@ export const PROJECTS: Project[] = [
     title: "Portfolio Website",
     description: "A personal portfolio website highlighting my projects, experience, and skills in a clean and responsive design.",
     tags: ["JavaScript", "Next.js"],
-    github: "https://github.com/Amir14Souri/#",
+    github: "https://github.com/Amir14Souri/Portfolio",
     live: "https://amir.souuri.ir",
   },
   {
