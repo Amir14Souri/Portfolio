@@ -180,7 +180,7 @@ const getPositions = (flow: Flow): { headDist: number; tailDist: number } => {
 };
 
 /* ─── Component ─── */
-export default function NeuralNetworkBg() {
+export default function NeuralNetworkBg({ className }: { className?: string }) {
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const { resolvedTheme } = useTheme();
     const isDark = resolvedTheme ? resolvedTheme === "dark" : true;
@@ -404,7 +404,8 @@ export default function NeuralNetworkBg() {
             ref={canvasRef}
             className={cn(
                 "absolute inset-0 h-full w-full",
-                "[mask-image:linear-gradient(to_right,theme(colors.white)_0%,transparent_40%,transparent_60%,theme(colors.white)_100%)]"
+                "[mask-image:linear-gradient(to_right,theme(colors.white)_0%,transparent_40%,transparent_60%,theme(colors.white)_100%)]",
+                className
             )}
             aria-hidden
         />

@@ -9,7 +9,7 @@ export default function SectionHeading({
   subtitle?: string;
 }) {
   return (
-    <div className="mb-12 flex flex-col items-center gap-4 text-center">
+    <div className="mb-12 flex flex-col items-center gap-4 text-center ">
       <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
         {title}
       </h2>

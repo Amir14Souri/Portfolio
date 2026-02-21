@@ -42,7 +42,7 @@ export default function HeroSection() {
       <div className="absolute inset-0 bg-zinc-50 dark:bg-zinc-950"></div>
       <div className="absolute inset-0 bg-gradient-to-b from-transparent from-85% to-cyan-600/20 dark:to-cyan-500/20"></div>
       {/* 2D Neural Network animated background */}
-      <NeuralNetworkBg />
+      <NeuralNetworkBg className="hidden xl:block" />
 
       {/* ── Hero navbar (transparent overlay) ── */}
       <nav className="absolute top-0 left-0 right-0 z-20 border-b-1 border-zinc-950/10 dark:border-zinc-50/10">

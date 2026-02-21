@@ -13,7 +13,7 @@ export default function ProjectsSection() {
       <div className="relative z-10 mx-auto max-w-6xl">
         <SectionHeading
           title="Projects"
-          subtitle="A curated sample of products, infrastructure efforts, and research tooling"
+          subtitle="A set of products, websites, and coursework practical exercises"
         />
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {PROJECTS.map((project) => (

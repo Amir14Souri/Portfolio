@@ -14,7 +14,7 @@ export default function SkillsSection() {
       <div className="mx-auto max-w-6xl">
         <SectionHeading
           title="Skills & Technologies"
-          subtitle="A concise readout of the stacks and tools I rely on"
+          subtitle="A concise readout of the stacks, tools, and skills I rely on"
         />
 
         <div className="mt-8 columns-1 gap-4 md:columns-2 lg:columns-3">
@@ -27,9 +27,9 @@ export default function SkillsSection() {
                   <h3 className="text-lg font-semibold text-foreground">
                     {category.title}
                   </h3>
-                  <span className="border border-cyan-500/40 bg-cyan-500/10 text-cyan-500 flex h-6 w-6 items-center justify-center rounded-full text-xs font-medium">
+                  {(category.count ?? true) && <span className="border border-cyan-500/40 bg-cyan-500/10 text-cyan-500 flex h-6 w-6 items-center justify-center rounded-full text-xs font-medium">
                     {category.skills.length}
-                  </span>
+                  </span>}
                 </div>
                 <div className="mt-4 flex flex-wrap gap-2">
                   {category.skills.map((skillName) => {
@@ -38,7 +38,7 @@ export default function SkillsSection() {
                       return (
                         <span
                           key={skillName}
-                          className="flex cursor-default items-center gap-2 rounded-full border border-border/70 bg-background/80 px-3 py-1 text-sm text-foreground/90"
+                          className="flex items-center gap-2 rounded-full border border-border/80 bg-white/40 dark:bg-black/40 px-3 py-1 text-sm text-foreground/90"
                         >
                           {skillName}
                         </span>
@@ -48,7 +48,7 @@ export default function SkillsSection() {
                     return (
                       <span
                         key={skill.name}
-                        className="flex cursor-default items-center gap-2 rounded-full border border-border/80 bg-white/40 dark:bg-black/40 px-3 py-1 text-sm text-foreground/90"
+                        className="flex items-center gap-2 rounded-full border border-border/80 bg-white/40 dark:bg-black/40 px-3 py-1 text-sm text-foreground/90"
                       >
                         {Icon && <Icon className="min-h-4 min-w-4 max-h-4 max-w-4" style={{ color: skill.color }} />}
                         {skill.name}
@@ -64,12 +64,12 @@ export default function SkillsSection() {
         <div className="mt-14 border-t border-black/20 dark:border-white/20 pt-10 text-center">
           <Badge
             variant="glow"
-            className="cursor-default mb-5 rounded-full border-border/80 px-4 py-1 text-xs uppercase tracking-[0.35em] font-bold">
+            className="mb-5 rounded-full border-border/80 px-4 py-1 text-xs uppercase tracking-[0.35em] font-bold">
             Spoken Languages
           </Badge>
           <div className="flex flex-wrap justify-center gap-3">
             {Object.entries(SPOKEN_LANGUAGES).map(([language, level]) => (
-              <Badge key={language} variant="outline" className="cursor-default rounded-full px-4 py-1 font-medium bg-white/30 dark:bg-black/30">
+              <Badge key={language} variant="outline" className="rounded-full px-4 py-1 font-medium bg-white/30 dark:bg-black/30">
                 <span className="text-[0.85rem] uppercase tracking-[0.4em] text-foreground/80">
                   {language}
                 </span>

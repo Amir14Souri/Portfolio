@@ -54,7 +54,10 @@ import {
   SiTensorflow,
   SiTailwindcss,
   SiTypescript,
+  SiTelegram,
 } from "react-icons/si";
+import { RiTelegram2Line } from "react-icons/ri";
+import { FiGithub, FiLinkedin } from "react-icons/fi";
 
 export type NavItem = {
   label: string;
@@ -87,6 +90,7 @@ export type Education = {
   period: string;
   gpa: string;
   description: string;
+  logo?: string;
 };
 
 export type Publication = {
@@ -130,7 +134,7 @@ export type TAExperience = {
 };
 
 export type ContactLink = {
-  icon: LucideIcon;
+  icon: LucideIcon | IconType;
   label: string;
   value: string;
   href: string;
@@ -140,6 +144,7 @@ export type SkillCategory = {
   id: string;
   title: string;
   skills: string[];
+  count?: boolean;
 };
 
 export type Skill = {
@@ -218,6 +223,27 @@ export const PROJECTS: Project[] = [
     live: "",
   },
   {
+    title: "Hardwar Website",
+    description: "Frontend, backend, and infrastructure of the website of Hardwar event, held on May 2025 at SUT.",
+    tags: ["Python", "Django", "JavaScript", "React", "PostgreSQL", "Docker"],
+    github: "https://github.com/HardWar-Sharif",
+    live: "https://hardwar-sharif.ir",
+  },
+  {
+    title: "Portfolio Website",
+    description: "A personal portfolio website highlighting my projects, experience, and skills in a clean and responsive design.",
+    tags: ["JavaScript", "Next.js"],
+    github: "https://github.com/Amir14Souri/#",
+    live: "https://amir.souuri.ir",
+  },
+  {
+    title: "BugsBuzzy Website",
+    description: "Contributed to backend development of the website of BugsBuzzy event, held on October 2025 at SUT.",
+    tags: ["Python", "Django", "PostgreSQL"],
+    github: "https://github.com/Bugs-Buzzy/BugsBuzzy-Backend",
+    live: "",
+  },
+  {
     title: "Vim (Clone)",
     description:
       "Project of Fundamentals of Programming course, implementing most of the important commands of Vim editor.",
@@ -248,27 +274,6 @@ export const PROJECTS: Project[] = [
     github: "https://github.com/Amir14Souri/Todo-List",
     live: "",
   },
-  {
-    title: "Hardwar Website",
-    description: "",
-    tags: ["Python", "Django", "JavaScript", "React", "PostgreSQL", "Docker"],
-    github: "https://github.com/HardWar-Sharif",
-    live: "https://hardwar-sharif.ir",
-  },
-  {
-    title: "BugsBuzzy Website",
-    description: "",
-    tags: ["Python", "Django", "PostgreSQL"],
-    github: "https://github.com/Amir14Souri/#",
-    live: "https://bugsbuzzy.ir",
-  },
-  {
-    title: "Portfolio Website",
-    description: "",
-    tags: ["JavaScript", "Next.js"],
-    github: "https://github.com/Amir14Souri/#",
-    live: "https://amir.souuri.ir",
-  },
 ];
 
 export const EDUCATION: Education[] = [
@@ -279,6 +284,7 @@ export const EDUCATION: Education[] = [
     period: "2022 - Present",
     gpa: "",
     description: "Started with basics like programming, Focus on AI an ML",
+    logo: "/logos/sut.svg",
   },
   {
     degree: "Diploma of Mathematics and Physics",
@@ -287,6 +293,7 @@ export const EDUCATION: Education[] = [
     period: "2019 - 2022",
     gpa: "",
     description: "",
+    logo: "/logos/sampad.svg",
   },
 ];
 
@@ -393,10 +400,28 @@ export const TA_EXPERIENCES: TAExperience[] = [
 
 export const ACADEMIC_SERVICES: AcademicService[] = [
   {
+    logo: "/logos/ssc.svg",
+    role: "Public Relations Officer",
+    event: "Student's Scientific Chapter • CE, SUT",
+    period: "Jul 2025 - Present",
+  },
+  {
     logo: "/logos/byte.svg",
     role: "Senior Editor",
     event: "Byte Publication • CE, SUT",
     period: "May 2025 - Present",
+  },
+  {
+    logo: "/logos/guild.svg",
+    role: "President of CE Department • University Media Lead",
+    event: "Student's Guild Council • SUT",
+    period: "Jul 2024 - June 2025",
+  },
+  {
+    logo: "/logos/bugsbuzzy.svg",
+    role: "Technical Staff",
+    event: "BugsBuzzy • CE, SUT",
+    period: "Oct 2025",
   },
   {
     logo: "/logos/emeet.svg",
@@ -452,18 +477,6 @@ export const ACADEMIC_SERVICES: AcademicService[] = [
     event: "ICPC • CE, SUT",
     period: "Apr 2023 - May 2023",
   },
-  {
-    logo: "/logos/guild.svg",
-    role: "Shora",
-    event: "",
-    period: "",
-  },
-  {
-    logo: "/logos/ssc.svg",
-    role: "SSC",
-    event: "",
-    period: "",
-  },
 ];
 
 export const PUBLICATIONS: Publication[] = [];
@@ -490,42 +503,48 @@ export const CONTACT_LINKS: ContactLink[] = [
   {
     icon: Mail,
     label: "Email",
-    value: "your.email@example.com",
-    href: "mailto:your.email@example.com",
+    value: "amir@souuri.ir",
+    href: "mailto:amir@souuri.ir",
   },
   {
-    icon: Github,
-    label: "GitHub",
-    value: "github.com/yourusername",
-    href: "https://github.com/yourusername",
-  },
-  {
-    icon: Linkedin,
-    label: "LinkedIn",
-    value: "linkedin.com/in/yourusername",
-    href: "https://linkedin.com/in/yourusername",
+    icon: Mail,
+    label: "Institutional Email",
+    value: "amirhossein.souri01@sharif.edu",
+    href: "mailto:amirhossein.souri01@sharif.edu",
   },
   {
     icon: Globe,
     label: "Website",
-    value: "yourwebsite.com",
-    href: "https://yourwebsite.com",
+    value: "amir.souuri.ir",
+    href: "https://amir.souuri.ir",
   },
   {
-    icon: Phone,
-    label: "Phone",
-    value: "+1 (234) 567-8900",
-    href: "tel:+12345678900",
+    icon: FiLinkedin,
+    label: "LinkedIn",
+    value: "linkedin.com/in/amirhossein-souri",
+    href: "https://linkedin.com/in/amirhossein-souri",
   },
   {
-    icon: MapPin,
-    label: "Location",
-    value: "City, Country",
-    href: "",
+    icon: FiGithub,
+    label: "GitHub",
+    value: "github.com/Amir14Souri",
+    href: "https://github.com/Amir14Souri",
+  },
+  {
+    icon: RiTelegram2Line,
+    label: "Telegram",
+    value: "t.me/Amir14Souri",
+    href: "https://t.me/Amir14Souri",
   },
 ];
 
 export const SKILL_CATEGORIES: SkillCategory[] = [
+  {
+    id: "soft",
+    title: "Soft Skills",
+    skills: ["Accountability", "Critical Thinking", "Collaboration", "Leadership", "Adaptability"],
+    count: false
+  },
   {
     id: "languages",
     title: "Programming Languages",
@@ -558,7 +577,7 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
   },
   {
     id: "others",
-    title: "Others",
+    title: "Other Technical",
     skills: ["Figma", "Markdown", "LaTeX"],
   },
 ];
@@ -566,7 +585,7 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
 export const SPOKEN_LANGUAGES: Record<string, string> = {
   Persian: "Native Proficiency",
   English: "Professional Working Proficiency",
-  German: "Elementary Proficiency",
+  // German: "Elementary Proficiency",
 };
 
 export const getSkillsMap = (isDark: boolean): Record<string, Skill> => ({
