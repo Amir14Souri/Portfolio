@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     "souuri",
     "porfolio",
   ],
-  authors: [{name: "Amirhossein Souri"}],
+  authors: [{ name: "Amirhossein Souri" }],
   creator: "Amirhossein Souri",
   metadataBase: new URL("https://amir.souuri.ir")
 };
@@ -51,7 +51,7 @@ export default function RootLayout({
       <head />
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${playpenSans.variable} antialiased text-zinc-900 dark:text-white transition-colors duration-200`}>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
           <TooltipProvider>{children}</TooltipProvider>
         </ThemeProvider>
       </body>
