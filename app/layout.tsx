@@ -23,9 +23,22 @@ const playpenSans = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Amirhossein Souri — Portfolio",
+  title: "Amirhossein Souri",
   description:
-    "Personal portfolio and resume of Amirhossein Souri — researcher, engineer, and developer.",
+    "Official Portfolio of Amirhossein Souri — projects, skills, and professional experience.",
+  keywords: [
+    "Amirhossein Souri",
+    "امیرحسین صوری",
+    "Souri",
+    "صوری",
+    "Amir Souri",
+    "امیر صوری",
+    "souuri",
+    "porfolio",
+  ],
+  authors: [{name: "Amirhossein Souri"}],
+  creator: "Amirhossein Souri",
+  metadataBase: new URL("https://amir.souuri.ir")
 };
 
 export default function RootLayout({

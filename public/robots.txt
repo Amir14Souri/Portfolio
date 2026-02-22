@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://amir.souuri.ir
+
+# Sitemaps
+Sitemap: https://amir.souuri.ir/sitemap.xml

@@ -14,6 +14,23 @@ import GlobalBackground from "./components/GlobalBackground";
 export default function Home() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Person",
+            name: "Amirhossein Souri",
+            alternateName: "امیرحسین صوری",
+            url: "https://amir.souuri.ir",
+            sameAs: [
+              "https://github.com/Amir14Souri",
+              "https://linkedin.com/in/amirhossein-souri",
+            ],
+          }),
+        }}
+      />
+      
       <GlobalBackground />
       <Navbar />
       <main className="relative z-10">
