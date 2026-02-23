@@ -234,7 +234,7 @@ export const PROJECTS: Project[] = [
     description: "A personal portfolio website highlighting my projects, experience, and skills in a clean and responsive design.",
     tags: ["JavaScript", "Next.js"],
     github: "https://github.com/Amir14Souri/Portfolio",
-    live: "https://amir.souuri.ir",
+    live: "https://souuri.ir",
   },
   {
     title: "BugsBuzzy Website",
@@ -515,8 +515,8 @@ export const CONTACT_LINKS: ContactLink[] = [
   {
     icon: Globe,
     label: "Website",
-    value: "amir.souuri.ir",
-    href: "https://amir.souuri.ir",
+    value: "souuri.ir",
+    href: "https://souuri.ir",
   },
   {
     icon: FiLinkedin,

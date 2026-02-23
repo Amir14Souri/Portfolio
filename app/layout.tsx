@@ -38,7 +38,7 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Amirhossein Souri" }],
   creator: "Amirhossein Souri",
-  metadataBase: new URL("https://amir.souuri.ir")
+  metadataBase: new URL("https://souuri.ir")
 };
 
 export default function RootLayout({

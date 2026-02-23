@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://amir.souuri.ir
+Host: https://souuri.ir
 
 # Sitemaps
-Sitemap: https://amir.souuri.ir/sitemap.xml
+Sitemap: https://souuri.ir/sitemap.xml

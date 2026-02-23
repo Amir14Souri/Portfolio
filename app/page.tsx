@@ -22,7 +22,7 @@ export default function Home() {
             "@type": "Person",
             name: "Amirhossein Souri",
             alternateName: "امیرحسین صوری",
-            url: "https://amir.souuri.ir",
+            url: "https://souuri.ir",
             sameAs: [
               "https://github.com/Amir14Souri",
               "https://linkedin.com/in/amirhossein-souri",
