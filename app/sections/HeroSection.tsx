@@ -163,7 +163,7 @@ export default function HeroSection() {
             </Button>
           ))}
           <Button asChild variant="default" size="sm">
-            <a href={SITE.resumeSrc} download>
+            <a href={SITE.resumeSrc} target="_blank">
               <FileText className="mr-2 h-4 w-4" /> Resume
             </a>
           </Button>
