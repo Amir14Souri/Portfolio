@@ -203,7 +203,7 @@ export const PROJECTS: Project[] = [
     description:
       "Collection of some Machine Learning models, including explanation, formulas, and examples in jupyter notebooks. Both Implementation and Scikit-Learn usage are provided.",
     tags: ["Python", "Jupyter", "Scikit-Learn"],
-    github: "https://github.com/ML-Exercises/",
+    github: "https://github.com/Amir14Souri/ML-Exercises/",
     live: "",
   },
   {
