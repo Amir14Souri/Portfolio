@@ -159,7 +159,7 @@ export const SITE = {
   location: "Tehran, Iran",
   photoSrc: "/photo.jpg",
   resumeSrc: "/resume.pdf",
-  footerLastUpdated: "February 2026",
+  footerLastUpdated: "September 2026",
 } as const;
 
 export const NAV_ITEMS: NavItem[] = [
@@ -199,6 +199,30 @@ export const ABOUT = {
 
 export const PROJECTS: Project[] = [
   {
+    title: "Question-Conditioned Visual Grounding",
+    description:
+      "Trained an attention-based model on CLIP patch and question embeddings to localize answer-relevant image regions and use its effect on downstream VQA tasks on Qwen2.5-VL-3B-Instruct.",
+    tags: ["Python", "PyTorch", "Transformers"],
+    github: "https://github.com/Amir14Souri/VisualReasoning/",
+    live: "",
+  },
+  {
+    title: "DL Practical Assignments",
+    description:
+      "Practical assignments of Deep Learning course, containing 15 implementation-focused notebooks spanning various DL algorithms.",
+    tags: ["Python", "Jupyter", "PyTorch", "PEFT", "FAISS"],
+    github: "https://github.com/Amir14Souri/DL-Exercises/",
+    live: "",
+  },
+  {
+    title: "MIR Project",
+    description:
+      "Project of Modern Information Retrieval course, building two search engines for goodreads and products, using various techniques and retrieval methods.",
+    tags: ["Python", "Jupyter", "PyTorch", "Transformers", "FAISS"],
+    github: "https://github.com/Amir14Souri/MIR-Project/",
+    live: "",
+  },
+  {
     title: "ML Models Collection",
     description:
       "Collection of some Machine Learning models, including explanation, formulas, and examples in jupyter notebooks. Both Implementation and Scikit-Learn usage are provided.",
@@ -207,7 +231,7 @@ export const PROJECTS: Project[] = [
     live: "",
   },
   {
-    title: "AI Practical Exercises",
+    title: "AI Practical Assignments",
     description:
       "Practical assignments of Artificial Intelligence course, containing implementations of various AI algorithms.",
     tags: ["Python", "Jupyter", "NumPy", "PyTorch"],
@@ -359,7 +383,7 @@ export const TA_EXPERIENCES: TAExperience[] = [
   {
     course: "Probabillity and Statistics",
     organization: "SUT • Dr. Amir Najafi",
-    period: "Spring 2024 • Spring 2026",
+    period: "Spring 2024",
   },
   {
     course: "Advanced Programming (Java)",
@@ -553,7 +577,7 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
   {
     id: "ml",
     title: "Machine Learning & GenAI",
-    skills: ["PyTorch", "TensorFlow", "Hugging Face", "Scikit-Learn"],
+    skills: ["PyTorch", "TensorFlow", "Hugging Face", "Scikit-Learn", "Transformers", "Diffusers", "FAISS", "PEFT"],
   },
   {
     id: "data-science",
