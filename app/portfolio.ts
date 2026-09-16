@@ -183,7 +183,7 @@ export const HERO_SOCIAL_LINKS: SocialLink[] = [
 ];
 
 export const HERO_QUICK_FACTS: QuickFact[] = [
-  { label: "Major", value: "B.Sc • Computer Engineering" },
+  { label: "Major", value: "B.Sc • Computer Science and Engineering" },
   { label: "University", value: "Sharif University of Technology" },
   { label: "Focus", value: "AI & ML • Software Development • Research" },
 ];
@@ -192,7 +192,7 @@ export const ABOUT = {
   title: "About Me",
   subtitle: "A concise overview of my journey, motivations, and values",
   paragraphs: [
-    "I'm a Computer Engineering student at Sharif University of Technology, ranked 14th among more than 145,000 participants in Iran's national university entrance exam. Alongside my academic studies, I've worked on collaborative software projects, strengthening my skills in backend systems, infrastructure, and problem-solving.",
+    "I'm a Computer Science and Engineering student at Sharif University of Technology, ranked 14th among more than 145,000 participants in Iran's national university entrance exam. Alongside my academic studies, I've worked on collaborative software projects, strengthening my skills in backend systems, infrastructure, and problem-solving.",
     "I'm particularly interested in Artificial Intelligence, especially areas like machine learning, generative models, and applying AI to real-world systems, and I enjoy exploring new topics and approaches within AI and related fields. I enjoy building practical solutions that bridge theory and application. Beyond academics, I enjoy reading across a range of topics, particularly in science, technology, and self-development. I'm always looking for opportunities to collaborate, learn, and contribute to impactful projects.",
   ],
 } as const;
@@ -302,7 +302,7 @@ export const PROJECTS: Project[] = [
 
 export const EDUCATION: Education[] = [
   {
-    degree: "B.Sc. in Computer Engineering",
+    degree: "B.Sc. in Computer Science and Engineering",
     institution: "Sharif University of Technology",
     location: "Tehran Iran",
     period: "2022 - Present",
