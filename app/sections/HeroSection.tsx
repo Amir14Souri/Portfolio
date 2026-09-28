@@ -14,8 +14,9 @@ import {
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import NeuralNetworkBg from "@/app/components/NeuralNetworkBg";
+import { useMounted } from "@/app/components/useMounted";
 import {
   HERO_QUICK_FACTS,
   HERO_SOCIAL_LINKS,
@@ -25,19 +26,15 @@ import {
 
 export default function HeroSection() {
   const { resolvedTheme, setTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
+  const mounted = useMounted();
   const [mobileOpen, setMobileOpen] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
   const isDark = mounted ? resolvedTheme === "dark" : true;
 
   return (
     <section
       id="hero"
-      className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden px-6"
+      className="relative flex min-h-svh flex-col items-center justify-center overflow-hidden px-6 py-24"
     >
       <div className="absolute inset-0 bg-zinc-50 dark:bg-zinc-950"></div>
       <div className="absolute inset-0 bg-gradient-to-b from-transparent from-85% to-cyan-600/20 dark:to-cyan-500/20"></div>
@@ -75,6 +72,7 @@ export default function HeroSection() {
             {/* Theme toggle */}
             <button
               onClick={() => setTheme(isDark ? "light" : "dark")}
+              type="button"
               className={`p-2 rounded-full transition-colors ${isDark
                 ? "text-zinc-400 hover:text-white hover:bg-white/10"
                 : "text-zinc-500 hover:text-zinc-900 hover:bg-zinc-900/5"
@@ -86,45 +84,48 @@ export default function HeroSection() {
             {/* Mobile menu button */}
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
+              type="button"
               className={`lg:hidden p-2 rounded-full transition-colors ${isDark
                 ? "text-zinc-400 hover:text-white hover:bg-white/10"
                 : "text-zinc-500 hover:text-zinc-900 hover:bg-zinc-900/5"
                 }`}
-              aria-label="Toggle menu">
+              aria-label="Toggle menu"
+              aria-expanded={mobileOpen}
+              aria-controls="hero-mobile-menu">
               {mobileOpen ? <X size={18} /> : <Menu size={18} />}
             </button>
           </div>
         </div>
 
         {/* Mobile nav dropdown */}
-        {mobileOpen && (
-          <div
-            className={`lg:hidden border-t mx-4 rounded-b-xl backdrop-blur-xl ${isDark
+        <div
+          id="hero-mobile-menu"
+          hidden={!mobileOpen}
+          className={`lg:hidden border-t mx-4 rounded-b-xl backdrop-blur-xl ${isDark
               ? "bg-zinc-900/90 border-white/10"
               : "bg-white/90 border-zinc-200"
               }`}>
-            <div className="flex flex-col px-4 py-3 gap-1">
-              {NAV_ITEMS.map(({ label, href }) => (
-                <a
-                  key={href}
-                  href={href}
-                  onClick={() => setMobileOpen(false)}
-                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${isDark
+          <div className="flex flex-col px-4 py-3 gap-1">
+            {NAV_ITEMS.map(({ label, href }) => (
+              <a
+                key={href}
+                href={href}
+                onClick={() => setMobileOpen(false)}
+                className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${isDark
                     ? "text-zinc-400 hover:text-white hover:bg-white/10"
                     : "text-zinc-500 hover:text-zinc-900 hover:bg-zinc-900/5"
-                    }`}>
-                  {label}
-                </a>
-              ))}
-            </div>
+                  }`}>
+                {label}
+              </a>
+            ))}
           </div>
-        )}
+        </div>
       </nav>
 
-      <div className="relative z-10 flex w-full max-w-4xl flex-col items-center gap-8 text-center">
+      <div className="relative z-10 flex w-full max-w-4xl flex-col items-center gap-6 text-center sm:gap-8">
         <div className="relative">
           <div className="absolute -inset-0.75 rounded-full bg-cyan-700/60 dark:bg-cyan-500/60 blur-xs" />
-          <div className="relative h-48 w-48 overflow-hidden rounded-full border border-white/20">
+          <div className="relative h-40 w-40 overflow-hidden rounded-full border border-white/20 sm:h-48 sm:w-48">
             <Image
               src={SITE.photoSrc}
               alt={SITE.fullName}
@@ -139,6 +140,9 @@ export default function HeroSection() {
           <h1 className="text-4xl font-semibold tracking-tight text-foreground sm:text-4xl md:text-5xl">
             {SITE.fullName}
           </h1>
+          <p className="mx-auto max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base">
+            Research assistant studying visual reasoning in vision-language models, with broader interests across machine learning and intelligent systems.
+          </p>
           <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground">
             <MapPin className="h-4 w-4" />
             {SITE.location}
@@ -163,7 +167,7 @@ export default function HeroSection() {
             </Button>
           ))}
           <Button asChild variant="default" size="sm">
-            <a href={SITE.resumeSrc} target="_blank">
+            <a href={SITE.resumeSrc} target="_blank" rel="noopener noreferrer">
               <FileText className="mr-2 h-4 w-4" /> Resume
             </a>
           </Button>
@@ -172,7 +176,7 @@ export default function HeroSection() {
         <div className="flex flex-wrap justify-center gap-3 text-xs text-muted-foreground">
           {HERO_QUICK_FACTS.map(({ label, value }) => (
             <Badge key={label} variant="outline" className="rounded-full px-4 py-1 font-medium bg-white/30 dark:bg-black/30">
-              <span className="text-[0.65rem] uppercase tracking-[0.4em] text-muted-foreground/70">
+              <span className="text-[0.65rem] uppercase tracking-[0.18em] text-muted-foreground/70">
                 {label}
               </span>
               <span className="ml-2 text-foreground/80">{value}</span>
@@ -185,8 +189,8 @@ export default function HeroSection() {
         asChild
         variant="simple"
         size="icon"
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 text-muted-foreground animate-bounce">
-        <a href="#about" className="flex items-center gap-2">
+        className="absolute bottom-6 left-1/2 -translate-x-1/2 text-muted-foreground motion-safe:animate-bounce">
+        <a href="#about" className="flex items-center gap-2" aria-label="Go to About section">
           <ArrowDown className="h-6 w-6" />
         </a>
       </Button>

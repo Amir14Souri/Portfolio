@@ -3,18 +3,12 @@ import type { IconType } from "react-icons";
 import type { LucideIcon } from "lucide-react";
 
 import {
-  Award,
-  BookOpen,
   Briefcase,
   FlaskConical,
   Github,
   Globe,
   Linkedin,
   Mail,
-  MapPin,
-  Phone,
-  Star,
-  Trophy,
 } from "lucide-react";
 
 import {
@@ -40,7 +34,6 @@ import {
   SiHuggingface,
   SiKubernetes,
   SiLatex,
-  SiLinux,
   SiMarkdown,
   SiMysql,
   SiNextdotjs,
@@ -54,7 +47,6 @@ import {
   SiTensorflow,
   SiTailwindcss,
   SiTypescript,
-  SiTelegram,
 } from "react-icons/si";
 import { RiTelegram2Line } from "react-icons/ri";
 import { FiGithub, FiLinkedin } from "react-icons/fi";
@@ -81,6 +73,7 @@ export type Project = {
   tags: string[];
   github: string;
   live: string;
+  featured?: boolean;
 };
 
 export type Education = {
@@ -93,12 +86,9 @@ export type Education = {
   logo?: string;
 };
 
-export type Publication = {
+export type Manuscript = {
   title: string;
-  authors: string;
-  venue: string;
   year: string;
-  link: string;
   status: string;
 };
 
@@ -149,7 +139,7 @@ export type SkillCategory = {
 
 export type Skill = {
   name: string;
-  icon: IconType | ComponentType<any> | null;
+  icon: IconType | ComponentType<{ className?: string }> | null;
   color: string;
 };
 
@@ -166,6 +156,7 @@ export const NAV_ITEMS: NavItem[] = [
   { label: "About", href: "#about" },
   { label: "Projects", href: "#projects" },
   { label: "Experience", href: "#experience" },
+  { label: "Manuscript", href: "#manuscript" },
   { label: "Education", href: "#education" },
   { label: "Skills", href: "#skills" },
   { label: "Service", href: "#service" },
@@ -183,17 +174,16 @@ export const HERO_SOCIAL_LINKS: SocialLink[] = [
 ];
 
 export const HERO_QUICK_FACTS: QuickFact[] = [
-  { label: "Major", value: "B.Sc • Computer Science and Engineering" },
-  { label: "University", value: "Sharif University of Technology" },
-  { label: "Focus", value: "AI & ML • Software Development • Research" },
+  { label: "Research", value: "Visual reasoning • RIML Lab" },
+  { label: "Education", value: "Computer Science and Engineering • Sharif" },
 ];
 
 export const ABOUT = {
   title: "About Me",
-  subtitle: "A concise overview of my journey, motivations, and values",
+  subtitle: "Research and engineering at Sharif University of Technology",
   paragraphs: [
-    "I'm a Computer Science and Engineering student at Sharif University of Technology, ranked 14th among more than 145,000 participants in Iran's national university entrance exam. Alongside my academic studies, I've worked on collaborative software projects, strengthening my skills in backend systems, infrastructure, and problem-solving.",
-    "I'm particularly interested in Artificial Intelligence, especially areas like machine learning, generative models, and applying AI to real-world systems, and I enjoy exploring new topics and approaches within AI and related fields. I enjoy building practical solutions that bridge theory and application. Beyond academics, I enjoy reading across a range of topics, particularly in science, technology, and self-development. I'm always looking for opportunities to collaborate, learn, and contribute to impactful projects.",
+    "I'm a Computer Science and Engineering student at Sharif University of Technology and a research assistant at RIML Lab. I currently study visual reasoning in vision-language models, from question-conditioned visual grounding to evaluating whether model answers respond to visual evidence.",
+    "My interests span machine and deep learning, computer vision and multimodal learning, language and vision-language models, ML systems, generative and trustworthy ML, reinforcement learning, multi-agent systems, and robotics. I also enjoy building software systems; at Hamravesh, I worked across APIs, interfaces, and Kubernetes integration for a cloud application marketplace.",
   ],
 } as const;
 
@@ -201,31 +191,34 @@ export const PROJECTS: Project[] = [
   {
     title: "Question-Conditioned Visual Grounding",
     description:
-      "Trained an attention-based model on CLIP patch and question embeddings to localize answer-relevant image regions and use its effect on downstream VQA tasks on Qwen2.5-VL-3B-Instruct.",
+      "Built question-conditioned grounding with CLIP patch and text features, converted heatmaps to boxes, and evaluated downstream VQA with Qwen2.5-VL-3B-Instruct.",
     tags: ["Python", "PyTorch", "Transformers"],
     github: "https://github.com/Amir14Souri/VisualReasoning/",
     live: "",
+    featured: true,
   },
   {
     title: "DL Practical Assignments",
     description:
-      "Practical assignments of Deep Learning course, containing 15 implementation-focused notebooks spanning various DL algorithms.",
+      "Completed 15 notebooks spanning neural networks, LoRA/QLoRA, RAG, generative models, and self-supervised vision methods.",
     tags: ["Python", "Jupyter", "PyTorch", "PEFT", "FAISS"],
     github: "https://github.com/Amir14Souri/DL-Exercises/",
     live: "",
+    featured: true,
   },
   {
     title: "MIR Project",
     description:
-      "Project of Modern Information Retrieval course, building two search engines for goodreads and products, using various techniques and retrieval methods.",
+      "Built a Goodreads search engine with BM25 and ranking evaluation, plus hybrid multimodal product search with dense and sparse retrieval and reranking.",
     tags: ["Python", "Jupyter", "PyTorch", "Transformers", "FAISS"],
     github: "https://github.com/Amir14Souri/MIR-Project/",
     live: "",
+    featured: true,
   },
   {
     title: "ML Models Collection",
     description:
-      "Collection of some Machine Learning models, including explanation, formulas, and examples in jupyter notebooks. Both Implementation and Scikit-Learn usage are provided.",
+      "Implemented and explained supervised and unsupervised learning methods, with scikit-learn baselines for comparison.",
     tags: ["Python", "Jupyter", "Scikit-Learn"],
     github: "https://github.com/Amir14Souri/ML-Exercises/",
     live: "",
@@ -233,30 +226,32 @@ export const PROJECTS: Project[] = [
   {
     title: "AI Practical Assignments",
     description:
-      "Practical assignments of Artificial Intelligence course, containing implementations of various AI algorithms.",
+      "Implemented search, constraint satisfaction, Bayesian inference, HMMs, and reinforcement learning algorithms for AI coursework.",
     tags: ["Python", "Jupyter", "NumPy", "PyTorch"],
     github: "https://github.com/Amir14Souri/AI-Exercises",
     live: "",
   },
   {
-    title: "AI Security Exercises",
+    title: "Machine Unlearning and Robustness Exercises",
     description:
-      "Practical tasks completed for research project applications at the RIML lab, containing basic attacks to unlearned models.",
+      "Implemented class unlearning in a conditional VAE using Fisher information and evaluated recovery attacks.",
     tags: ["Python", "Jupyter", "PyTorch"],
     github: "https://github.com/Amir14Souri/LabTask",
     live: "",
+    featured: true,
   },
   {
     title: "Hardwar Website",
-    description: "Frontend, backend, and infrastructure of the website of Hardwar event, held on May 2025 at SUT.",
+    description: "Built frontend, backend, and infrastructure for the Hardwar event website at Sharif University of Technology.",
     tags: ["Python", "Django", "JavaScript", "React", "PostgreSQL", "Docker"],
     github: "https://github.com/HardWar-Sharif",
     live: "https://hardwar-sharif.ir",
+    featured: true,
   },
   {
     title: "Portfolio Website",
     description: "A personal portfolio website highlighting my projects, experience, and skills in a clean and responsive design.",
-    tags: ["JavaScript", "Next.js"],
+    tags: ["TypeScript", "Next.js"],
     github: "https://github.com/Amir14Souri/Portfolio",
     live: "https://souuri.ir",
   },
@@ -266,6 +261,7 @@ export const PROJECTS: Project[] = [
     tags: ["Python", "Django", "PostgreSQL"],
     github: "https://github.com/Bugs-Buzzy/BugsBuzzy-Backend",
     live: "",
+    featured: true,
   },
   {
     title: "Vim (Clone)",
@@ -304,10 +300,10 @@ export const EDUCATION: Education[] = [
   {
     degree: "B.Sc. in Computer Science and Engineering",
     institution: "Sharif University of Technology",
-    location: "Tehran Iran",
-    period: "2022 - Present",
-    gpa: "",
-    description: "Started with basics like programming, Focus on AI an ML",
+    location: "Tehran, Iran",
+    period: "2022 – Expected June 2027",
+    gpa: "18.99/20",
+    description: "Ranked 14th among 145,000+ participants in Iran's National University Entrance Examination.",
     logo: "/logos/sut.svg",
   },
   {
@@ -316,7 +312,7 @@ export const EDUCATION: Education[] = [
     location: "Tehran, Iran",
     period: "2019 - 2022",
     gpa: "",
-    description: "",
+    description: "National Organization for Development of Exceptional Talents (NODET).",
     logo: "/logos/sampad.svg",
   },
 ];
@@ -343,23 +339,32 @@ export const EXPERIENCES: Experience[] = [
   {
     category: "research",
     title: "Research Assistant",
-    organization: "RIML Lab, Sharif University of Technology",
-    period: "Dec 2025 - Present",
+    organization: "RIML Lab, Sharif University of Technology · Visual Reasoning",
+    period: "Jul 2026 – Present",
     points: [
-      "Robust and Interpretable Machine Learning (PI: Dr.Rohban)",
-      "Conducted research on machine unlearning and attacking methods",
-      "Worked on unlearning methods for Text-to-Image diffusion models",
+      "PI: Dr. Mohammad Hossein Rohban.",
+      "Developed an initial question-conditioned visual-grounding study with CLIP features, heatmap-to-box conversion, and downstream evaluation with Qwen2.5-VL-3B-Instruct.",
+      "Investigating training and evaluation methods for evidence-sensitive reasoning in vision-language models.",
+    ],
+  },
+  {
+    category: "research",
+    title: "Research Assistant",
+    organization: "RIML Lab, Sharif University of Technology · Diffusion Model Unlearning",
+    period: "Dec 2025 – Mar 2026",
+    points: [
+      "PI: Dr. Mohammad Hossein Rohban.",
+      "Investigated noise-robust concept unlearning for text-to-image diffusion models under adversarial and distributional variation.",
+      "Contributed to adaptive noise sampling and experimental evaluation.",
     ],
   },
   {
     category: "technical",
     title: "Software Engineer",
     organization: "Hamravesh",
-    period: "Oct 2024 - Sep 2025",
+    period: "Oct 2024 – Sep 2025",
     points: [
-      "Hamravesh: Managed Kubernetes platform serving business clients and customers",
-      "Developed and deployed a microservice, including backend APIs, frontend UI, and Kubernetes deployment",
-      "Microservice considered as a marketplace for the oneclick services, deployed on the company's infrastructure",
+      "Developed and deployed a marketplace service for one-click cloud applications across backend APIs, frontend interfaces, and Kubernetes integration.",
     ],
   },
 ];
@@ -381,7 +386,7 @@ export const TA_EXPERIENCES: TAExperience[] = [
     period: "Spring 2025",
   },
   {
-    course: "Probabillity and Statistics",
+    course: "Probability and Statistics",
     organization: "SUT • Dr. Amir Najafi",
     period: "Spring 2024",
   },
@@ -503,25 +508,13 @@ export const ACADEMIC_SERVICES: AcademicService[] = [
   },
 ];
 
-export const PUBLICATIONS: Publication[] = [];
-// export const PUBLICATIONS: Publication[] = [
-//   {
-//     title: "A Novel Approach to [Research Topic]",
-//     authors: "Your Name, Co-Author A, Co-Author B",
-//     venue: "Proceedings of the International Conference on XYZ (ICXYZ 2025)",
-//     year: "2025",
-//     link: "https://doi.org/10.xxxx/xxxxx",
-//     status: "Published",
-//   },
-//   {
-//     title: "Improving Performance of [Method] Using [Technique]",
-//     authors: "Your Name, Advisor Name",
-//     venue: "Journal of Computational Science, Vol. XX, No. X",
-//     year: "2024",
-//     link: "",
-//     status: "Under Review",
-//   },
-// ];
+export const MANUSCRIPTS: Manuscript[] = [
+  {
+    title: "Weeding Out Bad Seeds: Noise-Robust Unlearning for Text-to-Image Diffusion Models",
+    year: "2026",
+    status: "Under review at ICLR 2027",
+  },
+];
 
 export const CONTACT_LINKS: ContactLink[] = [
   {
@@ -577,17 +570,17 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
   {
     id: "ml",
     title: "Machine Learning & GenAI",
-    skills: ["PyTorch", "TensorFlow", "Hugging Face", "Scikit-Learn", "Transformers", "Diffusers", "FAISS", "PEFT"],
+    skills: ["PyTorch", "TensorFlow", "Hugging Face", "Scikit-Learn", "Transformers", "Diffusers", "FAISS", "PEFT", "TRL", "Accelerate", "SentenceTransformers"],
   },
   {
     id: "data-science",
     title: "Data Science",
-    skills: ["NumPy", "Pandas", "Matplotlib"],
+    skills: ["NumPy", "Pandas", "Matplotlib", "OpenCV", "Hugging Face Datasets", "Jupyter"],
   },
   {
     id: "back",
     title: "Backend Development",
-    skills: ["Django", "Flask", "Gunicorn", "Nginx", "PostgreSQL"],
+    skills: ["Django", "Django REST Framework", "Flask", "Gunicorn", "Nginx", "PostgreSQL"],
   },
   {
     id: "front",
@@ -597,7 +590,7 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
   {
     id: "infra",
     title: "DevOps & Infrastructure",
-    skills: ["Linux", "Git", "GitHub", "GitLab", "Docker", "Kubernetes", "Postman"],
+    skills: ["Linux", "Git", "GitHub", "GitLab", "Docker", "Kubernetes", "vLLM", "Postman"],
   },
   {
     id: "others",
@@ -612,7 +605,7 @@ export const SPOKEN_LANGUAGES: Record<string, string> = {
   // German: "Elementary Proficiency",
 };
 
-export const getSkillsMap = (isDark: boolean): Record<string, Skill> => ({
+export const getSkillsMap = (): Record<string, Skill> => ({
   Python: { name: "Python", icon: DiPython, color: "#3776AB" },
   TypeScript: { name: "TypeScript", icon: SiTypescript, color: "#3178C6" },
   JavaScript: { name: "JavaScript", icon: DiJavascript1, color: "#F7DF1E" },
@@ -625,7 +618,7 @@ export const getSkillsMap = (isDark: boolean): Record<string, Skill> => ({
   "Next.js": {
     name: "Next.js",
     icon: SiNextdotjs,
-    color: isDark ? "#ffffff" : "#000000",
+    color: "currentColor",
   },
   PyTorch: { name: "PyTorch", icon: SiPytorch, color: "#EE4C2C" },
   TensorFlow: { name: "TensorFlow", icon: SiTensorflow, color: "#FF6F00" },
@@ -642,18 +635,18 @@ export const getSkillsMap = (isDark: boolean): Record<string, Skill> => ({
   GitHub: {
     name: "GitHub",
     icon: DiGithubBadge,
-    color: isDark ? "#e7e8e8" : "#181717",
+    color: "currentColor",
   },
   Figma: { name: "Figma", icon: SiFigma, color: "#F24E1E" },
   Linux: { name: "Linux", icon: DiLinux, color: "#FCC624" },
   Postman: { name: "Postman", icon: SiPostman, color: "#FF6C37" },
   Django: { name: "Django", icon: SiDjango, color: "#092E20" },
-  Flask: { name: "Flask", icon: SiFlask, color: isDark ? "#ffffff" : "#000000" },
+  Flask: { name: "Flask", icon: SiFlask, color: "currentColor" },
   Gunicorn: { name: "Gunicorn", icon: SiGunicorn, color: "#499848" },
   Nginx: { name: "Nginx", icon: SiNginx, color: "#269539" },
   "Ant Design": { name: "Ant Design", icon: SiAntdesign, color: "#0170FE" },
   Zustand: { name: "Zustand", icon: null, color: "#000000" },
   GitLab: { name: "GitLab", icon: SiGitlab, color: "#FCA121" },
-  Markdown: { name: "Markdown", icon: SiMarkdown, color: isDark ? "#ffffff" : "#000000" },
+  Markdown: { name: "Markdown", icon: SiMarkdown, color: "currentColor" },
   LaTeX: { name: "LaTeX", icon: SiLatex, color: "#008080" },
 });

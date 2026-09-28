@@ -6,7 +6,7 @@ import ExperienceSection from "./sections/ExperienceSection";
 import AcademicServiceSection from "./sections/AcademicServiceSection";
 import ProjectsSection from "./sections/ProjectsSection";
 import SkillsSection from "./sections/SkillsSection";
-// import PublicationsSection from "./components/PublicationsSection";
+import ManuscriptSection from "./sections/ManuscriptSection";
 import ContactSection from "./sections/ContactSection";
 import Footer from "./components/Footer";
 import GlobalBackground from "./components/GlobalBackground";
@@ -38,7 +38,7 @@ export default function Home() {
         <AboutSection />
         <ProjectsSection />
         <ExperienceSection />
-        {/* <PublicationsSection /> */}
+        <ManuscriptSection />
         <EducationSection />
         <SkillsSection />
         <AcademicServiceSection />

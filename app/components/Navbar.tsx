@@ -4,17 +4,14 @@ import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 import { Sun, Moon, Menu, X } from "lucide-react";
 import { NAV_ITEMS, SITE } from "@/app/portfolio";
+import { useMounted } from "./useMounted";
 
 export default function Navbar() {
-  const { theme, setTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
+  const { resolvedTheme, setTheme } = useTheme();
+  const mounted = useMounted();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [visible, setVisible] = useState(false);
   const [activeSection, setActiveSection] = useState("");
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
   useEffect(() => {
     const onScroll = () => {
@@ -78,41 +75,43 @@ export default function Navbar() {
 
           <div className="flex items-center gap-2">
             <button
-              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+              onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
+              type="button"
               className="p-2 rounded-full text-muted-foreground hover:bg-accent transition-colors"
               aria-label="Toggle theme">
-              {theme === "light" ? <Moon size={18} /> : <Sun size={18} />}
+              {resolvedTheme === "light" ? <Moon size={18} /> : <Sun size={18} />}
             </button>
 
             {/* Mobile menu button */}
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
+              type="button"
               className="lg:hidden p-2 rounded-full text-muted-foreground hover:bg-accent transition-colors"
-              aria-label="Toggle menu">
+              aria-label="Toggle menu"
+              aria-expanded={mobileOpen}
+              aria-controls="sticky-mobile-menu">
               {mobileOpen ? <X size={18} /> : <Menu size={18} />}
             </button>
           </div>
         </div>
 
         {/* Mobile nav */}
-        {mobileOpen && (
-          <div className="lg:hidden border-t border-border bg-background/95 backdrop-blur-xl">
-            <div className="flex flex-col px-6 py-4 gap-1">
-              {NAV_ITEMS.map(({ label, href }) => (
-                <a
-                  key={href}
-                  href={href}
-                  onClick={() => setMobileOpen(false)}
-                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${activeSection === href.slice(1)
+        <div id="sticky-mobile-menu" hidden={!mobileOpen} className="lg:hidden border-t border-border bg-background/95 backdrop-blur-xl">
+          <div className="flex flex-col px-6 py-4 gap-1">
+            {NAV_ITEMS.map(({ label, href }) => (
+              <a
+                key={href}
+                href={href}
+                onClick={() => setMobileOpen(false)}
+                className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${activeSection === href.slice(1)
                     ? "bg-foreground text-background"
                     : "text-muted-foreground hover:text-foreground hover:bg-accent"
-                    }`}>
-                  {label}
-                </a>
-              ))}
-            </div>
+                  }`}>
+                {label}
+              </a>
+            ))}
           </div>
-        )}
+        </div>
       </div>
     </nav>
   );

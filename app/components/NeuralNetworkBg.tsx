@@ -3,6 +3,7 @@
 import { useEffect, useRef, useCallback } from "react";
 import { useTheme } from "next-themes";
 import { cn } from "@/lib/utils";
+import { useReducedMotion } from "./useReducedMotion";
 
 /* ─── Types ─── */
 interface PathPoint { x: number; y: number; d: number }
@@ -183,6 +184,7 @@ const getPositions = (flow: Flow): { headDist: number; tailDist: number } => {
 export default function NeuralNetworkBg({ className }: { className?: string }) {
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const { resolvedTheme } = useTheme();
+    const reducedMotion = useReducedMotion();
     const isDark = resolvedTheme ? resolvedTheme === "dark" : true;
 
     const animRef = useRef(0);
@@ -242,14 +244,14 @@ export default function NeuralNetworkBg({ className }: { className?: string }) {
     }, []);
 
     /* — animation loop — */
-    const animate = useCallback(() => {
+    const animate = useCallback(function tick() {
         const canvas = canvasRef.current;
         if (!canvas) return;
         const ctx = canvas.getContext("2d");
         if (!ctx) return;
 
         const { w, h } = sizeRef.current;
-        if (w === 0) { animRef.current = requestAnimationFrame(animate); return; }
+        if (w === 0) { animRef.current = requestAnimationFrame(tick); return; }
         const dark = isDarkRef.current;
 
         ctx.clearRect(0, 0, w, h);
@@ -291,8 +293,8 @@ export default function NeuralNetworkBg({ className }: { className?: string }) {
         ctx.lineJoin = "round";
         const alive: Flow[] = [];
 
-        for (const fl of flowsRef.current) {
-            fl.frame++;
+        for (const currentFlow of flowsRef.current) {
+            const fl = { ...currentFlow, frame: currentFlow.frame + 1 };
             const { headDist, tailDist } = getPositions(fl);
 
             // Flow is done when both head and tail are at the last node
@@ -363,20 +365,25 @@ export default function NeuralNetworkBg({ className }: { className?: string }) {
             }
         }
 
-        animRef.current = requestAnimationFrame(animate);
+        animRef.current = requestAnimationFrame(tick);
     }, []);
 
     /* — spawn — */
     useEffect(() => {
-        for (let i = 0; i < 2; i++) setTimeout(() => spawnFlow(), i * 1800);
+        if (reducedMotion) return;
+        const timeouts = [0, 1800].map((delay) => setTimeout(spawnFlow, delay));
         const iv = setInterval(() => {
             if (flowsRef.current.length < 4) spawnFlow();
         }, 2000);
-        return () => clearInterval(iv);
-    }, [spawnFlow]);
+        return () => {
+            timeouts.forEach(clearTimeout);
+            clearInterval(iv);
+        };
+    }, [spawnFlow, reducedMotion]);
 
     /* — canvas sizing — */
     useEffect(() => {
+        if (reducedMotion) return;
         const canvas = canvasRef.current;
         if (!canvas) return;
         const resize = () => {
@@ -397,13 +404,13 @@ export default function NeuralNetworkBg({ className }: { className?: string }) {
             window.removeEventListener("resize", resize);
             cancelAnimationFrame(animRef.current);
         };
-    }, [animate]);
+    }, [animate, reducedMotion]);
 
     return (
         <canvas
             ref={canvasRef}
             className={cn(
-                "absolute inset-0 h-full w-full",
+                "absolute inset-0 h-full w-full motion-reduce:hidden",
                 "[mask-image:linear-gradient(to_right,theme(colors.white)_0%,transparent_40%,transparent_60%,theme(colors.white)_100%)]",
                 className
             )}

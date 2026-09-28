@@ -1,13 +1,10 @@
-"use client";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import SectionHeading from "../components/SectionHeading";
-import { useTheme } from "next-themes";
 import { getSkillsMap, SKILL_CATEGORIES, SPOKEN_LANGUAGES } from "@/app/portfolio";
 
 export default function SkillsSection() {
-  const { resolvedTheme } = useTheme();
-  const isDark = resolvedTheme ? resolvedTheme === "dark" : true;
+  const skillsMap = getSkillsMap();
 
   return (
     <section id="skills" className="py-24 px-6">
@@ -33,7 +30,7 @@ export default function SkillsSection() {
                 </div>
                 <div className="mt-4 flex flex-wrap gap-2">
                   {category.skills.map((skillName) => {
-                    const skill = getSkillsMap(isDark)[skillName];
+                    const skill = skillsMap[skillName];
                     if (!skill) {
                       return (
                         <span

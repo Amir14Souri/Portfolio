@@ -25,7 +25,7 @@ const playpenSans = localFont({
 export const metadata: Metadata = {
   title: "Amirhossein Souri",
   description:
-    "Official Portfolio of Amirhossein Souri — projects, skills, and professional experience.",
+    "Amirhossein Souri is a computer science and engineering student and research assistant at Sharif University of Technology, working on visual reasoning and machine learning.",
   keywords: [
     "Amirhossein Souri",
     "امیرحسین صوری",
@@ -34,11 +34,18 @@ export const metadata: Metadata = {
     "Amir Souri",
     "امیر صوری",
     "souuri",
-    "porfolio",
+    "portfolio",
   ],
   authors: [{ name: "Amirhossein Souri" }],
   creator: "Amirhossein Souri",
-  metadataBase: new URL("https://souuri.ir")
+  metadataBase: new URL("https://souuri.ir"),
+  alternates: { canonical: "/" },
+  openGraph: {
+    title: "Amirhossein Souri",
+    description: "Research and software projects in machine learning, visual reasoning, and engineering.",
+    url: "https://souuri.ir",
+    type: "website",
+  },
 };
 
 export default function RootLayout({

@@ -30,7 +30,7 @@ export default function ExperienceSection() {
           ))}
           <Badge variant="outline" className="gap-2 rounded-2xl px-4 py-2 text-xs font-medium">
             <BookOpen className="h-4 w-4 text-cyan-500" />
-            Teaching Assistance
+            Teaching Assistantships
           </Badge>
         </div>
 
@@ -41,7 +41,7 @@ export default function ExperienceSection() {
             return (
               <Card
                 variant="active"
-                key={exp.title}>
+                key={`${exp.organization}-${exp.period}`}>
                 <CardContent className="gap-4 p-5">
                   <div className="flex flex-wrap items-start justify-between gap-4">
                     <div className="flex items-start gap-4">
