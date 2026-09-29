@@ -4,14 +4,14 @@ import * as React from "react"
 import { cn } from "@/lib/utils"
 
 const cardVariants = cva(
-  "rounded-3xl border text-card-foreground backdrop-blur-sm",
+  "lab-card border text-card-foreground",
   {
     variants: {
       variant: {
         default:
-          "border-border/80 bg-background/60",
+          "bg-card",
         active:
-          "border-border/80 hover:border-border bg-background/60 hover:bg-background hover:-translate-y-0.75 transition",
+          "bg-card hover:border-primary/45 transition-colors",
       },
     },
     defaultVariants: {

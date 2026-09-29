@@ -14,27 +14,27 @@ export default function ExperienceSection() {
   return (
     <section
       id="experience"
-      className="relative overflow-hidden py-24 px-6">
+      className="lab-section relative px-6 py-24">
       <div className="mx-auto max-w-6xl relative z-10">
         <SectionHeading
           title="Experience"
           subtitle="Technical, research, and teaching experiences"
         />
 
-        <div className="mb-12 flex flex-wrap justify-center gap-4">
+        <div className="mb-8 flex flex-wrap justify-start gap-4">
           {Object.entries(EXPERIENCE_CATEGORY_CONFIG).map(([key, { label, icon: Icon, color }]) => (
-            <Badge key={key} variant="outline" className="gap-2 rounded-2xl px-4 py-2 text-xs font-medium">
+            <Badge key={key} variant="outline" className="gap-2 rounded-md px-4 py-2 text-xs font-medium">
               <Icon className={`h-4 w-4 ${color}`} />
               {label}
             </Badge>
           ))}
-          <Badge variant="outline" className="gap-2 rounded-2xl px-4 py-2 text-xs font-medium">
+          <Badge variant="outline" className="gap-2 rounded-md px-4 py-2 text-xs font-medium">
             <BookOpen className="h-4 w-4 text-cyan-500" />
             Teaching Assistantships
           </Badge>
         </div>
 
-        <div className="space-y-4">
+        <div className="lab-experience-list space-y-4">
           {EXPERIENCES.map((exp) => {
             const config = EXPERIENCE_CATEGORY_CONFIG[exp.category];
             const Icon = config.icon;
@@ -42,10 +42,10 @@ export default function ExperienceSection() {
               <Card
                 variant="active"
                 key={`${exp.organization}-${exp.period}`}>
-                <CardContent className="gap-4 p-5">
+                <CardContent className="gap-5 p-7">
                   <div className="flex flex-wrap items-start justify-between gap-4">
                     <div className="flex items-start gap-4">
-                      <div className={`flex h-10 w-10 items-center justify-center rounded-2xl ${config.bg}`}>
+                      <div className={`flex h-10 w-10 items-center justify-center rounded-md ${config.bg}`}>
                         <Icon className={`h-4 w-4 ${config.color}`} />
                       </div>
                       <div>

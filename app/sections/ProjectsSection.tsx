@@ -18,7 +18,7 @@ export default function ProjectsSection() {
     <Card
       variant="active"
       key={project.title}
-      className="group h-full border transition">
+      className="lab-project group h-full border transition">
       <CardContent className="flex h-full flex-col gap-4 p-5">
         <div className="flex items-start justify-between gap-3">
           <div className="space-y-2 text-left">
@@ -33,7 +33,7 @@ export default function ProjectsSection() {
         </div>
         <div className="flex flex-wrap gap-2">
           {project.tags.map((tag) => (
-            <Badge key={tag} variant="outline" className="rounded-full border-dashed px-3 py-0.5 text-[11px] font-medium">
+            <Badge key={tag} variant="outline" className="rounded-sm px-3 py-0.5 text-[11px] font-medium">
               {tag}
             </Badge>
           ))}
@@ -67,20 +67,20 @@ export default function ProjectsSection() {
   return (
     <section
       id="projects"
-      className="relative overflow-hidden py-24 px-6">
+      className="lab-section relative px-6 py-24">
       <div className="relative z-10 mx-auto max-w-6xl">
         <SectionHeading
           title="Projects"
           subtitle="Selected research, software, and coursework projects"
         />
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="lab-project-grid grid gap-5 md:grid-cols-2">
           {featuredProjects.map(renderProject)}
           {showAll && otherProjects.map(renderProject)}
         </div>
         <Button
           type="button"
           variant="outline"
-          className="mx-auto mt-8 flex gap-2 rounded-full"
+          className="mt-8 flex gap-2"
           aria-expanded={showAll}
           onClick={() => setShowAll((current) => !current)}>
           {showAll ? <ChevronUp className="h-4 w-4" aria-hidden="true" /> : <ChevronDown className="h-4 w-4" aria-hidden="true" />}

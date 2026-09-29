@@ -57,7 +57,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head />
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${playpenSans.variable} antialiased text-zinc-900 dark:text-white transition-colors duration-200`}>
+        className={`${geistSans.variable} ${geistMono.variable} ${playpenSans.variable} antialiased transition-colors duration-200`}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
           <TooltipProvider>{children}</TooltipProvider>
         </ThemeProvider>

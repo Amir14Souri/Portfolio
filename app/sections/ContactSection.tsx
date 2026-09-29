@@ -6,7 +6,7 @@ export default function ContactSection() {
   return (
     <section
       id="contact"
-      className="relative overflow-hidden py-24 px-6">
+      className="lab-section relative px-6 py-24">
       <div className="mx-auto max-w-6xl relative z-10">
         <SectionHeading
           title="Get in Touch"
@@ -23,13 +23,13 @@ export default function ContactSection() {
               className="cursor-pointer">
               <Card
                 variant="active"
-                className="group p-4 h-full">
+                className="lab-contact group p-5 h-full">
                 <div className="flex items-center gap-3">
                   <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-cyan-500/10 text-cyan-500">
                     <Icon className="h-4 w-4" />
                   </div>
                   <div className="min-w-0">
-                    <p className="text-[11px] font-semibold uppercase tracking-[0.35em] text-muted-foreground">
+                    <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">
                       {label}
                     </p>
                     <p className="truncate text-sm font-medium text-foreground">

@@ -7,8 +7,8 @@ import { MANUSCRIPTS } from "@/app/portfolio";
 
 export default function ManuscriptSection() {
   return (
-    <section id="manuscript" className="relative px-6 py-24">
-      <div className="mx-auto max-w-4xl">
+    <section id="manuscript" className="lab-section relative px-6 py-24">
+      <div className="mx-auto max-w-6xl">
         <SectionHeading
           title="Manuscript"
           subtitle="Research currently under review"
@@ -18,9 +18,9 @@ export default function ManuscriptSection() {
             <Card
               variant="active"
               key={manuscript.title}
-              className="border transition">
+              className="lab-manuscript border transition">
               <CardContent className="flex-row items-start gap-4 p-5">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-purple-500/10 text-purple-600 dark:text-purple-400">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-primary/10 text-primary">
                   <BookOpen size={18} aria-hidden="true" />
                 </div>
                 <div className="min-w-0 space-y-2">

@@ -1,21 +1,16 @@
-import { Separator } from "@/components/ui/separator";
+const SECTION_NUMBERS: Record<string, string> = {
+  "About Me": "01", "Projects": "02", "Experience": "03", "Manuscript": "04",
+  "Education": "05", "Skills & Technologies": "06", "Academic Service": "07", "Get in Touch": "08",
+};
 
-export default function SectionHeading({
-  title,
-  subtitle,
-}: {
-  title: string;
-  subtitle?: string;
-}) {
+export default function SectionHeading({ title, subtitle }: { title: string; subtitle?: string }) {
   return (
-    <div className="mb-12 flex flex-col items-center gap-4 text-center ">
-      <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-        {title}
-      </h2>
-      {subtitle && (
-        <p className="max-w-2xl text-base text-muted-foreground">{subtitle}</p>
-      )}
-      <Separator className="mt-4 mx-auto h-0.75 w-16 rounded-full bg-gradient-to-r from-blue-500 to-emerald-500" />
+    <div className="lab-section-heading">
+      <div className="lab-heading-title">
+        <span className="lab-section-index" aria-hidden="true">{SECTION_NUMBERS[title] || "01"}</span>
+        <h2>{title}</h2>
+      </div>
+      {subtitle && <p>{subtitle}</p>}
     </div>
   );
 }

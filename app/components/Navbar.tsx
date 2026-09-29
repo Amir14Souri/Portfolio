@@ -18,6 +18,7 @@ export default function Navbar() {
       setVisible(window.scrollY > window.innerHeight * 0.7);
     };
     window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
@@ -40,22 +41,31 @@ export default function Navbar() {
     return () => observer.disconnect();
   }, []);
 
+  useEffect(() => {
+    const close = (event: KeyboardEvent) => { if (event.key === "Escape") setMobileOpen(false); };
+    window.addEventListener("keydown", close);
+    return () => window.removeEventListener("keydown", close);
+  }, []);
+
   if (!mounted) {
     return null;
   }
 
   return (
     <nav
+      aria-label="Section navigation"
+      aria-hidden={!visible}
+      inert={!visible}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${visible
         ? "translate-y-0 opacity-100"
         : "-translate-y-full opacity-0 pointer-events-none"
         }`}>
-      <div className="bg-white/60 dark:bg-black/60 backdrop-blur-xl border-b border-foreground/20">
-        <div className="mx-auto max-w-6xl flex items-center justify-between px-6 py-3">
+      <div className="lab-nav">
+        <div className="lab-nav-inner mx-auto max-w-6xl">
           <a
             href="#hero"
-            className="text-2xl font-semibold italic tracking-tight text-foreground hover:text-muted-foreground transition-colors font-playpen">
-            {SITE.brand}
+            className="lab-brand">
+            <span aria-hidden="true">[</span>{SITE.brand}<span aria-hidden="true">]</span>
           </a>
 
           {/* Desktop nav */}
@@ -64,9 +74,9 @@ export default function Navbar() {
               <a
                 key={href}
                 href={href}
-                className={`px-3 py-1.5 rounded-full text-sm font-medium transition-colors ${activeSection === href.slice(1)
-                  ? "bg-foreground text-background"
-                  : "text-muted-foreground hover:text-foreground"
+                className={`lab-nav-link ${activeSection === href.slice(1)
+                  ? "lab-nav-active"
+                  : ""
                   }`}>
                 {label}
               </a>
@@ -77,7 +87,7 @@ export default function Navbar() {
             <button
               onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
               type="button"
-              className="p-2 rounded-full text-muted-foreground hover:bg-accent transition-colors"
+              className="lab-icon-button"
               aria-label="Toggle theme">
               {resolvedTheme === "light" ? <Moon size={18} /> : <Sun size={18} />}
             </button>
@@ -86,7 +96,7 @@ export default function Navbar() {
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
               type="button"
-              className="lg:hidden p-2 rounded-full text-muted-foreground hover:bg-accent transition-colors"
+              className="lab-icon-button lg:hidden"
               aria-label="Toggle menu"
               aria-expanded={mobileOpen}
               aria-controls="sticky-mobile-menu">
@@ -96,7 +106,7 @@ export default function Navbar() {
         </div>
 
         {/* Mobile nav */}
-        <div id="sticky-mobile-menu" hidden={!mobileOpen} className="lg:hidden border-t border-border bg-background/95 backdrop-blur-xl">
+        <div id="sticky-mobile-menu" hidden={!mobileOpen} className="lab-mobile-menu lg:hidden">
           <div className="flex flex-col px-6 py-4 gap-1">
             {NAV_ITEMS.map(({ label, href }) => (
               <a
@@ -104,7 +114,7 @@ export default function Navbar() {
                 href={href}
                 onClick={() => setMobileOpen(false)}
                 className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${activeSection === href.slice(1)
-                    ? "bg-foreground text-background"
+                    ? "lab-nav-active"
                     : "text-muted-foreground hover:text-foreground hover:bg-accent"
                   }`}>
                 {label}

@@ -8,7 +8,7 @@ export default function SkillsSection() {
   const skillsMap = getSkillsMap();
 
   return (
-    <section id="skills" className="py-24 px-6">
+    <section id="skills" className="lab-section px-6 py-24">
       <div className="mx-auto max-w-6xl">
         <SectionHeading
           title="Skills & Technologies"
@@ -25,7 +25,7 @@ export default function SkillsSection() {
                   <h3 className="text-lg font-semibold text-foreground">
                     {category.title}
                   </h3>
-                  {(category.count ?? true) && <span className="border border-cyan-500/40 bg-cyan-500/10 text-cyan-500 flex h-6 w-6 items-center justify-center rounded-full text-xs font-medium">
+                  {(category.count ?? true) && <span className="border border-cyan-500/40 bg-cyan-500/10 text-cyan-500 flex h-6 w-6 items-center justify-center rounded-md text-xs font-medium">
                     {category.skills.length}
                   </span>}
                 </div>
@@ -36,7 +36,7 @@ export default function SkillsSection() {
                       return (
                         <span
                           key={skillName}
-                          className="flex items-center gap-2 rounded-full border border-border/80 bg-white/40 dark:bg-black/40 px-3 py-1 text-sm text-foreground/90"
+                          className="flex items-center gap-2 lab-skill rounded-sm border border-border bg-secondary/70 px-3 py-1 text-sm text-foreground/90"
                         >
                           {skillName}
                         </span>
@@ -46,7 +46,7 @@ export default function SkillsSection() {
                     return (
                       <span
                         key={skill.name}
-                        className="flex items-center gap-2 rounded-full border border-border/80 bg-white/40 dark:bg-black/40 px-3 py-1 text-sm text-foreground/90"
+                        className="flex items-center gap-2 lab-skill rounded-sm border border-border bg-secondary/70 px-3 py-1 text-sm text-foreground/90"
                       >
                         {Icon && <Icon className="min-h-4 min-w-4 max-h-4 max-w-4" style={{ color: skill.color }} aria-hidden="true" />}
                         {skill.logo && <Image src={skill.logo} alt="" width={16} height={16} className="h-4 w-4" aria-hidden="true" />}
@@ -63,12 +63,12 @@ export default function SkillsSection() {
         <div className="mt-14 border-t border-black/20 dark:border-white/20 pt-10 text-center">
           <Badge
             variant="glow"
-            className="mb-5 rounded-full border-border/80 px-4 py-1 text-xs uppercase tracking-[0.35em] font-bold">
+            className="mb-5 rounded-md border-border/80 px-4 py-1 text-xs uppercase tracking-[0.35em] font-bold">
             Spoken Languages
           </Badge>
           <div className="flex flex-wrap justify-center gap-3">
             {Object.entries(SPOKEN_LANGUAGES).map(([language, level]) => (
-              <Badge key={language} variant="outline" className="rounded-full px-4 py-1 font-medium bg-white/30 dark:bg-black/30">
+              <Badge key={language} variant="outline" className="rounded-md px-4 py-1 font-medium bg-white/30 dark:bg-black/30">
                 <span className="text-[0.85rem] uppercase tracking-[0.4em] text-foreground/80">
                   {language}
                 </span>

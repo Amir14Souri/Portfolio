@@ -9,18 +9,18 @@ export default function EducationSection() {
   return (
     <section
       id="education"
-      className="relative overflow-hidden py-24 px-6">
+      className="lab-section relative px-6 py-24">
       <div className="mx-auto max-w-6xl relative z-10">
         <SectionHeading title="Education" subtitle="My academic journey" />
 
         <div className="relative">
-          <div className="absolute left-6 top-0 hidden h-full w-px bg-gradient-to-b from-emerald-500 to-blue-500 sm:block" />
+          <div className="absolute left-6 top-0 hidden h-full w-px bg-border sm:block" />
 
           <div className="space-y-6">
             {EDUCATION.map((edu) => (
               <div key={edu.degree} className="relative flex gap-6">
                 <div className="hidden sm:flex w-12 flex-col items-center">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-full border border-cyan-500/40 bg-cyan-500/8 text-cyan-500 backdrop-blur-sm">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-md border border-primary/40 bg-card text-primary">
                     <GraduationCap className="h-5 w-5" />
                   </div>
                 </div>

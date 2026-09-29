@@ -2,198 +2,83 @@
 
 import Image from "next/image";
 import { useTheme } from "next-themes";
-import {
-  ArrowDown,
-  FileText,
-  MapPin,
-  Menu,
-  Moon,
-  Sun,
-  X,
-} from "lucide-react";
-
-import { Badge } from "@/components/ui/badge";
+import { ArrowDown, FileText, MapPin, Menu, Moon, Sun, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useState } from "react";
-import NeuralNetworkBg from "@/app/components/NeuralNetworkBg";
+import { useEffect, useState } from "react";
 import { useMounted } from "@/app/components/useMounted";
-import {
-  HERO_QUICK_FACTS,
-  HERO_SOCIAL_LINKS,
-  NAV_ITEMS,
-  SITE,
-} from "@/app/portfolio";
+import { HERO_QUICK_FACTS, HERO_SOCIAL_LINKS, NAV_ITEMS, SITE } from "@/app/portfolio";
 
 export default function HeroSection() {
   const { resolvedTheme, setTheme } = useTheme();
   const mounted = useMounted();
   const [mobileOpen, setMobileOpen] = useState(false);
-
   const isDark = mounted ? resolvedTheme === "dark" : true;
 
+  useEffect(() => {
+    const close = (event: KeyboardEvent) => { if (event.key === "Escape") setMobileOpen(false); };
+    window.addEventListener("keydown", close);
+    return () => window.removeEventListener("keydown", close);
+  }, []);
+
   return (
-    <section
-      id="hero"
-      className="relative flex min-h-svh flex-col items-center justify-center overflow-hidden px-6 py-24"
-    >
-      <div className="absolute inset-0 bg-zinc-50 dark:bg-zinc-950"></div>
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent from-85% to-cyan-600/20 dark:to-cyan-500/20"></div>
-      {/* 2D Neural Network animated background */}
-      <NeuralNetworkBg className="hidden xl:block" />
-
-      {/* ── Hero navbar (transparent overlay) ── */}
-      <nav className="absolute top-0 left-0 right-0 z-20 border-b-1 border-zinc-950/10 dark:border-zinc-50/10">
-        <div className="mx-auto max-w-6xl flex items-center justify-between px-6 py-3">
-          <a
-            href="#hero"
-            className={`tracking-tight transition-colors font-playpen text-2xl font-semibold italic ${isDark
-              ? "text-white hover:text-zinc-300"
-              : "text-zinc-900 hover:text-zinc-600"
-              }`}>
-            {SITE.brand}
-          </a>
-
-          {/* Desktop nav links */}
+    <section id="hero" className="lab-hero relative px-6">
+      <nav className="lab-nav lab-hero-nav" aria-label="Main navigation">
+        <div className="lab-nav-inner mx-auto max-w-6xl">
+          <a href="#hero" className="lab-brand"><span aria-hidden="true">[</span>{SITE.brand}<span aria-hidden="true">]</span></a>
           <div className="hidden lg:flex items-center gap-1">
-            {NAV_ITEMS.map(({ label, href }) => (
-              <a
-                key={href}
-                href={href}
-                className={`px-3 py-1.5 rounded-full text-sm font-medium transition-colors ${isDark
-                  ? "text-zinc-400 hover:text-white hover:bg-white/10"
-                  : "text-zinc-500 hover:text-zinc-900 hover:bg-zinc-900/5"
-                  }`}>
-                {label}
-              </a>
-            ))}
+            {NAV_ITEMS.map(({ label, href }) => <a key={href} href={href} className="lab-nav-link">{label}</a>)}
           </div>
-
           <div className="flex items-center gap-2">
-            {/* Theme toggle */}
-            <button
-              onClick={() => setTheme(isDark ? "light" : "dark")}
-              type="button"
-              className={`p-2 rounded-full transition-colors ${isDark
-                ? "text-zinc-400 hover:text-white hover:bg-white/10"
-                : "text-zinc-500 hover:text-zinc-900 hover:bg-zinc-900/5"
-                }`}
-              aria-label="Toggle theme">
+            <button onClick={() => setTheme(isDark ? "light" : "dark")} type="button" className="lab-icon-button" aria-label="Toggle theme">
               {mounted && (isDark ? <Sun size={18} /> : <Moon size={18} />)}
             </button>
-
-            {/* Mobile menu button */}
-            <button
-              onClick={() => setMobileOpen(!mobileOpen)}
-              type="button"
-              className={`lg:hidden p-2 rounded-full transition-colors ${isDark
-                ? "text-zinc-400 hover:text-white hover:bg-white/10"
-                : "text-zinc-500 hover:text-zinc-900 hover:bg-zinc-900/5"
-                }`}
-              aria-label="Toggle menu"
-              aria-expanded={mobileOpen}
-              aria-controls="hero-mobile-menu">
+            <button onClick={() => setMobileOpen(!mobileOpen)} type="button" className="lab-icon-button lg:hidden" aria-label="Toggle menu" aria-expanded={mobileOpen} aria-controls="hero-mobile-menu">
               {mobileOpen ? <X size={18} /> : <Menu size={18} />}
             </button>
           </div>
         </div>
-
-        {/* Mobile nav dropdown */}
-        <div
-          id="hero-mobile-menu"
-          hidden={!mobileOpen}
-          className={`lg:hidden border-t mx-4 rounded-b-xl backdrop-blur-xl ${isDark
-              ? "bg-zinc-900/90 border-white/10"
-              : "bg-white/90 border-zinc-200"
-              }`}>
-          <div className="flex flex-col px-4 py-3 gap-1">
-            {NAV_ITEMS.map(({ label, href }) => (
-              <a
-                key={href}
-                href={href}
-                onClick={() => setMobileOpen(false)}
-                className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${isDark
-                    ? "text-zinc-400 hover:text-white hover:bg-white/10"
-                    : "text-zinc-500 hover:text-zinc-900 hover:bg-zinc-900/5"
-                  }`}>
-                {label}
-              </a>
-            ))}
-          </div>
+        <div id="hero-mobile-menu" hidden={!mobileOpen} className="lab-mobile-menu lg:hidden">
+          {NAV_ITEMS.map(({ label, href }) => <a key={href} href={href} onClick={() => setMobileOpen(false)} className="lab-nav-link">{label}</a>)}
         </div>
       </nav>
 
-      <div className="relative z-10 flex w-full max-w-4xl flex-col items-center gap-6 text-center sm:gap-8">
-        <div className="relative">
-          <div className="absolute -inset-0.75 rounded-full bg-cyan-700/60 dark:bg-cyan-500/60 blur-xs" />
-          <div className="relative h-40 w-40 overflow-hidden rounded-full border border-white/20 sm:h-48 sm:w-48">
-            <Image
-              src={SITE.photoSrc}
-              alt={SITE.fullName}
-              fill
-              className="object-cover"
-              priority
-            />
+      <div className="lab-hero-content mx-auto max-w-6xl">
+        <div className="lab-hero-copy">
+          <div className="lab-hero-location"><span className="lab-signal" aria-hidden="true" /><MapPin size={14} aria-hidden="true" />{SITE.location}</div>
+          <h1>{SITE.fullName}</h1>
+          <p className="lab-hero-description">Research assistant studying visual reasoning in vision-language models, with broader interests across machine learning and intelligent systems.</p>
+          <div className="lab-hero-actions flex flex-wrap gap-3">
+            {HERO_SOCIAL_LINKS.map(({ label, href, icon: Icon }) => (
+              <Button key={label} asChild variant="outline" size="sm">
+                <a href={href} target={href.startsWith("http") ? "_blank" : undefined} rel={href.startsWith("http") ? "noopener noreferrer" : undefined}><Icon className="h-4 w-4" /><span>{label}</span></a>
+              </Button>
+            ))}
+            <Button asChild size="sm"><a href={SITE.resumeSrc} target="_blank" rel="noopener noreferrer"><FileText className="h-4 w-4" />Resume</a></Button>
           </div>
         </div>
 
-        <div className="space-y-4">
-          <h1 className="text-4xl font-semibold tracking-tight text-foreground sm:text-4xl md:text-5xl">
-            {SITE.fullName}
-          </h1>
-          <p className="mx-auto max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base">
-            Research assistant studying visual reasoning in vision-language models, with broader interests across machine learning and intelligent systems.
-          </p>
-          <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground">
-            <MapPin className="h-4 w-4" />
-            {SITE.location}
-          </div>
-        </div>
-
-        <div className="flex flex-wrap items-center justify-center gap-2 text-muted-foreground">
-          {HERO_SOCIAL_LINKS.map(({ label, href, icon: Icon }) => (
-            <Button
-              key={label}
-              asChild
-              size="sm"
-              variant="outline">
-              <a
-                className="flex gap-2"
-                href={href}
-                target={href.startsWith("http") ? "_blank" : undefined}
-                rel={href.startsWith("http") ? "noopener noreferrer" : undefined}>
-                <Icon className="h-4 w-4" />
-                <span>{label}</span>
-              </a>
-            </Button>
-          ))}
-          <Button asChild variant="default" size="sm">
-            <a href={SITE.resumeSrc} target="_blank" rel="noopener noreferrer">
-              <FileText className="mr-2 h-4 w-4" /> Resume
-            </a>
-          </Button>
-        </div>
-
-        <div className="flex flex-wrap justify-center gap-3 text-xs text-muted-foreground">
-          {HERO_QUICK_FACTS.map(({ label, value }) => (
-            <Badge key={label} variant="outline" className="rounded-full px-4 py-1 font-medium bg-white/30 dark:bg-black/30">
-              <span className="text-[0.65rem] uppercase tracking-[0.18em] text-muted-foreground/70">
-                {label}
-              </span>
-              <span className="ml-2 text-foreground/80">{value}</span>
-            </Badge>
-          ))}
+        <div className="lab-profile-panel">
+          <svg className="lab-diagram" viewBox="0 0 480 480" fill="none" aria-hidden="true">
+            <defs><pattern id="lab-hero-grid" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M24 0H0V24" stroke="currentColor" strokeWidth=".6" /></pattern></defs>
+            <rect width="480" height="480" fill="url(#lab-hero-grid)" opacity=".22" />
+            <circle cx="240" cy="240" r="192" stroke="currentColor" opacity=".3" />
+            <circle cx="240" cy="240" r="155" stroke="currentColor" strokeDasharray="2 9" opacity=".55" />
+            <path d="M24 120H100L160 180M456 360H382L322 300M120 456V382L180 322M360 24V100L300 160" stroke="currentColor" opacity=".65" />
+            <path d="M24 240H96M384 240H456M240 24V96M240 384V456" stroke="currentColor" opacity=".35" />
+            {[ [48,120], [432,360], [120,432], [360,48] ].map(([cx, cy]) => <circle key={`${cx}-${cy}`} cx={cx} cy={cy} r="4" fill="currentColor" />)}
+            <path d="M85 85H105M85 85V105M395 85H375M395 85V105M85 395H105M85 395V375M395 395H375M395 395V375" stroke="currentColor" />
+          </svg>
+          <div className="lab-photo-frame"><Image src={SITE.photoSrc} alt={SITE.fullName} fill className="object-cover" priority sizes="(max-width: 767px) 180px, 230px" /></div>
+          <div className="lab-profile-ruler" aria-hidden="true"><span /><span /><span /><span /><span /></div>
         </div>
       </div>
 
-      <Button
-        asChild
-        variant="simple"
-        size="icon"
-        className="absolute bottom-6 left-1/2 -translate-x-1/2 text-muted-foreground motion-safe:animate-bounce">
-        <a href="#about" className="flex items-center gap-2" aria-label="Go to About section">
-          <ArrowDown className="h-6 w-6" />
-        </a>
-      </Button>
+      <div className="lab-hero-bottom mx-auto max-w-6xl">
+        <div className="lab-quick-facts">
+          {HERO_QUICK_FACTS.map(({ label, value }) => <div key={label} className="lab-quick-fact"><span>{label}</span><p>{value}</p></div>)}
+        </div>
+        <a href="#about" className="lab-scroll-link" aria-label="Go to About section"><ArrowDown size={19} /></a>
+      </div>
     </section>
   );
 }

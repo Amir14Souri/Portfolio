@@ -9,17 +9,17 @@ export default function AcademicServiceSection() {
   return (
     <section
       id="service"
-      className="relative overflow-hidden py-24 px-6">
+      className="lab-section relative px-6 py-24">
       <div className="mx-auto max-w-6xl relative z-10">
         <SectionHeading
           title="Academic Service"
           subtitle="Voluntary contributions to the academic community"
         />
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {ACADEMIC_SERVICES.map((s, i) => {
             return (
-              <Card variant="active" key={i} className="text-center">
-                <CardContent className="flex flex-col items-center gap-3 p-6">
+              <Card variant="active" key={i} className="lab-service text-left">
+                <CardContent className="flex flex-col items-start gap-3 p-6">
                   <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-cyan-500/10 p-2 text-cyan-500">
                     <div
                       className="h-10 w-10 bg-cyan-500"
