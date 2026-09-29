@@ -1,11 +1,16 @@
-import { ExternalLink, Folder, Github } from "lucide-react";
+"use client";
+
+import { useState } from "react";
+import { ChevronDown, ChevronUp, ExternalLink, Folder, Github } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import SectionHeading from "../components/SectionHeading";
 import { PROJECTS } from "@/app/portfolio";
 
 export default function ProjectsSection() {
+  const [showAll, setShowAll] = useState(false);
   const featuredProjects = PROJECTS.filter((project) => project.featured);
   const otherProjects = PROJECTS.filter((project) => !project.featured);
 
@@ -70,15 +75,17 @@ export default function ProjectsSection() {
         />
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {featuredProjects.map(renderProject)}
+          {showAll && otherProjects.map(renderProject)}
         </div>
-        <details className="group/more mt-8">
-          <summary className="mx-auto w-fit cursor-pointer rounded-full border border-border px-5 py-2 text-sm font-medium text-foreground hover:bg-accent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring">
-            More projects ({otherProjects.length})
-          </summary>
-          <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {otherProjects.map(renderProject)}
-          </div>
-        </details>
+        <Button
+          type="button"
+          variant="outline"
+          className="mx-auto mt-8 flex gap-2 rounded-full"
+          aria-expanded={showAll}
+          onClick={() => setShowAll((current) => !current)}>
+          {showAll ? <ChevronUp className="h-4 w-4" aria-hidden="true" /> : <ChevronDown className="h-4 w-4" aria-hidden="true" />}
+          {showAll ? "Show less" : `More projects (${otherProjects.length})`}
+        </Button>
       </div>
     </section>
   );

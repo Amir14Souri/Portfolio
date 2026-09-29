@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import SectionHeading from "../components/SectionHeading";
@@ -47,7 +48,8 @@ export default function SkillsSection() {
                         key={skill.name}
                         className="flex items-center gap-2 rounded-full border border-border/80 bg-white/40 dark:bg-black/40 px-3 py-1 text-sm text-foreground/90"
                       >
-                        {Icon && <Icon className="min-h-4 min-w-4 max-h-4 max-w-4" style={{ color: skill.color }} />}
+                        {Icon && <Icon className="min-h-4 min-w-4 max-h-4 max-w-4" style={{ color: skill.color }} aria-hidden="true" />}
+                        {skill.logo && <Image src={skill.logo} alt="" width={16} height={16} className="h-4 w-4" aria-hidden="true" />}
                         {skill.name}
                       </span>
                     );

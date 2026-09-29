@@ -32,6 +32,7 @@ import {
   SiGitlab,
   SiGunicorn,
   SiHuggingface,
+  SiJupyter,
   SiKubernetes,
   SiLatex,
   SiMarkdown,
@@ -39,6 +40,7 @@ import {
   SiNextdotjs,
   SiNginx,
   SiNumpy,
+  SiOpencv,
   SiPandas,
   SiPostman,
   SiPytorch,
@@ -141,6 +143,7 @@ export type Skill = {
   name: string;
   icon: IconType | ComponentType<{ className?: string }> | null;
   color: string;
+  logo?: string;
 };
 
 export const SITE = {
@@ -364,7 +367,9 @@ export const EXPERIENCES: Experience[] = [
     organization: "Hamravesh",
     period: "Oct 2024 – Sep 2025",
     points: [
-      "Developed and deployed a marketplace service for one-click cloud applications across backend APIs, frontend interfaces, and Kubernetes integration.",
+      "Developed and deployed a marketplace service for one-click cloud applications.",
+      "Implemented backend APIs and frontend interfaces for the marketplace.",
+      "Integrated the application launch workflow with Kubernetes.",
     ],
   },
 ];
@@ -623,10 +628,16 @@ export const getSkillsMap = (): Record<string, Skill> => ({
   PyTorch: { name: "PyTorch", icon: SiPytorch, color: "#EE4C2C" },
   TensorFlow: { name: "TensorFlow", icon: SiTensorflow, color: "#FF6F00" },
   "Hugging Face": { name: "Hugging Face", icon: SiHuggingface, color: "#FFD21E" },
+  TRL: { name: "TRL", icon: SiHuggingface, color: "#FFD21E" },
+  Accelerate: { name: "Accelerate", icon: SiHuggingface, color: "#FFD21E" },
+  SentenceTransformers: { name: "SentenceTransformers", icon: SiHuggingface, color: "#FFD21E" },
   "Scikit-Learn": { name: "Scikit-Learn", icon: SiScikitlearn, color: "#F7931E" },
   NumPy: { name: "NumPy", icon: SiNumpy, color: "#013243" },
   Pandas: { name: "Pandas", icon: SiPandas, color: "#150458" },
   Matplotlib: { name: "Matplotlib", icon: null, color: "#11557c" },
+  OpenCV: { name: "OpenCV", icon: SiOpencv, color: "#5C3EE8" },
+  "Hugging Face Datasets": { name: "Hugging Face Datasets", icon: SiHuggingface, color: "#FFD21E" },
+  Jupyter: { name: "Jupyter", icon: SiJupyter, color: "#F37626" },
   "Tailwind CSS": { name: "Tailwind CSS", icon: SiTailwindcss, color: "#06B6D4" },
   PostgreSQL: { name: "PostgreSQL", icon: DiPostgresql, color: "#4169E1" },
   Docker: { name: "Docker", icon: DiDocker, color: "#2496ED" },
@@ -640,13 +651,15 @@ export const getSkillsMap = (): Record<string, Skill> => ({
   Figma: { name: "Figma", icon: SiFigma, color: "#F24E1E" },
   Linux: { name: "Linux", icon: DiLinux, color: "#FCC624" },
   Postman: { name: "Postman", icon: SiPostman, color: "#FF6C37" },
-  Django: { name: "Django", icon: SiDjango, color: "#092E20" },
+  Django: { name: "Django", icon: SiDjango, color: "#44B78B" },
+  "Django REST Framework": { name: "Django REST Framework", icon: SiDjango, color: "#44B78B" },
   Flask: { name: "Flask", icon: SiFlask, color: "currentColor" },
   Gunicorn: { name: "Gunicorn", icon: SiGunicorn, color: "#499848" },
   Nginx: { name: "Nginx", icon: SiNginx, color: "#269539" },
   "Ant Design": { name: "Ant Design", icon: SiAntdesign, color: "#0170FE" },
   Zustand: { name: "Zustand", icon: null, color: "#000000" },
   GitLab: { name: "GitLab", icon: SiGitlab, color: "#FCA121" },
+  vLLM: { name: "vLLM", icon: null, color: "#30A2FF", logo: "/logos/vllm.svg" },
   Markdown: { name: "Markdown", icon: SiMarkdown, color: "currentColor" },
   LaTeX: { name: "LaTeX", icon: SiLatex, color: "#008080" },
 });
