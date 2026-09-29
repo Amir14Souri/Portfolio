@@ -20,12 +20,12 @@ export default function ContactSection() {
               {...(href?.startsWith("http")
                 ? { target: "_blank", rel: "noopener noreferrer" }
                 : {})}
-              className="cursor-pointer">
+              className="min-w-0 cursor-pointer">
               <Card
                 variant="active"
                 className="lab-contact group p-5 h-full">
                 <div className="flex items-center gap-3">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-cyan-500/10 text-cyan-500">
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-cyan-500/10 text-cyan-500">
                     <Icon className="h-4 w-4" />
                   </div>
                   <div className="min-w-0">
