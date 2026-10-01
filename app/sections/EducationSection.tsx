@@ -17,14 +17,14 @@ export default function EducationSection() {
           <div className="absolute left-6 top-0 hidden h-full w-px bg-border sm:block" />
 
           <div className="space-y-6">
-            {EDUCATION.map((edu) => (
+            {EDUCATION.map((edu, index) => (
               <div key={edu.degree} className="relative flex gap-6">
                 <div className="hidden sm:flex w-12 flex-col items-center">
                   <div className="flex h-12 w-12 items-center justify-center rounded-md border border-primary/40 bg-card text-primary">
                     <GraduationCap className="h-5 w-5" />
                   </div>
                 </div>
-                <Card className="flex-1">
+                <Card data-reveal data-reveal-delay={Math.min(index, 2) * 60} className="min-w-0 flex-1">
                   <CardContent className="p-6 gap-1">
                     <div className="flex flex-wrap items-start justify-between gap-3 mb-4">
                       <div className="flex items-start gap-3">

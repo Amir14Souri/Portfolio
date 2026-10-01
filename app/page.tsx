@@ -10,6 +10,7 @@ import ManuscriptSection from "./sections/ManuscriptSection";
 import ContactSection from "./sections/ContactSection";
 import Footer from "./components/Footer";
 import GlobalBackground from "./components/GlobalBackground";
+import ScrollReveal from "./components/ScrollReveal";
 
 export default function Home() {
   return (
@@ -32,6 +33,7 @@ export default function Home() {
       />
       
       <GlobalBackground />
+      <ScrollReveal />
       <Navbar />
       <main className="relative z-10">
         <HeroSection />

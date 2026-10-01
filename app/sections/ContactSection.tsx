@@ -13,7 +13,7 @@ export default function ContactSection() {
           subtitle="Feel free to reach out for collaborations, questions, or just a friendly hello"
         />
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-          {CONTACT_LINKS.map(({ icon: Icon, label, value, href }) => (
+          {CONTACT_LINKS.map(({ icon: Icon, label, value, href }, index) => (
             <a
               key={label}
               href={href}
@@ -22,6 +22,8 @@ export default function ContactSection() {
                 : {})}
               className="min-w-0 cursor-pointer">
               <Card
+                data-reveal
+                data-reveal-delay={Math.min(index, 2) * 60}
                 variant="active"
                 className="lab-contact group p-5 h-full">
                 <div className="flex items-center gap-3">
@@ -29,10 +31,10 @@ export default function ContactSection() {
                     <Icon className="h-4 w-4" />
                   </div>
                   <div className="min-w-0">
-                    <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">
+                    <p className="text-xs font-semibold uppercase tracking-[0.14em] text-muted-foreground">
                       {label}
                     </p>
-                    <p className="truncate text-sm font-medium text-foreground">
+                    <p className="text-sm font-medium leading-relaxed text-foreground">
                       {value}
                     </p>
                   </div>

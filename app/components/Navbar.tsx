@@ -5,7 +5,6 @@ import { useEffect, useState } from "react";
 import { Sun, Moon, Menu, X } from "lucide-react";
 import { NAV_ITEMS, SITE } from "@/app/portfolio";
 import { useMounted } from "./useMounted";
-import { FontStyleToggle } from "./FontStylePreview";
 
 export default function Navbar() {
   const { resolvedTheme, setTheme } = useTheme();
@@ -24,6 +23,7 @@ export default function Navbar() {
   }, []);
 
   useEffect(() => {
+    if (!("IntersectionObserver" in window)) return;
     const observer = new IntersectionObserver(
       (entries) => {
         const visibleEntries = entries.filter((e) => e.isIntersecting);
@@ -92,7 +92,6 @@ export default function Navbar() {
               aria-label="Toggle theme">
               {resolvedTheme === "light" ? <Moon size={18} /> : <Sun size={18} />}
             </button>
-            <FontStyleToggle />
 
             {/* Mobile menu button */}
             <button

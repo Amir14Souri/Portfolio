@@ -12,7 +12,7 @@ export default function AboutSection() {
           title={ABOUT.title}
           subtitle={ABOUT.subtitle}
         />
-        <Card>
+        <Card data-reveal data-reveal-delay="60">
           <CardContent className="lab-about-copy space-y-5 p-8 text-base leading-relaxed text-muted-foreground">
             {ABOUT.paragraphs.map((paragraph) => (
               <p key={paragraph}>{paragraph}</p>

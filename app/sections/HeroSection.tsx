@@ -6,7 +6,6 @@ import { ArrowDown, FileText, MapPin, Menu, Moon, Sun, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
 import { useMounted } from "@/app/components/useMounted";
-import { FontStyleToggle } from "@/app/components/FontStylePreview";
 import { HERO_QUICK_FACTS, HERO_SOCIAL_LINKS, NAV_ITEMS, SITE } from "@/app/portfolio";
 
 export default function HeroSection() {
@@ -33,7 +32,6 @@ export default function HeroSection() {
             <button onClick={() => setTheme(isDark ? "light" : "dark")} type="button" className="lab-icon-button" aria-label="Toggle theme">
               {mounted && (isDark ? <Sun size={18} /> : <Moon size={18} />)}
             </button>
-            <FontStyleToggle />
             <button onClick={() => setMobileOpen(!mobileOpen)} type="button" className="lab-icon-button lg:hidden" aria-label="Toggle menu" aria-expanded={mobileOpen} aria-controls="hero-mobile-menu">
               {mobileOpen ? <X size={18} /> : <Menu size={18} />}
             </button>

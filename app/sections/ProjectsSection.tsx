@@ -14,8 +14,11 @@ export default function ProjectsSection() {
   const featuredProjects = PROJECTS.filter((project) => project.featured);
   const otherProjects = PROJECTS.filter((project) => !project.featured);
 
-  const renderProject = (project: (typeof PROJECTS)[number]) => (
+  const renderProject = (project: (typeof PROJECTS)[number], index: number) => (
     <Card
+      data-reveal
+      data-reveal-key={project.title}
+      data-reveal-delay={Math.min(index, 2) * 60}
       variant="active"
       key={project.title}
       className="lab-project group h-full border transition">
@@ -33,7 +36,7 @@ export default function ProjectsSection() {
         </div>
         <div className="lab-project-tags flex flex-wrap gap-2">
           {project.tags.map((tag) => (
-            <Badge key={tag} variant="outline" className="rounded-sm px-3 py-0.5 text-[11px] font-medium">
+            <Badge key={tag} variant="outline" className="rounded-sm px-3 py-0.5 text-xs font-medium">
               {tag}
             </Badge>
           ))}

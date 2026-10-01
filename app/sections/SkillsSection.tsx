@@ -16,8 +16,10 @@ export default function SkillsSection() {
         />
 
         <div className="mt-8 columns-1 gap-4 md:columns-2 lg:columns-3">
-          {SKILL_CATEGORIES.map((category) => (
+          {SKILL_CATEGORIES.map((category, index) => (
             <Card
+              data-reveal
+              data-reveal-delay={Math.min(index, 2) * 60}
               key={category.id}
               className="mb-4 break-inside-avoid">
               <CardContent className="p-6">

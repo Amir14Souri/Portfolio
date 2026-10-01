@@ -14,8 +14,10 @@ export default function ManuscriptSection() {
           subtitle="Research currently under review"
         />
         <div className="space-y-4">
-          {MANUSCRIPTS.map((manuscript) => (
+          {MANUSCRIPTS.map((manuscript, index) => (
             <Card
+              data-reveal
+              data-reveal-delay={Math.min(index, 2) * 60}
               variant="active"
               key={manuscript.title}
               className="lab-manuscript border transition">

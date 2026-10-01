@@ -1,10 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import localFont from "next/font/local";
 import { ThemeProvider } from "next-themes";
 
 import { TooltipProvider } from "@/components/ui/tooltip";
-import { FontStylePreviewProvider } from "./components/FontStylePreview";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -15,12 +13,6 @@ const geistSans = Geist({
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
-});
-
-const playpenSans = localFont({
-  src: "../public/fonts/PlaypenSans-VariableFont_wght.ttf",
-  variable: "--font-playpen",
-  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -58,11 +50,9 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head />
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${playpenSans.variable} antialiased transition-colors duration-200`}>
+        className={`${geistSans.variable} ${geistMono.variable} antialiased transition-colors duration-200`}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
-          <TooltipProvider>
-            <FontStylePreviewProvider>{children}</FontStylePreviewProvider>
-          </TooltipProvider>
+          <TooltipProvider>{children}</TooltipProvider>
         </ThemeProvider>
       </body>
     </html>

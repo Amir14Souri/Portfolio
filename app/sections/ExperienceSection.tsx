@@ -35,20 +35,22 @@ export default function ExperienceSection() {
         </div>
 
         <div className="lab-experience-list space-y-4">
-          {EXPERIENCES.map((exp) => {
+          {EXPERIENCES.map((exp, index) => {
             const config = EXPERIENCE_CATEGORY_CONFIG[exp.category];
             const Icon = config.icon;
             return (
               <Card
+                data-reveal
+                data-reveal-delay={Math.min(index, 2) * 60}
                 variant="active"
                 key={`${exp.organization}-${exp.period}`}>
                 <CardContent className="gap-5 p-7">
                   <div className="flex flex-wrap items-start justify-between gap-4">
-                    <div className="flex items-start gap-4">
-                      <div className={`flex h-10 w-10 items-center justify-center rounded-md ${config.bg}`}>
+                    <div className="flex min-w-0 items-start gap-4">
+                      <div className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-md ${config.bg}`}>
                         <Icon className={`h-4 w-4 ${config.color}`} />
                       </div>
-                      <div>
+                      <div className="min-w-0">
                         <p className="text-sm font-semibold uppercase tracking-wide text-muted-foreground">
                           {config.label}
                         </p>
@@ -79,18 +81,20 @@ export default function ExperienceSection() {
 
         <div className="mt-4">
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {TA_EXPERIENCES.map((ta) => (
+            {TA_EXPERIENCES.map((ta, index) => (
               <Card
+                data-reveal
+                data-reveal-delay={Math.min(index, 2) * 60}
                 variant="active"
                 key={`${ta.course}-${ta.period}`}
-                className="flex items-start gap-3 p-3 text-left">
-                <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-cyan-500/10 text-cyan-500">
+                className="lab-teaching flex items-start gap-3 p-3 text-left">
+                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-cyan-500/10 text-cyan-500">
                   <BookOpen className="h-4 w-4" />
                 </div>
                 <div className="min-w-0">
                   <p className="text-sm font-semibold text-foreground pb-0.5">{ta.course}</p>
                   <p className="text-xs text-muted-foreground">{ta.organization}</p>
-                  <p className="text-[11px] font-mono text-muted-foreground/80">{ta.period}</p>
+                  <p className="text-xs font-mono text-muted-foreground/80">{ta.period}</p>
                 </div>
               </Card>
             ))}

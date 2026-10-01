@@ -5,7 +5,7 @@ const SECTION_NUMBERS: Record<string, string> = {
 
 export default function SectionHeading({ title, subtitle }: { title: string; subtitle?: string }) {
   return (
-    <div className="lab-section-heading">
+    <div className="lab-section-heading" data-reveal>
       <div className="lab-heading-title">
         <span className="lab-section-index" aria-hidden="true">{SECTION_NUMBERS[title] || "01"}</span>
         <h2>{title}</h2>
