@@ -11,7 +11,7 @@ const cardVariants = cva(
         default:
           "bg-card",
         active:
-          "bg-card hover:border-primary/45 transition-colors",
+          "bg-card transition-colors",
       },
     },
     defaultVariants: {

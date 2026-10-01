@@ -6,6 +6,7 @@ import { ArrowDown, FileText, MapPin, Menu, Moon, Sun, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
 import { useMounted } from "@/app/components/useMounted";
+import { FontStyleToggle } from "@/app/components/FontStylePreview";
 import { HERO_QUICK_FACTS, HERO_SOCIAL_LINKS, NAV_ITEMS, SITE } from "@/app/portfolio";
 
 export default function HeroSection() {
@@ -32,6 +33,7 @@ export default function HeroSection() {
             <button onClick={() => setTheme(isDark ? "light" : "dark")} type="button" className="lab-icon-button" aria-label="Toggle theme">
               {mounted && (isDark ? <Sun size={18} /> : <Moon size={18} />)}
             </button>
+            <FontStyleToggle />
             <button onClick={() => setMobileOpen(!mobileOpen)} type="button" className="lab-icon-button lg:hidden" aria-label="Toggle menu" aria-expanded={mobileOpen} aria-controls="hero-mobile-menu">
               {mobileOpen ? <X size={18} /> : <Menu size={18} />}
             </button>
@@ -59,9 +61,16 @@ export default function HeroSection() {
 
         <div className="lab-profile-panel">
           <svg className="lab-diagram" viewBox="0 0 480 480" fill="none" aria-hidden="true">
-            <defs><pattern id="lab-hero-grid" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M24 0H0V24" stroke="currentColor" strokeWidth=".6" /></pattern></defs>
-            <rect width="480" height="480" fill="url(#lab-hero-grid)" opacity=".22" />
-            <circle cx="240" cy="240" r="192" stroke="currentColor" opacity=".3" />
+            <defs>
+              <pattern id="lab-hero-grid" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M24 0H0V24" stroke="currentColor" strokeWidth=".6" /></pattern>
+              <radialGradient id="lab-grid-fade" r="70%">
+                <stop offset="65%" stopColor="white" />
+                <stop offset="100%" stopColor="black" />
+              </radialGradient>
+              <mask id="lab-grid-mask"><rect width="480" height="480" fill="url(#lab-grid-fade)" /></mask>
+            </defs>
+            <rect width="480" height="480" fill="url(#lab-hero-grid)" opacity=".28" mask="url(#lab-grid-mask)" />
+            <circle cx="240" cy="240" r="192" stroke="currentColor" opacity=".4" />
             <circle cx="240" cy="240" r="155" stroke="currentColor" strokeDasharray="2 9" opacity=".55" />
             <path d="M24 120H100L160 180M456 360H382L322 300M120 456V382L180 322M360 24V100L300 160" stroke="currentColor" opacity=".65" />
             <path d="M24 240H96M384 240H456M240 24V96M240 384V456" stroke="currentColor" opacity=".35" />

@@ -48,7 +48,7 @@ export default function EducationSection() {
                           </p>
                         </div>
                       </div>
-                      <Badge variant="outline" className="text-xs">
+                      <Badge variant="outline" className="lab-date text-xs">
                         {edu.period}
                       </Badge>
                     </div>

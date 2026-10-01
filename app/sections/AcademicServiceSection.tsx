@@ -39,7 +39,7 @@ export default function AcademicServiceSection() {
                     {s.role}
                   </h3>
                   <p className="text-xs font-medium text-cyan-500">{s.event}</p>
-                  <Badge variant="outline" className="gap-1 text-[11px]">
+                  <Badge variant="outline" className="lab-date gap-1 text-[11px]">
                     <CalendarDays className="h-3 w-3" />
                     {s.period}
                   </Badge>

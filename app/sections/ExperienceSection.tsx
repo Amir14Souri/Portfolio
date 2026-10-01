@@ -58,7 +58,7 @@ export default function ExperienceSection() {
                         <p className="text-sm text-muted-foreground">{exp.organization}</p>
                       </div>
                     </div>
-                    <Badge variant="outline" className="text-xs">
+                    <Badge variant="outline" className="lab-date text-xs">
                       {exp.period}
                     </Badge>
                   </div>

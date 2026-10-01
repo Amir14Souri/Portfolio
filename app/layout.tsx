@@ -4,6 +4,7 @@ import localFont from "next/font/local";
 import { ThemeProvider } from "next-themes";
 
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { FontStylePreviewProvider } from "./components/FontStylePreview";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -59,7 +60,9 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${playpenSans.variable} antialiased transition-colors duration-200`}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
-          <TooltipProvider>{children}</TooltipProvider>
+          <TooltipProvider>
+            <FontStylePreviewProvider>{children}</FontStylePreviewProvider>
+          </TooltipProvider>
         </ThemeProvider>
       </body>
     </html>

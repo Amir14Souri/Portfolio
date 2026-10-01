@@ -31,7 +31,7 @@ export default function ProjectsSection() {
           </div>
           <Folder className="min-h-5 min-w-5 max-h-5 max-w-5 text-cyan-500" aria-hidden="true" />
         </div>
-        <div className="flex flex-wrap gap-2">
+        <div className="lab-project-tags flex flex-wrap gap-2">
           {project.tags.map((tag) => (
             <Badge key={tag} variant="outline" className="rounded-sm px-3 py-0.5 text-[11px] font-medium">
               {tag}
