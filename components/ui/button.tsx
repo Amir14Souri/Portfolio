@@ -20,7 +20,7 @@ const buttonVariants = cva(
         simple:
           "text-zinc-700 dark:text-zinc-300",
         glow:
-          "bg-gradient-to-br from-blue-600 to-emerald-500 text-white shadow-lg shadow-cyan-500/30 hover:brightness-110",
+          "bg-primary text-primary-foreground shadow-sm shadow-primary/10 hover:brightness-110",
       },
       size: {
         default: "h-11 px-5",

@@ -118,50 +118,53 @@ body {
 
 :root {
   --radius: 0.4rem;
-  --background: #edf3f6;
+  --background: #edf4f8;
   --foreground: #102735;
-  --card: #f9fcfd;
+  --card: #f8fcff;
   --card-foreground: #102735;
-  --popover: #f9fcfd;
+  --popover: #f8fcff;
   --popover-foreground: #102735;
-  --primary: #08757f;
-  --primary-foreground: #ffffff;
-  --secondary: #e7eff3;
+  --primary: #00b8db;
+  --lab-accent-text: #007087;
+  --lab-blue: #2b7fff;
+  --primary-foreground: #08232f;
+  --secondary: #e6eff5;
   --secondary-foreground: #102735;
-  --muted: #e1ebf0;
+  --muted: #e0ebf3;
   --muted-foreground: #4b6574;
-  --accent: #deedf0;
+  --accent: #dceef6;
   --accent-foreground: #102735;
   --destructive: #b93344;
-  --border: #c8d9e1;
-  --input: #c8d9e1;
-  --ring: #08757f;
-  --lab-panel: #e4eef3;
-  --lab-grid: #08757f0a;
+  --border: #c7d9e5;
+  --input: #c7d9e5;
+  --ring: #00b8db;
+  --lab-panel: #e3eef6;
+  --lab-grid: #00b8db08;
   --lab-shadow: #193d5510;
 }
 
 .dark {
-  --background: #080f19;
+  --background: #08111d;
   --foreground: #e8f0f7;
-  --card: #101c2b;
+  --card: #0f1f30;
   --card-foreground: #e8f0f7;
-  --popover: #101c2b;
+  --popover: #0f1f30;
   --popover-foreground: #e8f0f7;
-  --primary: #6bdddb;
-  --primary-foreground: #09232b;
-  --secondary: #152536;
+  --primary: #00b8db;
+  --lab-accent-text: #00b8db;
+  --primary-foreground: #08232f;
+  --secondary: #14283b;
   --secondary-foreground: #e8f0f7;
-  --muted: #152536;
+  --muted: #14283b;
   --muted-foreground: #a1b6c9;
-  --accent: #1b3041;
+  --accent: #193247;
   --accent-foreground: #e8f0f7;
   --destructive: #fd7284;
-  --border: #24384b;
-  --input: #24384b;
-  --ring: #6bdddb;
-  --lab-panel: #0c1725;
-  --lab-grid: #6bdddb06;
+  --border: #253e54;
+  --input: #253e54;
+  --ring: #00b8db;
+  --lab-panel: #0b1929;
+  --lab-grid: #00b8db06;
   --lab-shadow: #00000020;
 }
 
@@ -187,13 +190,13 @@ section[id] { scroll-margin-top: 92px; }
 .lab-brand { display: inline-flex; gap: 7px; font: 500 21px var(--font-geist-mono), monospace; letter-spacing: -.055em; }
 .lab-brand span { color: var(--primary); }
 .lab-nav-link { display: block; padding: 9px 10px; font-size: 12px; color: var(--muted-foreground); transition: color .2s, background .2s; border-radius: 3px; }
-.lab-nav-link:hover, .lab-nav-active { background: var(--secondary); color: var(--primary); }
+.lab-nav-link:hover, .lab-nav-active { background: var(--secondary); color: var(--lab-accent-text); }
 .lab-icon-button { width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; border: 1px solid var(--border); border-radius: 4px; color: var(--muted-foreground); cursor: pointer; }
-.lab-icon-button:hover { background: var(--secondary); color: var(--primary); }
+.lab-icon-button:hover { background: var(--secondary); color: var(--lab-accent-text); }
 .lab-mobile-menu { border-top: 1px solid var(--border); background: var(--card); padding: 12px 24px; }
 .lab-mobile-menu[hidden] { display: none; }
 .lab-mobile-menu .lab-nav-link { padding: 12px; }
-.lab-hero { min-height: min(900px, 100svh); padding-top: 156px; padding-bottom: 44px; background: radial-gradient(ellipse at 87% 45%, color-mix(in srgb, var(--primary) 7%, transparent), transparent 52%), var(--background); border-bottom: 1px solid var(--border); display: flex; flex-direction: column; }
+.lab-hero { min-height: min(900px, 100svh); padding-top: 156px; padding-bottom: 44px; background: radial-gradient(ellipse at 87% 45%, color-mix(in srgb, var(--primary) 5%, transparent), transparent 52%), var(--background); border-bottom: 1px solid var(--border); display: flex; flex-direction: column; }
 .lab-hero-content { width: 100%; display: grid; grid-template-columns: minmax(0,1.25fr) minmax(0,1fr); gap: 44px; align-items: center; flex: 1; padding-bottom: 76px; }
 .lab-hero-location { display: flex; gap: 10px; align-items: center; color: var(--muted-foreground); font: 12px var(--font-geist-mono), monospace; }
 .lab-signal { width: 6px; height: 6px; background: var(--primary); border-radius: 50%; margin-right: 5px; box-shadow: 0 0 0 4px color-mix(in srgb, var(--primary) 9%, transparent); }
@@ -211,15 +214,15 @@ section[id] { scroll-margin-top: 92px; }
 .lab-hero-bottom { display: flex; width: 100%; align-items: center; justify-content: space-between; border-top: 1px solid var(--border); padding-top: 28px; gap: 20px; }
 .lab-quick-facts { display: flex; gap: 56px; }
 .lab-quick-fact { border-left: 2px solid var(--primary); padding-left: 16px; }
-.lab-quick-fact > span { display: block; font: 10px var(--font-geist-mono), monospace; text-transform: uppercase; letter-spacing: .18em; color: var(--primary); }
+.lab-quick-fact > span { display: block; font: 10px var(--font-geist-mono), monospace; text-transform: uppercase; letter-spacing: .18em; color: var(--lab-accent-text); }
 .lab-quick-fact p { margin-top: 9px; color: var(--muted-foreground); font-size: 12px; }
-.lab-scroll-link { display: flex; width: 42px; height: 42px; flex-shrink: 0; align-items: center; justify-content: center; border: 1px solid var(--border); color: var(--primary); border-radius: 4px; }
+.lab-scroll-link { display: flex; width: 42px; height: 42px; flex-shrink: 0; align-items: center; justify-content: center; border: 1px solid var(--border); color: var(--lab-accent-text); border-radius: 4px; }
 .lab-scroll-link:hover { background: var(--secondary); }
 .lab-section { padding-top: 104px; padding-bottom: 104px; border-bottom: 1px solid var(--border); }
 .lab-section:nth-of-type(odd) { background: color-mix(in srgb, var(--lab-panel) 70%, transparent); }
 .lab-section-heading { margin-bottom: 42px; display: flex; justify-content: space-between; gap: 36px; align-items: end; }
 .lab-heading-title { display: flex; align-items: start; gap: 16px; }
-.lab-section-index { font: 11px var(--font-geist-mono), monospace; color: var(--primary); margin-top: 11px; border: 1px solid var(--border); padding: 4px 6px; border-radius: 2px; }
+.lab-section-index { font: 11px var(--font-geist-mono), monospace; color: var(--lab-accent-text); margin-top: 11px; border: 1px solid var(--border); padding: 4px 6px; border-radius: 2px; }
 .lab-section-heading h2 { font-size: 35px; font-weight: 550; letter-spacing: -.04em; line-height: 1.25; }
 .lab-section-heading > p { max-width: 370px; font-size: 13px; line-height: 1.7; color: var(--muted-foreground); }
 .lab-card { border-radius: 6px; box-shadow: 0 5px 18px var(--lab-shadow); }
@@ -236,7 +239,7 @@ section[id] { scroll-margin-top: 92px; }
 .lab-project h3 { font-size: 19px; letter-spacing: -.025em; }
 .lab-project p { font-size: 14px; line-height: 1.75; }
 .lab-project a { border-bottom: 1px solid var(--border); padding-bottom: 6px; }
-.lab-project a:hover { color: var(--primary); border-color: var(--primary); }
+.lab-project a:hover { color: var(--lab-accent-text); border-color: var(--lab-accent-text); }
 .lab-experience-list > .lab-card { border-left: 2px solid var(--primary); }
 .lab-experience-list h3 { font-size: 23px; letter-spacing: -.025em; }
 .lab-experience-list ul { line-height: 1.8; }
@@ -309,3 +312,19 @@ section[id] { scroll-margin-top: 92px; }
 
 @media (min-width: 1024px) { .lab-icon-button.lg\:hidden { display: none; } }
 @media (max-width: 767px) { .lab-hero-actions { display: grid; grid-template-columns: 1fr 1fr; } }
+
+/* Canonical cyan marks; deeper cyan preserves small text contrast on paper. */
+.lab-section :is(p, span).text-cyan-500,
+.lab-section .text-primary,
+.lab-section .text-amber-700,
+.lab-section .dark\:text-amber-400 { color: var(--lab-accent-text); }
+#experience .text-purple-600,
+#experience .dark\:text-purple-400 { color: var(--primary); }
+#experience .bg-purple-500\/10 { background-color: color-mix(in srgb, var(--primary) 10%, transparent); }
+#experience .text-blue-500 { color: var(--lab-blue); }
+#experience .bg-blue-500\/10 { background-color: color-mix(in srgb, var(--lab-blue) 10%, transparent); }
+.lab-section .bg-cyan-500\/10 { background-color: color-mix(in srgb, var(--primary) 10%, transparent); }
+.lab-section .border-cyan-500\/40 { border-color: color-mix(in srgb, var(--primary) 40%, transparent); }
+/* Keep small readout labels legible without changing their type treatment. */
+.lab-section .text-muted-foreground\/70,
+.lab-section .text-muted-foreground\/80 { color: var(--muted-foreground); }
