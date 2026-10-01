@@ -8,6 +8,13 @@
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
   --font-playpen: var(--font-playpen);
+  --color-zinc-100: #f5f5f5;
+  --color-zinc-300: #d4d4d4;
+  --color-zinc-400: #a3a3a3;
+  --color-zinc-600: #525252;
+  --color-zinc-700: #404040;
+  --color-zinc-800: #262626;
+  --color-zinc-900: #171717;
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -118,52 +125,52 @@ body {
 
 :root {
   --radius: 0.4rem;
-  --background: #edf4f8;
-  --foreground: #102735;
-  --card: #f8fcff;
-  --card-foreground: #102735;
-  --popover: #f8fcff;
-  --popover-foreground: #102735;
+  --background: #ffffff;
+  --foreground: #000000;
+  --card: #f5f5f5;
+  --card-foreground: #000000;
+  --popover: #f5f5f5;
+  --popover-foreground: #000000;
   --primary: #00b8db;
   --lab-accent-text: #007087;
   --lab-blue: #2b7fff;
-  --primary-foreground: #08232f;
-  --secondary: #e6eff5;
-  --secondary-foreground: #102735;
-  --muted: #e0ebf3;
-  --muted-foreground: #4b6574;
-  --accent: #dceef6;
-  --accent-foreground: #102735;
+  --primary-foreground: #000000;
+  --secondary: #eeeeee;
+  --secondary-foreground: #000000;
+  --muted: #eaeaea;
+  --muted-foreground: #4a4a4a;
+  --accent: #e5e5e5;
+  --accent-foreground: #000000;
   --destructive: #b93344;
-  --border: #c7d9e5;
-  --input: #c7d9e5;
+  --border: #d5d5d5;
+  --input: #d5d5d5;
   --ring: #00b8db;
-  --lab-panel: #e3eef6;
+  --lab-panel: #f5f5f5;
   --lab-grid: #00b8db08;
-  --lab-shadow: #193d5510;
+  --lab-shadow: #00000010;
 }
 
 .dark {
-  --background: #08111d;
-  --foreground: #e8f0f7;
-  --card: #0f1f30;
-  --card-foreground: #e8f0f7;
-  --popover: #0f1f30;
-  --popover-foreground: #e8f0f7;
+  --background: #000000;
+  --foreground: #ffffff;
+  --card: #111111;
+  --card-foreground: #ffffff;
+  --popover: #111111;
+  --popover-foreground: #ffffff;
   --primary: #00b8db;
   --lab-accent-text: #00b8db;
-  --primary-foreground: #08232f;
-  --secondary: #14283b;
-  --secondary-foreground: #e8f0f7;
-  --muted: #14283b;
-  --muted-foreground: #a1b6c9;
-  --accent: #193247;
-  --accent-foreground: #e8f0f7;
+  --primary-foreground: #000000;
+  --secondary: #1a1a1a;
+  --secondary-foreground: #ffffff;
+  --muted: #1b1b1b;
+  --muted-foreground: #bfbfbf;
+  --accent: #262626;
+  --accent-foreground: #ffffff;
   --destructive: #fd7284;
-  --border: #253e54;
-  --input: #253e54;
+  --border: #333333;
+  --input: #333333;
   --ring: #00b8db;
-  --lab-panel: #0b1929;
+  --lab-panel: #090909;
   --lab-grid: #00b8db06;
   --lab-shadow: #00000020;
 }
@@ -196,10 +203,10 @@ section[id] { scroll-margin-top: 92px; }
 .lab-mobile-menu { border-top: 1px solid var(--border); background: var(--card); padding: 12px 24px; }
 .lab-mobile-menu[hidden] { display: none; }
 .lab-mobile-menu .lab-nav-link { padding: 12px; }
-.lab-hero { min-height: min(900px, 100svh); padding-top: 156px; padding-bottom: 44px; background: radial-gradient(ellipse at 87% 45%, color-mix(in srgb, var(--primary) 5%, transparent), transparent 52%), var(--background); border-bottom: 1px solid var(--border); display: flex; flex-direction: column; }
+.lab-hero { min-height: min(900px, 100svh); padding-top: 156px; padding-bottom: 44px; background: var(--background); border-bottom: 1px solid var(--border); display: flex; flex-direction: column; }
 .lab-hero-content { width: 100%; display: grid; grid-template-columns: minmax(0,1.25fr) minmax(0,1fr); gap: 44px; align-items: center; flex: 1; padding-bottom: 76px; }
 .lab-hero-location { display: flex; gap: 10px; align-items: center; color: var(--muted-foreground); font: 12px var(--font-geist-mono), monospace; }
-.lab-signal { width: 6px; height: 6px; background: var(--primary); border-radius: 50%; margin-right: 5px; box-shadow: 0 0 0 4px color-mix(in srgb, var(--primary) 9%, transparent); }
+.lab-signal { width: 6px; height: 6px; background: var(--primary); border-radius: 50%; margin-right: 5px; box-shadow: 0 0 0 4px transparent; }
 .lab-hero h1 { margin-top: 26px; max-width: 660px; font-size: clamp(3.1rem, 5.15vw, 5rem); line-height: 1.06; font-weight: 550; letter-spacing: -.06em; }
 .lab-hero-description { margin-top: 28px; max-width: 550px; font-size: 17px; line-height: 1.8; color: var(--muted-foreground); }
 .lab-hero-actions { margin-top: 34px; }
