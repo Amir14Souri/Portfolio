@@ -3,6 +3,7 @@ import type { IconType } from "react-icons";
 import type { LucideIcon } from "lucide-react";
 
 import {
+  BookOpen,
   Briefcase,
   FlaskConical,
   Github,
@@ -321,20 +322,23 @@ export const EDUCATION: Education[] = [
 ];
 
 export const EXPERIENCE_CATEGORY_CONFIG: Record<
-  ExperienceCategory,
-  { label: string; icon: LucideIcon; color: string; bg: string }
+  ExperienceCategory | "teaching",
+  { label: string; icon: LucideIcon; accent: string }
 > = {
   technical: {
     label: "Technical",
     icon: Briefcase,
-    color: "text-lab-blue",
-    bg: "bg-lab-blue/10",
+    accent: "lab-accent-technical",
   },
   research: {
     label: "Research",
     icon: FlaskConical,
-    color: "text-primary",
-    bg: "bg-primary/10",
+    accent: "lab-accent-research",
+  },
+  teaching: {
+    label: "Teaching Assistantships",
+    icon: BookOpen,
+    accent: "lab-accent-teaching",
   },
 };
 

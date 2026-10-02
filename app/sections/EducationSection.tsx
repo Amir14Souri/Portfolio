@@ -27,7 +27,7 @@ export default function EducationSection() {
                 <Card variant="left" data-reveal data-reveal-delay={Math.min(index, 2) * 60} className="min-w-0 flex-1">
                   <CardContent className="p-6 gap-1">
                     <div className="flex flex-wrap items-start justify-between gap-3 mb-4">
-                      <div className="flex items-start gap-3">
+                      <div className="flex min-w-0 max-w-full flex-wrap items-start gap-3">
                         {edu.logo && (
                           <span
                             className="mt-0.5 w-12 h-12 shrink-0 bg-zinc-700/60 dark:bg-zinc-400/60"
@@ -39,7 +39,7 @@ export default function EducationSection() {
                             }}
                           />
                         )}
-                        <div>
+                        <div className="min-w-0 flex-1 basis-32 [overflow-wrap:anywhere]">
                           <h3 className="text-xl font-semibold text-foreground">
                             {edu.degree}
                           </h3>

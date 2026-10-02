@@ -45,7 +45,9 @@ export default function ScrollReveal() {
     const register = (element: HTMLElement) => {
       if (element.dataset.revealState) return;
       const rect = element.getBoundingClientRect();
-      if (motion.matches || rect.top < window.innerHeight ||
+      // Disclosure owns the additional grid's entrance; avoid stacked fades or
+      // transforms inside its measured, clipped container.
+      if (element.closest("[data-project-disclosure]") || motion.matches || rect.top < window.innerHeight ||
           (element.dataset.revealKey && seen.has(element.dataset.revealKey)) ||
           element.contains(document.activeElement)) {
         reveal(element);
@@ -59,7 +61,7 @@ export default function ScrollReveal() {
     revealHash();
     root.querySelectorAll<HTMLElement>(SELECTOR).forEach(register);
 
-    // Expanded projects retain their grid structure and join the same observer.
+    // Newly mounted cards register here, including the project disclosure.
     const mutations = new MutationObserver(records => {
       for (const record of records) {
         record.removedNodes.forEach(node => {

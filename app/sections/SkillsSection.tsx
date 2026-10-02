@@ -1,13 +1,19 @@
+import Image from "next/image";
+import type { CSSProperties } from "react";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import SectionHeading from "../components/SectionHeading";
 import { getSkillsMap, SKILL_CATEGORIES, SPOKEN_LANGUAGES } from "@/app/portfolio";
+import { skillBrandColors } from "@/lib/skill-colors";
+
+const skillsMap = getSkillsMap();
+const brandColors = Object.fromEntries(Object.values(skillsMap).map((skill) =>
+  [skill.name, skillBrandColors(skill.color)]));
 
 export default function SkillsSection() {
-  const skillsMap = getSkillsMap();
 
   return (
-    <section id="skills" className="lab-section px-6 py-24">
+    <section id="skills" className="lab-section lab-section-grid px-6 py-24">
       <div className="mx-auto max-w-6xl">
         <SectionHeading
           title="Skills & Technologies"
@@ -21,7 +27,7 @@ export default function SkillsSection() {
               data-reveal
               data-reveal-delay={Math.min(index, 2) * 60}
               key={category.id}
-              className="mb-4 break-inside-avoid">
+              className="lab-skills-card mb-4 break-inside-avoid">
               <CardContent className="lab-skill-content p-5 md:p-6">
                 <div className="flex items-center justify-between gap-3">
                   <h3 className="text-lg font-semibold text-foreground">
@@ -50,17 +56,17 @@ export default function SkillsSection() {
                         key={skill.name}
                         className="flex items-center gap-2 lab-skill rounded-sm border border-border bg-secondary/70 px-3 py-1 text-sm text-foreground/90"
                       >
-                        {Icon && <Icon className="h-4 w-4 shrink-0 text-muted-foreground" aria-hidden="true" />}
-                        {skill.logo && <span
-                          className="h-4 w-4 shrink-0 bg-muted-foreground"
-                          aria-hidden="true"
-                          style={{
-                            maskImage: `url(${skill.logo})`,
-                            maskSize: "contain",
-                            maskPosition: "center",
-                            maskRepeat: "no-repeat",
-                          }}
-                        />}
+                        {Icon && <span className="lab-skill-icon h-4 w-4 shrink-0" aria-hidden="true"
+                          style={{ "--skill-light": brandColors[skill.name].light, "--skill-dark": brandColors[skill.name].dark } as CSSProperties}>
+                          <Icon className="h-4 w-4" />
+                        </span>}
+                        {skill.logo && <span className="lab-skill-logo h-4 w-4 shrink-0" aria-hidden="true">
+                          <span className="lab-skill-logo-mask" style={{
+                            maskImage: `url(${skill.logo})`, maskSize: "contain",
+                            maskPosition: "center", maskRepeat: "no-repeat",
+                          }} />
+                          <Image src={skill.logo} alt="" width={16} height={16} className="lab-skill-logo-color h-4 w-4" />
+                        </span>}
                         {skill.name}
                       </span>
                     );
@@ -79,11 +85,11 @@ export default function SkillsSection() {
           </Badge>
           <div className="flex flex-wrap justify-center gap-3">
             {Object.entries(SPOKEN_LANGUAGES).map(([language, level]) => (
-              <Badge key={language} variant="outline" className="rounded-md px-4 py-1 font-medium bg-white/30 dark:bg-black/30">
-                <span className="text-[0.85rem] uppercase tracking-[0.12em] lab-language-name text-foreground/80">
+              <Badge key={language} variant="outline" className="max-w-full flex-wrap rounded-md px-4 py-1 font-medium bg-white/30 dark:bg-black/30">
+                <span className="min-w-0 max-w-full [overflow-wrap:anywhere] text-[0.85rem] uppercase tracking-[0.12em] lab-language-name text-foreground/80">
                   {language}
                 </span>
-                <span className="ml-2 text-muted-foreground/70">{level}</span>
+                <span className="min-w-0 ml-2 text-muted-foreground/70">{level}</span>
               </Badge>
             ))}
           </div>

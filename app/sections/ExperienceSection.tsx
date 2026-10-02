@@ -22,16 +22,12 @@ export default function ExperienceSection() {
         />
 
         <div className="mb-8 flex flex-wrap justify-start gap-4">
-          {Object.entries(EXPERIENCE_CATEGORY_CONFIG).map(([key, { label, icon: Icon, color }]) => (
-            <span key={key} className="inline-flex items-center gap-2 text-xs font-medium text-muted-foreground">
-              <Icon className={`h-4 w-4 ${color}`} />
+          {Object.entries(EXPERIENCE_CATEGORY_CONFIG).map(([key, { label, icon: Icon, accent }]) => (
+            <span key={key} className={`${accent} lab-category-label inline-flex items-center gap-2 text-xs font-medium`}>
+              <Icon className="h-4 w-4" aria-hidden="true" />
               {label}
             </span>
           ))}
-          <span className="inline-flex items-center gap-2 text-xs font-medium text-muted-foreground">
-            <BookOpen className="h-4 w-4 text-primary" />
-            Teaching Assistantships
-          </span>
         </div>
 
         <div className="lab-experience-list space-y-4">
@@ -43,15 +39,16 @@ export default function ExperienceSection() {
                 data-reveal
                 data-reveal-delay={Math.min(index, 2) * 60}
                 variant="left"
+                className={config.accent}
                 key={`${exp.organization}-${exp.period}`}>
                 <CardContent className="gap-5 p-7">
                   <div className="flex flex-wrap items-start justify-between gap-4">
                     <div className="flex min-w-0 items-start gap-4">
-                      <div className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-md ${config.bg}`}>
-                        <Icon className={`h-4 w-4 ${config.color}`} />
+                      <div className="lab-category-icon flex h-10 w-10 shrink-0 items-center justify-center rounded-md">
+                        <Icon className="h-4 w-4" aria-hidden="true" />
                       </div>
                       <div className="min-w-0">
-                        <p className="text-sm font-semibold uppercase tracking-wide text-muted-foreground">
+                        <p className="lab-category-label text-sm font-semibold uppercase tracking-wide">
                           {config.label}
                         </p>
                         <h3 className="text-xl font-semibold text-foreground">
@@ -88,9 +85,9 @@ export default function ExperienceSection() {
                 data-reveal-delay={Math.min(index, 2) * 60}
                 variant="left"
                 key={`${ta.course}-${ta.period}`}
-                className="lab-teaching flex items-start gap-3 p-3 text-left">
-                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
-                  <BookOpen className="h-4 w-4" />
+                className={`${EXPERIENCE_CATEGORY_CONFIG.teaching.accent} lab-teaching flex items-start gap-3 p-3 text-left`}>
+                <div className="lab-category-icon flex h-9 w-9 shrink-0 items-center justify-center rounded-xl">
+                  <BookOpen className="h-4 w-4" aria-hidden="true" />
                 </div>
                 <div className="min-w-0">
                   <p className="text-sm font-semibold text-foreground pb-0.5">{ta.course}</p>

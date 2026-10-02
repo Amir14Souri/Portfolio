@@ -7,7 +7,7 @@ import { MANUSCRIPTS } from "@/app/portfolio";
 
 export default function ManuscriptSection() {
   return (
-    <section id="manuscript" className="lab-section relative px-6 py-24">
+    <section id="manuscript" className="lab-section lab-section-grid relative px-6 py-24">
       <div className="mx-auto max-w-6xl">
         <SectionHeading
           title="Manuscript"

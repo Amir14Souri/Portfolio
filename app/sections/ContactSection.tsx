@@ -6,7 +6,7 @@ export default function ContactSection() {
   return (
     <section
       id="contact"
-      className="lab-section relative px-6 py-24">
+      className="lab-section lab-section-grid relative px-6 py-24">
       <div className="mx-auto max-w-6xl relative z-10">
         <SectionHeading
           title="Get in Touch"
@@ -27,8 +27,8 @@ export default function ContactSection() {
                 variant="top"
                 className="lab-contact group p-5 h-full">
                 <div className="flex items-center gap-3">
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-functional-accent">
-                    <Icon className="h-4 w-4" />
+                  <div className="lab-contact-icon flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-functional-accent">
+                    <Icon className="h-4 w-4" aria-hidden="true" />
                   </div>
                   <div className="min-w-0">
                     <p className="text-xs font-semibold uppercase tracking-[0.08em] text-muted-foreground">

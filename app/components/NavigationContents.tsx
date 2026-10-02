@@ -2,13 +2,15 @@
 
 import { useEffect, useRef, useState } from "react";
 import { useTheme } from "next-themes";
-import { Menu, Moon, Sun, X } from "lucide-react";
+import { Moon, Sun } from "lucide-react";
 import { NAV_ITEMS, SITE } from "@/app/portfolio";
 import { useMounted } from "./useMounted";
+import { useThemeTransition } from "./ThemeProvider";
 
 /** Shared controls and menu rows for the hero and sticky navigation. */
 export default function NavigationContents({ menuId }: { menuId: string }) {
-  const { resolvedTheme, setTheme } = useTheme();
+  const { resolvedTheme } = useTheme();
+  const toggleTheme = useThemeTransition();
   const mounted = useMounted();
   const [mobileOpen, setMobileOpen] = useState(false);
   const menuButton = useRef<HTMLButtonElement>(null);
@@ -57,7 +59,7 @@ export default function NavigationContents({ menuId }: { menuId: string }) {
       className={`lab-nav-link ${activeSection === href.slice(1) ? "lab-nav-active" : ""}`}
       aria-current={activeSection === href.slice(1) ? "location" : undefined}
       onClick={() => setMobileOpen(false)}>
-      {label}
+      <span className="lab-nav-label">{label}</span>
     </a>
   ));
 
@@ -73,7 +75,7 @@ export default function NavigationContents({ menuId }: { menuId: string }) {
             type="button"
             className="lab-icon-button"
             aria-label="Toggle theme"
-            onClick={() => setTheme(isDark ? "light" : "dark")}>
+            onClick={toggleTheme}>
             {mounted && (isDark ? <Sun size={18} /> : <Moon size={18} />)}
           </button>
           <button
@@ -84,7 +86,7 @@ export default function NavigationContents({ menuId }: { menuId: string }) {
             aria-expanded={mobileOpen}
             aria-controls={menuId}
             onClick={() => setMobileOpen((open) => !open)}>
-            {mobileOpen ? <X size={18} /> : <Menu size={18} />}
+            <span className="lab-menu-strokes" aria-hidden="true"><span /><span /><span /></span>
           </button>
         </div>
       </div>
