@@ -12,7 +12,7 @@ export default function AboutSection() {
           subtitle={ABOUT.subtitle}
         />
         <div className="lab-about-body" data-reveal data-reveal-delay="60">
-          <div className="flex flex-col gap-4 lab-about-copy space-y-5 p-8 text-base leading-relaxed text-muted-foreground">
+          <div className="flex flex-col gap-5 lab-about-copy p-8 text-base leading-relaxed text-muted-foreground">
             {ABOUT.paragraphs.map((paragraph) => (
               <p key={paragraph}>{paragraph}</p>
             ))}

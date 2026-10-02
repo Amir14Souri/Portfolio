@@ -23,15 +23,15 @@ export default function ExperienceSection() {
 
         <div className="mb-8 flex flex-wrap justify-start gap-4">
           {Object.entries(EXPERIENCE_CATEGORY_CONFIG).map(([key, { label, icon: Icon, color }]) => (
-            <Badge key={key} variant="outline" className="gap-2 rounded-md px-4 py-2 text-xs font-medium">
+            <span key={key} className="inline-flex items-center gap-2 text-xs font-medium text-muted-foreground">
               <Icon className={`h-4 w-4 ${color}`} />
               {label}
-            </Badge>
+            </span>
           ))}
-          <Badge variant="outline" className="gap-2 rounded-md px-4 py-2 text-xs font-medium">
+          <span className="inline-flex items-center gap-2 text-xs font-medium text-muted-foreground">
             <BookOpen className="h-4 w-4 text-primary" />
             Teaching Assistantships
-          </Badge>
+          </span>
         </div>
 
         <div className="lab-experience-list space-y-4">
@@ -79,7 +79,8 @@ export default function ExperienceSection() {
           })}
         </div>
 
-        <div className="mt-4">
+        <div className="mt-8">
+          <h3 className="mb-5 text-lg font-semibold text-foreground">Teaching Assistantships</h3>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {TA_EXPERIENCES.map((ta, index) => (
               <Card

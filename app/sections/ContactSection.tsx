@@ -20,18 +20,18 @@ export default function ContactSection() {
               {...(href?.startsWith("http")
                 ? { target: "_blank", rel: "noopener noreferrer" }
                 : {})}
-              className="min-w-0 cursor-pointer">
+              className="lab-contact-link min-w-0 cursor-pointer">
               <Card
                 data-reveal
                 data-reveal-delay={Math.min(index, 2) * 60}
                 variant="top"
                 className="lab-contact group p-5 h-full">
                 <div className="flex items-center gap-3">
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-functional-accent">
                     <Icon className="h-4 w-4" />
                   </div>
                   <div className="min-w-0">
-                    <p className="text-xs font-semibold uppercase tracking-[0.14em] text-muted-foreground">
+                    <p className="text-xs font-semibold uppercase tracking-[0.08em] text-muted-foreground">
                       {label}
                     </p>
                     <p className="text-sm font-medium leading-relaxed text-foreground">

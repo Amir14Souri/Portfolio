@@ -1,45 +1,16 @@
 "use client";
 
 import Image from "next/image";
-import { useTheme } from "next-themes";
-import { ArrowDown, FileText, MapPin, Menu, Moon, Sun, X } from "lucide-react";
+import { ArrowDown, FileText, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useEffect, useState } from "react";
-import { useMounted } from "@/app/components/useMounted";
-import { HERO_QUICK_FACTS, HERO_SOCIAL_LINKS, NAV_ITEMS, SITE } from "@/app/portfolio";
+import NavigationContents from "@/app/components/NavigationContents";
+import { HERO_QUICK_FACTS, HERO_SOCIAL_LINKS, SITE } from "@/app/portfolio";
 
 export default function HeroSection() {
-  const { resolvedTheme, setTheme } = useTheme();
-  const mounted = useMounted();
-  const [mobileOpen, setMobileOpen] = useState(false);
-  const isDark = mounted ? resolvedTheme === "dark" : true;
-
-  useEffect(() => {
-    const close = (event: KeyboardEvent) => { if (event.key === "Escape") setMobileOpen(false); };
-    window.addEventListener("keydown", close);
-    return () => window.removeEventListener("keydown", close);
-  }, []);
-
   return (
     <section id="hero" className="lab-hero relative px-6">
       <nav className="lab-nav lab-hero-nav" aria-label="Main navigation">
-        <div className="lab-nav-inner mx-auto max-w-6xl">
-          <a href="#hero" className="lab-brand"><span aria-hidden="true">[</span>{SITE.brand}<span aria-hidden="true">]</span></a>
-          <div className="hidden lg:flex items-center gap-1">
-            {NAV_ITEMS.map(({ label, href }) => <a key={href} href={href} className="lab-nav-link">{label}</a>)}
-          </div>
-          <div className="flex items-center gap-2">
-            <button onClick={() => setTheme(isDark ? "light" : "dark")} type="button" className="lab-icon-button" aria-label="Toggle theme">
-              {mounted && (isDark ? <Sun size={18} /> : <Moon size={18} />)}
-            </button>
-            <button onClick={() => setMobileOpen(!mobileOpen)} type="button" className="lab-icon-button lg:hidden" aria-label="Toggle menu" aria-expanded={mobileOpen} aria-controls="hero-mobile-menu">
-              {mobileOpen ? <X size={18} /> : <Menu size={18} />}
-            </button>
-          </div>
-        </div>
-        <div id="hero-mobile-menu" hidden={!mobileOpen} className="lab-mobile-menu lg:hidden">
-          {NAV_ITEMS.map(({ label, href }) => <a key={href} href={href} onClick={() => setMobileOpen(false)} className="lab-nav-link">{label}</a>)}
-        </div>
+        <NavigationContents menuId="hero-mobile-menu" />
       </nav>
 
       <div className="lab-hero-content mx-auto max-w-6xl">
@@ -75,7 +46,7 @@ export default function HeroSection() {
             {[ [48,120], [432,360], [120,432], [360,48] ].map(([cx, cy]) => <circle key={`${cx}-${cy}`} cx={cx} cy={cy} r="4" fill="currentColor" />)}
             <path d="M85 85H105M85 85V105M395 85H375M395 85V105M85 395H105M85 395V375M395 395H375M395 395V375" stroke="currentColor" />
           </svg>
-          <div className="lab-photo-frame"><Image src={SITE.photoSrc} alt={SITE.fullName} fill className="object-cover" priority sizes="(max-width: 767px) 180px, 230px" /></div>
+          <div className="lab-photo-frame"><Image src={SITE.photoSrc} alt={SITE.fullName} fill className="object-cover" priority sizes="(max-width: 767px) 163px, 230px" /></div>
           <div className="lab-profile-ruler" aria-hidden="true"><span /><span /><span /><span /><span /></div>
         </div>
       </div>
