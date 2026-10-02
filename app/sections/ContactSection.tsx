@@ -24,10 +24,10 @@ export default function ContactSection() {
               <Card
                 data-reveal
                 data-reveal-delay={Math.min(index, 2) * 60}
-                variant="active"
+                variant="top"
                 className="lab-contact group p-5 h-full">
                 <div className="flex items-center gap-3">
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-cyan-500/10 text-cyan-500">
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
                     <Icon className="h-4 w-4" />
                   </div>
                   <div className="min-w-0">

@@ -24,7 +24,7 @@ export default function EducationSection() {
                     <GraduationCap className="h-5 w-5" />
                   </div>
                 </div>
-                <Card data-reveal data-reveal-delay={Math.min(index, 2) * 60} className="min-w-0 flex-1">
+                <Card variant="left" data-reveal data-reveal-delay={Math.min(index, 2) * 60} className="min-w-0 flex-1">
                   <CardContent className="p-6 gap-1">
                     <div className="flex flex-wrap items-start justify-between gap-3 mb-4">
                       <div className="flex items-start gap-3">
@@ -43,7 +43,7 @@ export default function EducationSection() {
                           <h3 className="text-xl font-semibold text-foreground">
                             {edu.degree}
                           </h3>
-                          <p className="text-sm font-medium text-cyan-500">
+                          <p className="text-sm font-medium text-accent-label">
                             {edu.institution}
                           </p>
                         </div>

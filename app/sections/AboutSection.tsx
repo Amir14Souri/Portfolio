@@ -1,4 +1,3 @@
-import { Card, CardContent } from "@/components/ui/card";
 import SectionHeading from "../components/SectionHeading";
 import { ABOUT } from "@/app/portfolio";
 
@@ -12,13 +11,13 @@ export default function AboutSection() {
           title={ABOUT.title}
           subtitle={ABOUT.subtitle}
         />
-        <Card data-reveal data-reveal-delay="60">
-          <CardContent className="lab-about-copy space-y-5 p-8 text-base leading-relaxed text-muted-foreground">
+        <div className="lab-about-body" data-reveal data-reveal-delay="60">
+          <div className="flex flex-col gap-4 lab-about-copy space-y-5 p-8 text-base leading-relaxed text-muted-foreground">
             {ABOUT.paragraphs.map((paragraph) => (
               <p key={paragraph}>{paragraph}</p>
             ))}
-          </CardContent>
-        </Card>
+          </div>
+        </div>
       </div>
     </section>
   );

@@ -18,6 +18,7 @@ export default function SkillsSection() {
         <div className="mt-8 columns-1 gap-4 md:columns-2 lg:columns-3">
           {SKILL_CATEGORIES.map((category, index) => (
             <Card
+              variant="left"
               data-reveal
               data-reveal-delay={Math.min(index, 2) * 60}
               key={category.id}
@@ -27,7 +28,7 @@ export default function SkillsSection() {
                   <h3 className="text-lg font-semibold text-foreground">
                     {category.title}
                   </h3>
-                  {(category.count ?? true) && <span className="border border-cyan-500/40 bg-cyan-500/10 text-cyan-500 flex h-6 w-6 items-center justify-center rounded-md text-xs font-medium">
+                  {(category.count ?? true) && <span className="border border-primary/40 bg-primary/10 text-accent-label flex h-6 w-6 items-center justify-center rounded-md text-xs font-medium">
                     {category.skills.length}
                   </span>}
                 </div>

@@ -19,9 +19,9 @@ export default function ProjectsSection() {
       data-reveal
       data-reveal-key={project.title}
       data-reveal-delay={Math.min(index, 2) * 60}
-      variant="active"
+      variant="top"
       key={project.title}
-      className="lab-project group h-full border transition">
+      className="lab-project h-full">
       <CardContent className="flex h-full flex-col gap-4 p-5">
         <div className="flex items-start justify-between gap-3">
           <div className="space-y-2 text-left">
@@ -32,7 +32,7 @@ export default function ProjectsSection() {
               {project.description}
             </p>
           </div>
-          <Folder className="min-h-5 min-w-5 max-h-5 max-w-5 text-cyan-500" aria-hidden="true" />
+          <Folder className="min-h-5 min-w-5 max-h-5 max-w-5 text-primary" aria-hidden="true" />
         </div>
         <div className="lab-project-tags flex flex-wrap gap-2">
           {project.tags.map((tag) => (

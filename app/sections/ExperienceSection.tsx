@@ -29,7 +29,7 @@ export default function ExperienceSection() {
             </Badge>
           ))}
           <Badge variant="outline" className="gap-2 rounded-md px-4 py-2 text-xs font-medium">
-            <BookOpen className="h-4 w-4 text-cyan-500" />
+            <BookOpen className="h-4 w-4 text-primary" />
             Teaching Assistantships
           </Badge>
         </div>
@@ -42,7 +42,7 @@ export default function ExperienceSection() {
               <Card
                 data-reveal
                 data-reveal-delay={Math.min(index, 2) * 60}
-                variant="active"
+                variant="left"
                 key={`${exp.organization}-${exp.period}`}>
                 <CardContent className="gap-5 p-7">
                   <div className="flex flex-wrap items-start justify-between gap-4">
@@ -85,10 +85,10 @@ export default function ExperienceSection() {
               <Card
                 data-reveal
                 data-reveal-delay={Math.min(index, 2) * 60}
-                variant="active"
+                variant="left"
                 key={`${ta.course}-${ta.period}`}
                 className="lab-teaching flex items-start gap-3 p-3 text-left">
-                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-cyan-500/10 text-cyan-500">
+                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
                   <BookOpen className="h-4 w-4" />
                 </div>
                 <div className="min-w-0">

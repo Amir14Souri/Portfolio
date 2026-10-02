@@ -327,14 +327,14 @@ export const EXPERIENCE_CATEGORY_CONFIG: Record<
   technical: {
     label: "Technical",
     icon: Briefcase,
-    color: "text-blue-500",
-    bg: "bg-blue-500/10",
+    color: "text-lab-blue",
+    bg: "bg-lab-blue/10",
   },
   research: {
     label: "Research",
     icon: FlaskConical,
-    color: "text-purple-600 dark:text-purple-400",
-    bg: "bg-purple-500/10",
+    color: "text-primary",
+    bg: "bg-primary/10",
   },
 };
 

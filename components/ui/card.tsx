@@ -4,18 +4,16 @@ import * as React from "react"
 import { cn } from "@/lib/utils"
 
 const cardVariants = cva(
-  "lab-card border text-card-foreground",
+  "lab-card border bg-card text-card-foreground",
   {
     variants: {
       variant: {
-        default:
-          "bg-card",
-        active:
-          "bg-card transition-colors",
+        top: "lab-card-top",
+        left: "lab-card-left",
       },
     },
     defaultVariants: {
-      variant: "default",
+      variant: "left",
     },
   },
 );
@@ -28,7 +26,7 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>(
   ({ className, variant, ...props }, ref) => (
     <div
       ref={ref}
-      className={cn(cardVariants({ variant, className }), "")}
+      className={cn(cardVariants({ variant, className }))}
       {...props}
     />
   ),

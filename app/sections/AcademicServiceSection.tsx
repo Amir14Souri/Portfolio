@@ -18,11 +18,11 @@ export default function AcademicServiceSection() {
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {ACADEMIC_SERVICES.map((s, i) => {
             return (
-              <Card data-reveal data-reveal-delay={Math.min(i, 2) * 60} variant="active" key={i} className="lab-service text-left">
+              <Card data-reveal data-reveal-delay={Math.min(i, 2) * 60} variant="left" key={i} className="lab-service text-left">
                 <CardContent className="flex flex-col items-start gap-3 p-6">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-cyan-500/10 p-2 text-cyan-500">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 p-2 text-primary">
                     <div
-                      className="h-10 w-10 bg-cyan-500"
+                      className="h-10 w-10 bg-primary"
                       style={{
                         maskImage: `url(${s.logo})`,
                         maskSize: "contain",
@@ -38,7 +38,7 @@ export default function AcademicServiceSection() {
                   <h3 className="text-sm font-semibold text-foreground">
                     {s.role}
                   </h3>
-                  <p className="text-xs font-medium text-cyan-500">{s.event}</p>
+                  <p className="text-xs font-medium text-accent-label">{s.event}</p>
                   <Badge variant="outline" className="lab-date gap-1 text-xs">
                     <CalendarDays className="h-3 w-3" />
                     {s.period}

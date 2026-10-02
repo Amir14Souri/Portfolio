@@ -18,9 +18,9 @@ export default function ManuscriptSection() {
             <Card
               data-reveal
               data-reveal-delay={Math.min(index, 2) * 60}
-              variant="active"
+              variant="left"
               key={manuscript.title}
-              className="lab-manuscript border transition">
+              className="lab-manuscript">
               <CardContent className="flex-row items-start gap-4 p-5">
                 <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-primary/10 text-primary">
                   <BookOpen size={18} aria-hidden="true" />
@@ -30,7 +30,7 @@ export default function ManuscriptSection() {
                   <h3 className="text-xl font-semibold text-foreground">{manuscript.title}</h3>
                   <div className="flex flex-wrap items-center gap-2">
                     <Badge variant="outline" className="text-xs">{manuscript.year}</Badge>
-                    <Badge variant="outline" className="text-xs text-amber-700 dark:text-amber-400">{manuscript.status}</Badge>
+                    <Badge variant="outline" className="text-xs text-accent-label">{manuscript.status}</Badge>
                   </div>
                 </div>
               </CardContent>
