@@ -76,8 +76,7 @@ export default function ExperienceSection() {
           })}
         </div>
 
-        <div className="mt-8">
-          <h3 className="mb-5 text-lg font-semibold text-foreground">Teaching Assistantships</h3>
+        <div className="mt-5">
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {TA_EXPERIENCES.map((ta, index) => (
               <Card
