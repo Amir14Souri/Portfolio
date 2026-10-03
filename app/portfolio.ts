@@ -182,6 +182,8 @@ export const HERO_SOCIAL_LINKS: SocialLink[] = [
   },
 ];
 
+export const HERO_INTRO = "Research in machine learning and intelligent systems, alongside software engineering that connects ideas with practical applications.";
+
 export const HERO_QUICK_FACTS: QuickFact[] = [
   { label: "Research", value: "Visual reasoning • RIML Lab" },
   { label: "University", value: "Sharif University of Technology" },

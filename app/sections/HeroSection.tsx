@@ -4,7 +4,7 @@ import DiffusionPortrait from "@/app/components/DiffusionPortrait";
 import { ArrowDown, FileText, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import NavigationContents from "@/app/components/NavigationContents";
-import { HERO_QUICK_FACTS, HERO_SOCIAL_LINKS, SITE } from "@/app/portfolio";
+import { HERO_INTRO, HERO_QUICK_FACTS, HERO_SOCIAL_LINKS, SITE } from "@/app/portfolio";
 
 export default function HeroSection() {
   return (
@@ -17,6 +17,7 @@ export default function HeroSection() {
         <div className="lab-hero-copy">
           <div className="lab-hero-location"><span className="lab-signal" aria-hidden="true" /><MapPin size={14} aria-hidden="true" />{SITE.location}</div>
           <h1>{SITE.fullName}</h1>
+          <p className="lab-hero-description">{HERO_INTRO}</p>
           <div className="lab-hero-actions flex flex-wrap gap-3">
             {HERO_SOCIAL_LINKS.map(({ label, href, icon: Icon }) => (
               <Button key={label} asChild variant="outline" size="sm">
