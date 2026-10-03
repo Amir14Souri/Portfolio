@@ -39,3 +39,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Local portrait asset generation and review artifacts
+/scripts/diffusion-portrait/
+/artifacts/diffusion-portrait/
