@@ -89,8 +89,11 @@ export type Education = {
   logo?: string;
 };
 
-export type Manuscript = {
+export type Preprint = {
   title: string;
+  authors: string[];
+  description: string;
+  arxiv: string;
   year: string;
   status: string;
 };
@@ -137,7 +140,6 @@ export type SkillCategory = {
   id: string;
   title: string;
   skills: string[];
-  count?: boolean;
 };
 
 export type Skill = {
@@ -155,15 +157,15 @@ export const SITE = {
   portraitAnimationSrc: "/animations/steps-20-5s-256.mp4",
   // Skip the synthetic static prelude and begin at the actual diffusion trajectory.
   portraitAnimationStart: 0.16,
-  resumeSrc: "/resume.pdf",
-  footerLastUpdated: "September 2026",
+  cvSrc: "/cv.pdf",
+  footerLastUpdated: "October 2026",
 } as const;
 
 export const NAV_ITEMS: NavItem[] = [
   { label: "About", href: "#about" },
-  { label: "Projects", href: "#projects" },
   { label: "Experience", href: "#experience" },
-  { label: "Manuscript", href: "#manuscript" },
+  { label: "Preprint", href: "#preprint" },
+  { label: "Projects", href: "#projects" },
   { label: "Education", href: "#education" },
   { label: "Skills", href: "#skills" },
   { label: "Service", href: "#service" },
@@ -182,7 +184,8 @@ export const HERO_SOCIAL_LINKS: SocialLink[] = [
 
 export const HERO_QUICK_FACTS: QuickFact[] = [
   { label: "Research", value: "Visual reasoning • RIML Lab" },
-  { label: "Education", value: "Computer Science and Engineering • Sharif" },
+  { label: "University", value: "Sharif University of Technology" },
+  { label: "Major", value: "B.Sc. • Computer Science and Engineering" },
 ];
 
 export const ABOUT = {
@@ -190,7 +193,7 @@ export const ABOUT = {
   subtitle: "Research and engineering at Sharif University of Technology",
   paragraphs: [
     "I'm a Computer Science and Engineering student at Sharif University of Technology and a research assistant at RIML Lab. I currently study visual reasoning in vision-language models, from question-conditioned visual grounding to evaluating whether model answers respond to visual evidence.",
-    "My interests span machine and deep learning, computer vision and multimodal learning, language and vision-language models, ML systems, generative and trustworthy ML, reinforcement learning, multi-agent systems, and robotics. I also enjoy building software systems; at Hamravesh, I worked across APIs, interfaces, and Kubernetes integration for a cloud application marketplace.",
+    "My interests span machine and deep learning, computer vision and multimodal learning, and language and vision-language models. I'm also interested in ML systems, generative models, and trustworthy ML. These interests extend to reinforcement learning, multi-agent systems, and robotics. I also enjoy building software systems; at Hamravesh, I worked across APIs, interfaces, and Kubernetes integration for a cloud application marketplace.",
   ],
 } as const;
 
@@ -198,45 +201,20 @@ export const PROJECTS: Project[] = [
   {
     title: "Question-Conditioned Visual Grounding",
     description:
-      "Built question-conditioned grounding with CLIP patch and text features, converted heatmaps to boxes, and evaluated downstream VQA with Qwen2.5-VL-3B-Instruct.",
+      "Trained an attention-based model on CLIP patch and question embeddings to localize answer-relevant image regions. Converted predicted heatmaps into bounding boxes and evaluated their effect on downstream VQA with Qwen2.5-VL-3B-Instruct.",
     tags: ["Python", "PyTorch", "Transformers"],
     github: "https://github.com/Amir14Souri/VisualReasoning/",
     live: "",
     featured: true,
   },
   {
-    title: "DL Practical Assignments",
-    description:
-      "Completed 15 notebooks spanning neural networks, LoRA/QLoRA, RAG, generative models, and self-supervised vision methods.",
-    tags: ["Python", "Jupyter", "PyTorch", "PEFT", "FAISS"],
-    github: "https://github.com/Amir14Souri/DL-Exercises/",
-    live: "",
-    featured: true,
-  },
-  {
-    title: "MIR Project",
+    title: "Modern Information Retrieval Project",
     description:
       "Built a Goodreads search engine with BM25 and ranking evaluation, plus hybrid multimodal product search with dense and sparse retrieval and reranking.",
     tags: ["Python", "Jupyter", "PyTorch", "Transformers", "FAISS"],
     github: "https://github.com/Amir14Souri/MIR-Project/",
     live: "",
     featured: true,
-  },
-  {
-    title: "ML Models Collection",
-    description:
-      "Implemented and explained supervised and unsupervised learning methods, with scikit-learn baselines for comparison.",
-    tags: ["Python", "Jupyter", "Scikit-Learn"],
-    github: "https://github.com/Amir14Souri/ML-Exercises/",
-    live: "",
-  },
-  {
-    title: "AI Practical Assignments",
-    description:
-      "Implemented search, constraint satisfaction, Bayesian inference, HMMs, and reinforcement learning algorithms for AI coursework.",
-    tags: ["Python", "Jupyter", "NumPy", "PyTorch"],
-    github: "https://github.com/Amir14Souri/AI-Exercises",
-    live: "",
   },
   {
     title: "Machine Unlearning and Robustness Exercises",
@@ -248,8 +226,33 @@ export const PROJECTS: Project[] = [
     featured: true,
   },
   {
+    title: "Deep Learning Practical Assignments",
+    description:
+      "Completed 15 notebooks spanning neural networks, LoRA/QLoRA, RAG, generative models, and self-supervised vision methods.",
+    tags: ["Python", "Jupyter", "PyTorch", "PEFT", "FAISS"],
+    github: "https://github.com/Amir14Souri/DL-Exercises/",
+    live: "",
+    featured: true,
+  },
+  {
+    title: "Machine Learning Models Collection",
+    description:
+      "Implemented and explained supervised and unsupervised learning methods, with scikit-learn baselines for comparison.",
+    tags: ["Python", "Jupyter", "Scikit-Learn"],
+    github: "https://github.com/Amir14Souri/ML-Exercises/",
+    live: "",
+  },
+  {
+    title: "Artificial Intelligence Practical Assignments",
+    description:
+      "Implemented search, constraint satisfaction, Bayesian inference, HMMs, and reinforcement learning algorithms for AI coursework.",
+    tags: ["Python", "Jupyter", "NumPy", "PyTorch"],
+    github: "https://github.com/Amir14Souri/AI-Exercises",
+    live: "",
+  },
+  {
     title: "Hardwar Website",
-    description: "Built frontend, backend, and infrastructure for the Hardwar event website at Sharif University of Technology.",
+    description: "Built the frontend, backend, and infrastructure for the Hardwar event website at SUT.",
     tags: ["Python", "Django", "JavaScript", "React", "PostgreSQL", "Docker"],
     github: "https://github.com/HardWar-Sharif",
     live: "https://hardwar-sharif.ir",
@@ -257,14 +260,14 @@ export const PROJECTS: Project[] = [
   },
   {
     title: "Portfolio Website",
-    description: "A personal portfolio website highlighting my projects, experience, and skills in a clean and responsive design.",
+    description: "Built a responsive personal portfolio to present research, software projects, experience, and skills.",
     tags: ["TypeScript", "Next.js"],
     github: "https://github.com/Amir14Souri/Portfolio",
     live: "https://souuri.ir",
   },
   {
     title: "BugsBuzzy Website",
-    description: "Contributed to backend development of the website of BugsBuzzy event, held on October 2025 at SUT.",
+    description: "Contributed to the backend of the BugsBuzzy event website (Oct 2025, SUT).",
     tags: ["Python", "Django", "PostgreSQL"],
     github: "https://github.com/Bugs-Buzzy/BugsBuzzy-Backend",
     live: "",
@@ -273,7 +276,7 @@ export const PROJECTS: Project[] = [
   {
     title: "Vim (Clone)",
     description:
-      "Project of Fundamentals of Programming course, implementing most of the important commands of Vim editor.",
+      "Implemented core Vim editor commands for a Fundamentals of Programming course project.",
     tags: ["C", "Vim", "Ncurses"],
     github: "https://github.com/Amir14Souri/Vim-simulator",
     live: "",
@@ -281,7 +284,7 @@ export const PROJECTS: Project[] = [
   {
     title: "Stronghold: Crusader (Clone)",
     description:
-      "Project of Advanced Programming course, implementing a real-time simple version of the game with some extra functionalities.",
+      "Implemented a simplified real-time version of Stronghold: Crusader with additional features for an Advanced Programming course project.",
     tags: ["Java", "JavaFX", "Git"],
     github: "https://github.com/Amir14Souri/project-group-09",
     live: "",
@@ -289,14 +292,14 @@ export const PROJECTS: Project[] = [
   {
     title: "aa Game",
     description:
-      "Practical assignment of Advanced Programming course, implementing a version of aa game.",
+      "Implemented a version of the aa game for an Advanced Programming practical assignment.",
     tags: ["Java", "JavaFX"],
     github: "https://github.com/Amir14Souri/AA",
     live: "",
   },
   {
     title: "Todo List",
-    description: "A simple todo list with persistent local storage",
+    description: "Built a simple todo list with persistent local storage.",
     tags: ["Python", "Flask", "HTML", "CSS"],
     github: "https://github.com/Amir14Souri/Todo-List",
     live: "",
@@ -308,7 +311,7 @@ export const EDUCATION: Education[] = [
     degree: "B.Sc. in Computer Science and Engineering",
     institution: "Sharif University of Technology",
     location: "Tehran, Iran",
-    period: "2022 – Expected June 2027",
+    period: "2022 – Expected Jun 2027",
     gpa: "18.99/20",
     description: "Ranked 14th among 145,000+ participants in Iran's National University Entrance Examination.",
     logo: "/logos/sut.svg",
@@ -317,7 +320,7 @@ export const EDUCATION: Education[] = [
     degree: "Diploma of Mathematics and Physics",
     institution: "Shahid Beheshti High School",
     location: "Tehran, Iran",
-    period: "2019 - 2022",
+    period: "2019 – 2022",
     gpa: "",
     description: "National Organization for Development of Exceptional Talents (NODET).",
     logo: "/logos/sampad.svg",
@@ -353,7 +356,7 @@ export const EXPERIENCES: Experience[] = [
     period: "Jul 2026 – Present",
     points: [
       "PI: Dr. Mohammad Hossein Rohban.",
-      "Developed an initial question-conditioned visual-grounding study with CLIP features, heatmap-to-box conversion, and downstream evaluation with Qwen2.5-VL-3B-Instruct.",
+      "Developed the project's initial question-conditioned visual-grounding study and evaluated its effect on downstream VQA with Qwen2.5-VL-3B-Instruct.",
       "Investigating training and evaluation methods for evidence-sensitive reasoning in vision-language models.",
     ],
   },
@@ -444,19 +447,19 @@ export const ACADEMIC_SERVICES: AcademicService[] = [
     logo: "/logos/ssc.svg",
     role: "Public Relations Officer",
     event: "Student's Scientific Chapter • CE, SUT",
-    period: "Jul 2025 - Present",
+    period: "Jul 2025 – Present",
   },
   {
     logo: "/logos/byte.svg",
     role: "Senior Editor",
     event: "Byte Publication • CE, SUT",
-    period: "May 2025 - Present",
+    period: "May 2025 – Present",
   },
   {
     logo: "/logos/guild.svg",
     role: "President of CE Department • University Media Lead",
     event: "Student's Guild Council • SUT",
-    period: "Jul 2024 - June 2025",
+    period: "Jul 2024 – Jun 2025",
   },
   {
     logo: "/logos/bugsbuzzy.svg",
@@ -468,13 +471,13 @@ export const ACADEMIC_SERVICES: AcademicService[] = [
     logo: "/logos/emeet.svg",
     role: "Technical & Graphical Design Staff",
     event: "Emeet • EE, SUT",
-    period: "Aug 2025 - Oct 2025",
+    period: "Aug 2025 – Oct 2025",
   },
   {
     logo: "/logos/hardwar.svg",
     role: "Vice President & Technical Lead",
     event: "Hardwar • CE, SUT",
-    period: "Feb 2025 - May 2025",
+    period: "Feb 2025 – May 2025",
   },
   {
     logo: "/logos/icpc.svg",
@@ -492,7 +495,7 @@ export const ACADEMIC_SERVICES: AcademicService[] = [
     logo: "/logos/rayan.svg",
     role: "Social Media Lead",
     event: "Rayan AI Contest • CE, SUT",
-    period: "Aug 2024 - Oct 2024",
+    period: "Aug 2024 – Oct 2024",
   },
   {
     logo: "/logos/s4.svg",
@@ -504,25 +507,38 @@ export const ACADEMIC_SERVICES: AcademicService[] = [
     logo: "/logos/wss.svg",
     role: "Content Lead & Social Media Staff",
     event: "WSS • CE, SUT",
-    period: "Nov 2023 - Mar 2024",
+    period: "Nov 2023 – Mar 2024",
   },
   {
     logo: "/logos/codocodile.svg",
     role: "Social Media Staff",
     event: "CodoCodile • CE, SUT",
-    period: "Sep 2023 - Nov 2023",
+    period: "Sep 2023 – Nov 2023",
   },
   {
     logo: "/logos/icpc.svg",
     role: "Executive Staff",
     event: "ICPC • CE, SUT",
-    period: "Apr 2023 - May 2023",
+    period: "Apr 2023 – May 2023",
   },
 ];
 
-export const MANUSCRIPTS: Manuscript[] = [
+export const PREPRINTS: Preprint[] = [
   {
-    title: "Weeding Out Bad Seeds: Noise-Robust Unlearning for Text-to-Image Diffusion Models",
+    title: "Weeding Out Bad Seeds: Initial-Noise-Robust Unlearning for Text-to-Image Diffusion Models",
+    authors: [
+      "Arian Komaei Koma",
+      "Seyed Amir Kasaei",
+      "Aida Aryafar",
+      "Matin Ghiasi",
+      "Ali Aghayari",
+      "Amirhossein Souri",
+      "Mohammad Mosayyebi",
+      "AmirMahdi Sadeghzadeh",
+      "Mohammad Hossein Rohban",
+    ],
+    description: "Studies how unlearned concepts re-emerge under different noise initializations in text-to-image diffusion models. Adaptive, concept-conditioned noise sampling improves the robustness of concept erasure.",
+    arxiv: "https://arxiv.org/abs/2609.37537",
     year: "2026",
     status: "Under review at ICLR 2027",
   },
@@ -569,25 +585,24 @@ export const CONTACT_LINKS: ContactLink[] = [
 
 export const SKILL_CATEGORIES: SkillCategory[] = [
   {
-    id: "soft",
-    title: "Soft Skills",
-    skills: ["Accountability", "Critical Thinking", "Collaboration", "Leadership", "Adaptability"],
-    count: false
-  },
-  {
-    id: "languages",
-    title: "Programming Languages",
-    skills: ["C", "C++", "Python", "Java", "JavaScript", "TypeScript", "R", "SQL"],
-  },
-  {
     id: "ml",
     title: "Machine Learning & GenAI",
     skills: ["PyTorch", "TensorFlow", "Hugging Face", "Scikit-Learn", "Transformers", "Diffusers", "FAISS", "PEFT", "TRL", "Accelerate", "SentenceTransformers"],
   },
   {
+    id: "languages",
+    title: "Programming Languages",
+    skills: ["Python", "C", "C++", "Java", "JavaScript", "TypeScript", "R", "SQL"],
+  },
+  {
     id: "data-science",
     title: "Data Science",
     skills: ["NumPy", "Pandas", "Matplotlib", "OpenCV", "Hugging Face Datasets", "Jupyter"],
+  },
+  {
+    id: "infra",
+    title: "DevOps & Infrastructure",
+    skills: ["Linux", "Git", "GitHub", "GitLab", "Docker", "Kubernetes", "vLLM", "Postman"],
   },
   {
     id: "back",
@@ -600,9 +615,9 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
     skills: ["React", "Next.js", "Tailwind CSS", "Ant Design", "Zustand"],
   },
   {
-    id: "infra",
-    title: "DevOps & Infrastructure",
-    skills: ["Linux", "Git", "GitHub", "GitLab", "Docker", "Kubernetes", "vLLM", "Postman"],
+    id: "soft",
+    title: "Soft Skills",
+    skills: ["Accountability", "Critical Thinking", "Collaboration", "Leadership", "Adaptability"],
   },
   {
     id: "others",

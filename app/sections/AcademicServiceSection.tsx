@@ -12,7 +12,7 @@ export default function AcademicServiceSection() {
       className="lab-section relative px-6 py-24">
       <div className="mx-auto max-w-6xl relative z-10">
         <SectionHeading
-          title="Academic Service"
+          title="Academic Service & Leadership"
           subtitle="Voluntary contributions to the academic community"
         />
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">

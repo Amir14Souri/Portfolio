@@ -33,9 +33,6 @@ export default function SkillsSection() {
                   <h3 className="text-lg font-semibold text-foreground">
                     {category.title}
                   </h3>
-                  {(category.count ?? true) && <span className="border border-primary/40 bg-primary/10 text-accent-label flex h-6 w-6 items-center justify-center rounded-md text-xs font-medium">
-                    {category.skills.length}
-                  </span>}
                 </div>
                 <div className="flex flex-wrap gap-2">
                   {category.skills.map((skillName) => {

@@ -6,7 +6,7 @@ import ExperienceSection from "./sections/ExperienceSection";
 import AcademicServiceSection from "./sections/AcademicServiceSection";
 import ProjectsSection from "./sections/ProjectsSection";
 import SkillsSection from "./sections/SkillsSection";
-import ManuscriptSection from "./sections/ManuscriptSection";
+import PreprintSection from "./sections/PreprintSection";
 import ContactSection from "./sections/ContactSection";
 import Footer from "./components/Footer";
 import ScrollReveal from "./components/ScrollReveal";
@@ -38,9 +38,9 @@ export default function Home() {
       <main className="relative z-10">
         <HeroSection />
         <AboutSection />
-        <ProjectsSection />
         <ExperienceSection />
-        <ManuscriptSection />
+        <PreprintSection />
+        <ProjectsSection />
         <EducationSection />
         <SkillsSection />
         <AcademicServiceSection />

@@ -17,14 +17,13 @@ export default function HeroSection() {
         <div className="lab-hero-copy">
           <div className="lab-hero-location"><span className="lab-signal" aria-hidden="true" /><MapPin size={14} aria-hidden="true" />{SITE.location}</div>
           <h1>{SITE.fullName}</h1>
-          <p className="lab-hero-description">Research assistant studying visual reasoning in vision-language models, with broader interests across machine learning and intelligent systems.</p>
           <div className="lab-hero-actions flex flex-wrap gap-3">
             {HERO_SOCIAL_LINKS.map(({ label, href, icon: Icon }) => (
               <Button key={label} asChild variant="outline" size="sm">
                 <a href={href} target={href.startsWith("http") ? "_blank" : undefined} rel={href.startsWith("http") ? "noopener noreferrer" : undefined}><Icon className="h-4 w-4" /><span>{label}</span></a>
               </Button>
             ))}
-            <Button asChild size="sm"><a className="lab-resume" href={SITE.resumeSrc} target="_blank" rel="noopener noreferrer"><FileText className="h-4 w-4" />Resume</a></Button>
+            <Button asChild size="sm"><a className="lab-cv" href={SITE.cvSrc} target="_blank" rel="noopener noreferrer"><FileText className="h-4 w-4" />View CV</a></Button>
           </div>
         </div>
 
@@ -53,7 +52,7 @@ export default function HeroSection() {
 
       <div className="lab-hero-bottom mx-auto max-w-6xl">
         <div className="lab-quick-facts">
-          {HERO_QUICK_FACTS.map(({ label, value }) => <div key={label} className="lab-quick-fact"><span className={label === "Research" || label === "Education" ? "lab-hero-accent-label" : undefined}>{label}</span><p>{value}</p></div>)}
+          {HERO_QUICK_FACTS.map(({ label, value }) => <div key={label} className="lab-quick-fact"><span>{label}</span><p>{value}</p></div>)}
         </div>
         <a href="#about" className="lab-scroll-link" aria-label="Go to About section"><ArrowDown size={19} /></a>
       </div>

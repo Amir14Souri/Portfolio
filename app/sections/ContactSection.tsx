@@ -10,7 +10,7 @@ export default function ContactSection() {
       <div className="mx-auto max-w-6xl relative z-10">
         <SectionHeading
           title="Get in Touch"
-          subtitle="Feel free to reach out for collaborations, questions, or just a friendly hello"
+          subtitle="Feel free to reach out for collaborations and questions"
         />
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {CONTACT_LINKS.map(({ icon: Icon, label, value, href }, index) => (

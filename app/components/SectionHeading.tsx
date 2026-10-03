@@ -1,6 +1,6 @@
 const SECTION_NUMBERS: Record<string, string> = {
-  "About Me": "01", "Projects": "02", "Experience": "03", "Manuscript": "04",
-  "Education": "05", "Skills & Technologies": "06", "Academic Service": "07", "Get in Touch": "08",
+  "About Me": "01", "Experience": "02", "Preprint": "03", "Projects": "04",
+  "Education": "05", "Skills & Technologies": "06", "Academic Service & Leadership": "07", "Get in Touch": "08",
 };
 
 export default function SectionHeading({ title, subtitle }: { title: string; subtitle?: string }) {
