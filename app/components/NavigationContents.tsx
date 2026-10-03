@@ -38,18 +38,35 @@ export default function NavigationContents({ menuId }: { menuId: string }) {
   }, []);
 
   useEffect(() => {
-    if (!("IntersectionObserver" in window)) return;
-    const observer = new IntersectionObserver((entries) => {
-      const visibleEntry = entries.find((entry) => entry.isIntersecting);
-      if (visibleEntry) setActiveSection(visibleEntry.target.id);
-    }, { rootMargin: "-20% 0px -70% 0px" });
-    const hero = document.getElementById("hero");
-    if (hero) observer.observe(hero);
-    NAV_ITEMS.forEach(({ href }) => {
-      const section = document.querySelector(href);
-      if (section) observer.observe(section);
-    });
-    return () => observer.disconnect();
+    const sections = ["hero", ...NAV_ITEMS.map(({ href }) => href.slice(1))]
+      .map((id) => document.getElementById(id))
+      .filter((section): section is HTMLElement => section !== null);
+    let frame = 0;
+
+    const updateActiveSection = () => {
+      frame = 0;
+      const activeLine = Math.max(96, window.innerHeight * 0.25);
+      let active = sections[0];
+      for (const section of sections) {
+        if (section.getBoundingClientRect().top <= activeLine) active = section;
+      }
+      // The final section can be too short to reach the active line.
+      if (window.scrollY > 0 && window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 2) {
+        active = sections.at(-1) ?? active;
+      }
+      setActiveSection(active?.id ?? "");
+    };
+    const scheduleUpdate = () => {
+      if (!frame) frame = requestAnimationFrame(updateActiveSection);
+    };
+    updateActiveSection();
+    window.addEventListener("scroll", scheduleUpdate, { passive: true });
+    window.addEventListener("resize", scheduleUpdate);
+    return () => {
+      cancelAnimationFrame(frame);
+      window.removeEventListener("scroll", scheduleUpdate);
+      window.removeEventListener("resize", scheduleUpdate);
+    };
   }, []);
 
   const links = NAV_ITEMS.map(({ label, href }) => (
