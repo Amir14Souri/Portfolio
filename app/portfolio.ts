@@ -479,7 +479,7 @@ export const TA_EXPERIENCES: TAExperience[] = [
 export const TEACHING_RESOURCES: TeachingResource[] = [
   {
     title: "Machine Learning Course Materials",
-    description: "Course slides and example notebooks. Materials in Persian.",
+    description: "Introductory slides and example notebooks on machine learning fundamentals. Materials in Persian.",
     github: "https://github.com/Amir14Souri/ML-Course",
   },
   {

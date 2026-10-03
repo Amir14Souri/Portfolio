@@ -1,4 +1,4 @@
-import { BookOpen, Github } from "lucide-react";
+import { BookOpen, ExternalLink } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
@@ -97,28 +97,30 @@ export default function ExperienceSection() {
               </Card>
             ))}
             {TEACHING_RESOURCES.map((resource, index) => (
-              <Card
-                data-reveal
-                data-reveal-delay={Math.min(index, 2) * 60}
-                variant="left"
+              <a
                 key={resource.title}
-                className={`${EXPERIENCE_CATEGORY_CONFIG.teaching.accent} lab-teaching flex items-start gap-3 p-3 text-left`}>
-                <div className="lab-category-icon flex h-9 w-9 shrink-0 items-center justify-center rounded-xl">
-                  <BookOpen className="h-4 w-4" aria-hidden="true" />
-                </div>
-                <div className="min-w-0">
-                  <h3 className="pb-0.5 text-sm font-semibold text-foreground">{resource.title}</h3>
-                  <p className="text-xs text-muted-foreground">{resource.description}</p>
-                  <a
-                    href={resource.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="lab-action-link mt-1">
-                    <Github className="h-4 w-4" aria-hidden="true" />
-                    GitHub
-                  </a>
-                </div>
-              </Card>
+                href={resource.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`${resource.title} on GitHub (opens in a new tab)`}
+                className="lab-teaching-link min-w-0 rounded-md">
+                <Card
+                  data-reveal
+                  data-reveal-delay={Math.min(index, 2) * 60}
+                  variant="top"
+                  className={`${EXPERIENCE_CATEGORY_CONFIG.teaching.accent} lab-teaching flex h-full items-start gap-3 p-3 text-left`}>
+                  <div className="lab-category-icon flex h-9 w-9 shrink-0 items-center justify-center rounded-xl">
+                    <BookOpen className="h-4 w-4" aria-hidden="true" />
+                  </div>
+                  <div className="min-w-0 flex-1">
+                    <div className="flex items-start justify-between gap-2">
+                      <h3 className="pb-0.5 text-sm font-semibold text-foreground">{resource.title}</h3>
+                      <ExternalLink className="mt-0.5 h-3.5 w-3.5 shrink-0 text-muted-foreground" aria-hidden="true" />
+                    </div>
+                    <p className="text-xs text-muted-foreground">{resource.description}</p>
+                  </div>
+                </Card>
+              </a>
             ))}
           </div>
         </div>

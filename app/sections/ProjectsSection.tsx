@@ -1,7 +1,7 @@
 "use client";
 
 import { useLayoutEffect, useRef, useState } from "react";
-import { ChevronDown, ExternalLink, Folder, Github } from "lucide-react";
+import { ChevronDown, ExternalLink, Github } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -106,23 +106,20 @@ export default function ProjectsSection() {
       key={project.title}
       className="lab-project h-full">
       <CardContent className="flex h-full flex-col gap-4 p-5">
-        <div className="flex items-start justify-between gap-3">
-          <div className="min-w-0 space-y-2 text-left">
-            <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-              <h3 className="text-base font-semibold text-foreground">
-                {project.title}
-              </h3>
-              {project.period && (
-                <span className="whitespace-nowrap font-mono text-xs text-muted-foreground">
-                  {project.period}
-                </span>
-              )}
-            </div>
-            <p className="text-sm leading-relaxed text-muted-foreground">
-              {project.description}
-            </p>
+        <div className="min-w-0 space-y-2 text-left">
+          <div className="flex flex-wrap-reverse items-start justify-between gap-x-3 gap-y-2">
+            <h3 className="min-w-0 flex-1 basis-64 text-base font-semibold text-foreground">
+              {project.title}
+            </h3>
+            {project.period && (
+              <Badge variant="outline" className="lab-date ml-auto shrink-0 text-xs">
+                {project.period}
+              </Badge>
+            )}
           </div>
-          <Folder className="min-h-5 min-w-5 max-h-5 max-w-5 text-primary" aria-hidden="true" />
+          <p className="text-sm leading-relaxed text-muted-foreground">
+            {project.description}
+          </p>
         </div>
         <div className="lab-project-footer mt-auto flex flex-wrap items-center justify-between gap-x-4 gap-y-1">
           <div className="lab-project-tags flex min-w-0 flex-1 basis-48 flex-wrap items-center gap-2">
@@ -140,7 +137,7 @@ export default function ProjectsSection() {
                 rel="noopener noreferrer"
                 className="lab-action-link">
                 <Github className="h-4 w-4" aria-hidden="true" />
-                Code
+                GitHub
               </a>
             )}
             {project.live && (
