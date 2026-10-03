@@ -117,34 +117,36 @@ export default function ProjectsSection() {
           </div>
           <Folder className="min-h-5 min-w-5 max-h-5 max-w-5 text-primary" aria-hidden="true" />
         </div>
-        <div className="lab-project-tags flex flex-wrap gap-2">
-          {project.tags.map((tag) => (
-            <Badge key={tag} variant="outline" className="rounded-sm px-3 py-0.5 text-xs font-medium">
-              {tag}
-            </Badge>
-          ))}
-        </div>
-        <div className="mt-auto flex gap-3 text-muted-foreground">
-          {project.github && (
-            <a
-              href={project.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 text-xs hover:text-foreground">
-              <Github className="h-4 w-4" aria-hidden="true" />
-              Code
-            </a>
-          )}
-          {project.live && (
-            <a
-              href={project.live}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 text-xs hover:text-foreground">
-              <ExternalLink className="h-4 w-4" aria-hidden="true" />
-              Live
-            </a>
-          )}
+        <div className="lab-project-footer mt-auto flex flex-wrap items-center justify-between gap-x-4 gap-y-1">
+          <div className="lab-project-tags flex min-w-0 flex-1 basis-48 flex-wrap items-center gap-2">
+            {project.tags.map((tag) => (
+              <Badge key={tag} variant="outline" className="rounded-sm px-3 py-0.5 text-xs font-medium">
+                {tag}
+              </Badge>
+            ))}
+          </div>
+          <div className="lab-project-links flex shrink-0 items-center gap-3 text-muted-foreground">
+            {project.github && (
+              <a
+                href={project.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="lab-action-link">
+                <Github className="h-4 w-4" aria-hidden="true" />
+                Code
+              </a>
+            )}
+            {project.live && (
+              <a
+                href={project.live}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="lab-action-link">
+                <ExternalLink className="h-4 w-4" aria-hidden="true" />
+                Live
+              </a>
+            )}
+          </div>
         </div>
       </CardContent>
     </Card>

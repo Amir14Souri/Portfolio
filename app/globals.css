@@ -255,11 +255,11 @@ section[id] { scroll-margin-top: 92px; }
 .lab-about-body { background: transparent; border: none; box-shadow: none; border-left: 1px solid var(--border); border-radius: 0; }
 .lab-about-copy { padding: 0 0 0 36px; font-size: 15px; line-height: 1.95; }
 .lab-about-copy p:first-child { color: var(--foreground); font-size: 18px; line-height: 1.8; }
-.lab-project > div { padding: 30px; gap: 24px; }
+.lab-project > div { padding: 24px; gap: 16px; }
 .lab-project h3 { font-size: 20px; letter-spacing: -.025em; }
 .lab-project p { font-size: 15px; line-height: 1.75; }
-.lab-project a { min-height: 44px; border-bottom: 1px solid var(--lab-card-border); padding-bottom: 6px; transition: color .18s, border-color .18s; }
-.lab-project a:is(:hover, :focus-visible) { color: var(--lab-functional-accent); border-color: var(--lab-functional-accent); }
+.lab-action-link { display: inline-flex; align-items: center; gap: 4px; min-height: 44px; color: var(--muted-foreground); font-size: 13px; font-weight: 400; line-height: 1.6; border-bottom: 1px solid var(--lab-card-border); padding-bottom: 6px; transition: color .18s, border-color .18s; }
+.lab-action-link:is(:hover, :focus-visible) { color: var(--lab-functional-accent); border-color: var(--lab-functional-accent); }
 .lab-project-tags > div, .lab-skill { border-color: color-mix(in srgb, var(--lab-card-border) 60%, transparent); background-color: color-mix(in srgb, var(--secondary) 65%, transparent); }
 .lab-date { font: 12px/1.5 var(--font-geist-mono), monospace; letter-spacing: 0; border-color: var(--lab-card-border); background: var(--background); padding: 4px 8px; }
 .lab-experience-list .uppercase { font-family: var(--font-geist-mono), monospace; font-size: 12px; letter-spacing: .08em; margin-bottom: 5px; }
@@ -269,8 +269,6 @@ section[id] { scroll-margin-top: 92px; }
 .lab-preprint > div { padding: 24px; }
 .lab-preprint h3 { font-size: 20px; letter-spacing: -.025em; line-height: 1.45; }
 .lab-preprint-authors { font-size: 13px; line-height: 1.65; }
-.lab-preprint-link { min-height: 44px; color: var(--lab-functional-accent); border-bottom: 1px solid var(--lab-card-border); transition: color .18s, border-color .18s; }
-.lab-preprint-link:is(:hover, :focus-visible) { border-color: var(--lab-functional-accent); }
 #skills h3 { font-size: 16px; line-height: 1.5; }
 .lab-skill { font-size: 13px; line-height: 1.6; padding: 6px 9px; gap: 6px; }
 .lab-service > div { display: grid; grid-template-columns: 44px 1fr; column-gap: 18px; padding: 25px; }
@@ -322,7 +320,7 @@ section[id] { scroll-margin-top: 92px; }
   .lab-about-body { border: none; }
   .lab-about-copy { padding-left: 0; font-size: 15px; line-height: 1.85; }
   .lab-about-copy p:first-child { font-size: 16px; }
-  .lab-project > div { padding: 24px; }
+  .lab-project > div { padding: 20px; }
   .lab-experience-list > .lab-card > div { padding: 24px; }
   .lab-experience-list h3 { font-size: 21px; }
   .lab-preprint h3 { font-size: 18px; }
@@ -418,7 +416,7 @@ section[id] { scroll-margin-top: 92px; }
 .lab-project-count { color: var(--muted-foreground); font-variant-numeric: tabular-nums; }
 .lab-project-chevron { color: var(--lab-cyan); transition: transform 280ms ease; }
 .lab-project-toggle[aria-expanded="true"] .lab-project-chevron { transform: rotate(180deg); }
-.lab-project a, #projects button { font-size: 13px; line-height: 1.6; }
+#projects button { font-size: 13px; line-height: 1.6; }
 .lab-teaching .text-xs, .lab-service p { font-size: 13px; line-height: 1.7; }
 .lab-teaching .font-mono { font-size: 12px; line-height: 1.7; }
 .lab-project-tags > div, .lab-date { line-height: 1.6; }
@@ -446,9 +444,9 @@ section[id] { scroll-margin-top: 92px; }
 /* Viewport height is a minimum: text zoom and very short screens can grow it. */
 @supports (height: 100svh) { .lab-hero { --hero-viewport: 100svh; } }
 @supports (height: 100dvh) { .lab-hero { --hero-viewport: 100dvh; } }
-  .lab-hero-description { margin-top: 18px; }
 @media (min-width: 768px) and (max-height: 720px) {
   .lab-hero h1 { margin-top: 18px; }
+  .lab-hero-description { margin-top: 18px; }
   .lab-hero-actions { margin-top: 22px; }
 }
 .lab-section-grid::before {

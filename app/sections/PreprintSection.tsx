@@ -1,3 +1,5 @@
+import { FileText } from "lucide-react";
+
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import SectionHeading from "../components/SectionHeading";
@@ -25,7 +27,7 @@ export default function PreprintSection() {
                   <p className="lab-preprint-authors text-sm leading-relaxed text-muted-foreground">
                     {preprint.authors.map((author, authorIndex) => (
                       <span key={author}>
-                        {authorIndex > 0 && (authorIndex === preprint.authors.length - 1 ? ", and " : ", ")}
+                        {authorIndex > 0 && (", ")}
                         {author === SITE.fullName ? <strong className="font-semibold text-foreground">{author}</strong> : author}
                       </span>
                     ))}
@@ -37,8 +39,9 @@ export default function PreprintSection() {
                     <Badge variant="outline" className="text-xs">{preprint.year}</Badge>
                     <Badge variant="outline" className="text-xs text-accent-label">{preprint.status}</Badge>
                   </div>
-                  <a href={preprint.arxiv} target="_blank" rel="noopener noreferrer" className="lab-preprint-link inline-flex items-center gap-2 text-sm font-medium">
-                    View on arXiv <span aria-hidden="true">↗</span>
+                  <a href={preprint.arxiv} target="_blank" rel="noopener noreferrer" className="lab-preprint-link lab-action-link">
+                    <FileText className="h-4 w-4 shrink-0" aria-hidden="true" />
+                    View on arXiv
                   </a>
                 </div>
               </CardContent>
