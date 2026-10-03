@@ -27,10 +27,12 @@ import {
   SiAntdesign,
   SiC,
   SiCplusplus,
+  SiChakraui,
   SiDjango,
   SiFigma,
   SiFlask,
   SiGitlab,
+  SiGithubactions,
   SiGunicorn,
   SiHuggingface,
   SiJupyter,
@@ -46,10 +48,15 @@ import {
   SiPostman,
   SiPytorch,
   SiR,
+  SiReactquery,
+  SiReactrouter,
+  SiScipy,
   SiScikitlearn,
+  SiStreamlit,
   SiTensorflow,
   SiTailwindcss,
   SiTypescript,
+  SiWeightsandbiases,
 } from "react-icons/si";
 import { RiTelegram2Line } from "react-icons/ri";
 import { FiGithub, FiLinkedin } from "react-icons/fi";
@@ -216,7 +223,7 @@ export const PROJECTS: Project[] = [
     period: "Spring 2026",
     description:
       "Built a Goodreads search engine with BM25 and ranking evaluation, plus hybrid multimodal product search with dense and sparse retrieval and reranking.",
-    tags: ["Python", "Jupyter", "PyTorch", "Transformers", "FAISS"],
+    tags: ["Python", "NLTK", "PyTorch", "Transformers", "FAISS"],
     github: "https://github.com/Amir14Souri/MIR-Project/",
     live: "",
     featured: true,
@@ -226,7 +233,7 @@ export const PROJECTS: Project[] = [
     period: "Dec 2025",
     description:
       "Implemented class unlearning in a conditional VAE using Fisher information and evaluated recovery attacks.",
-    tags: ["Python", "Jupyter", "PyTorch"],
+    tags: ["Python", "TorchVision", "PyTorch"],
     github: "https://github.com/Amir14Souri/LabTask",
     live: "",
     featured: true,
@@ -236,7 +243,7 @@ export const PROJECTS: Project[] = [
     period: "Spring 2026",
     description:
       "Completed 15 notebooks spanning neural networks, LoRA/QLoRA, RAG, generative models, and self-supervised vision methods.",
-    tags: ["Python", "Jupyter", "PyTorch", "PEFT", "FAISS"],
+    tags: ["Python", "Transformers", "PyTorch", "PEFT", "FAISS"],
     github: "https://github.com/Amir14Souri/DL-Exercises/",
     live: "",
     featured: true,
@@ -246,7 +253,7 @@ export const PROJECTS: Project[] = [
     period: "Sep 2023",
     description:
       "Implemented and explained supervised and unsupervised learning methods, with scikit-learn baselines for comparison.",
-    tags: ["Python", "Jupyter", "Scikit-Learn"],
+    tags: ["Python", "NumPy", "Scikit-Learn"],
     github: "https://github.com/Amir14Souri/ML-Exercises/",
     live: "",
   },
@@ -255,14 +262,14 @@ export const PROJECTS: Project[] = [
     period: "Spring 2024",
     description:
       "Implemented search, constraint satisfaction, Bayesian inference, HMMs, and reinforcement learning algorithms for AI coursework.",
-    tags: ["Python", "Jupyter", "NumPy", "PyTorch"],
+    tags: ["Python", "TorchVision", "NumPy", "PyTorch"],
     github: "https://github.com/Amir14Souri/AI-Exercises",
     live: "",
   },
   {
     title: "Hardwar Website",
     description: "Built the frontend, backend, and infrastructure for the Hardwar event website at SUT.",
-    tags: ["Python", "Django", "JavaScript", "React", "PostgreSQL", "Docker"],
+    tags: ["Python", "Django", "TypeScript", "React", "PostgreSQL", "Docker"],
     github: "https://github.com/HardWar-Sharif",
     live: "https://hardwar-sharif.ir",
     featured: true,
@@ -600,7 +607,7 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
   {
     id: "ml",
     title: "Machine Learning & GenAI",
-    skills: ["PyTorch", "TensorFlow", "Hugging Face", "Scikit-Learn", "Transformers", "Diffusers", "FAISS", "PEFT", "TRL", "Accelerate", "SentenceTransformers"],
+    skills: ["PyTorch", "TensorFlow", "Hugging Face", "Scikit-Learn", "Transformers", "Diffusers", "FAISS", "PEFT", "TRL", "Accelerate", "SentenceTransformers", "NLTK", "TorchVision", "bitsandbytes", "Weights & Biases"],
   },
   {
     id: "languages",
@@ -610,12 +617,12 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
   {
     id: "data-science",
     title: "Data Science",
-    skills: ["NumPy", "Pandas", "Matplotlib", "OpenCV", "Hugging Face Datasets", "Jupyter"],
+    skills: ["NumPy", "Pandas", "Matplotlib", "OpenCV", "Hugging Face Datasets", "Jupyter", "SciPy", "Pillow", "Streamlit"],
   },
   {
     id: "infra",
     title: "DevOps & Infrastructure",
-    skills: ["Linux", "Git", "GitHub", "GitLab", "Docker", "Kubernetes", "vLLM", "Postman"],
+    skills: ["Linux", "Git", "GitHub", "GitLab", "Docker", "Kubernetes", "vLLM", "Postman", "GitHub Actions", "GitLab CI/CD", "Docker Compose"],
   },
   {
     id: "back",
@@ -625,7 +632,7 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
   {
     id: "front",
     title: "Frontend Development",
-    skills: ["React", "Next.js", "Tailwind CSS", "Ant Design", "Zustand"],
+    skills: ["React", "Next.js", "Tailwind CSS", "Ant Design", "Zustand", "TanStack Query", "React Router", "Chakra UI"],
   },
   {
     id: "soft",
@@ -661,6 +668,10 @@ export const getSkillsMap = (): Record<string, Skill> => ({
     color: "currentColor",
   },
   PyTorch: { name: "PyTorch", icon: SiPytorch, color: "#EE4C2C" },
+  NLTK: { name: "NLTK", icon: null, color: "currentColor" },
+  TorchVision: { name: "TorchVision", icon: null, color: "currentColor" },
+  bitsandbytes: { name: "bitsandbytes", icon: null, color: "currentColor" },
+  "Weights & Biases": { name: "Weights & Biases", icon: SiWeightsandbiases, color: "#FFBE00" },
   TensorFlow: { name: "TensorFlow", icon: SiTensorflow, color: "#FF6F00" },
   "Hugging Face": { name: "Hugging Face", icon: SiHuggingface, color: "#FFD21E" },
   TRL: { name: "TRL", icon: SiHuggingface, color: "#FFD21E" },
@@ -668,6 +679,9 @@ export const getSkillsMap = (): Record<string, Skill> => ({
   SentenceTransformers: { name: "SentenceTransformers", icon: SiHuggingface, color: "#FFD21E" },
   "Scikit-Learn": { name: "Scikit-Learn", icon: SiScikitlearn, color: "#F7931E" },
   NumPy: { name: "NumPy", icon: SiNumpy, color: "#013243" },
+  SciPy: { name: "SciPy", icon: SiScipy, color: "#8CAAE6" },
+  Pillow: { name: "Pillow", icon: null, color: "currentColor" },
+  Streamlit: { name: "Streamlit", icon: SiStreamlit, color: "#FF4B4B" },
   Pandas: { name: "Pandas", icon: SiPandas, color: "#150458" },
   Matplotlib: { name: "Matplotlib", icon: null, color: "#11557c" },
   OpenCV: { name: "OpenCV", icon: SiOpencv, color: "#5C3EE8" },
@@ -676,6 +690,7 @@ export const getSkillsMap = (): Record<string, Skill> => ({
   "Tailwind CSS": { name: "Tailwind CSS", icon: SiTailwindcss, color: "#06B6D4" },
   PostgreSQL: { name: "PostgreSQL", icon: DiPostgresql, color: "#4169E1" },
   Docker: { name: "Docker", icon: DiDocker, color: "#2496ED" },
+  "Docker Compose": { name: "Docker Compose", icon: DiDocker, color: "#2496ED" },
   Kubernetes: { name: "Kubernetes", icon: SiKubernetes, color: "#326CE5" },
   Git: { name: "Git", icon: DiGit, color: "#F05032" },
   GitHub: {
@@ -683,6 +698,7 @@ export const getSkillsMap = (): Record<string, Skill> => ({
     icon: DiGithubBadge,
     color: "currentColor",
   },
+  "GitHub Actions": { name: "GitHub Actions", icon: SiGithubactions, color: "#2088FF" },
   Figma: { name: "Figma", icon: SiFigma, color: "#F24E1E" },
   Linux: { name: "Linux", icon: DiLinux, color: "#FCC624" },
   Postman: { name: "Postman", icon: SiPostman, color: "#FF6C37" },
@@ -693,7 +709,11 @@ export const getSkillsMap = (): Record<string, Skill> => ({
   Nginx: { name: "Nginx", icon: SiNginx, color: "#269539" },
   "Ant Design": { name: "Ant Design", icon: SiAntdesign, color: "#0170FE" },
   Zustand: { name: "Zustand", icon: null, color: "#000000" },
+  "TanStack Query": { name: "TanStack Query", icon: SiReactquery, color: "#FF4154" },
+  "React Router": { name: "React Router", icon: SiReactrouter, color: "#CA4245" },
+  "Chakra UI": { name: "Chakra UI", icon: SiChakraui, color: "#319795" },
   GitLab: { name: "GitLab", icon: SiGitlab, color: "#FCA121" },
+  "GitLab CI/CD": { name: "GitLab CI/CD", icon: SiGitlab, color: "#FCA121" },
   vLLM: { name: "vLLM", icon: null, color: "#30A2FF", logo: "/logos/vllm.svg" },
   Markdown: { name: "Markdown", icon: SiMarkdown, color: "currentColor" },
   LaTeX: { name: "LaTeX", icon: SiLatex, color: "#008080" },
