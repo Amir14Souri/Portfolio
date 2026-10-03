@@ -152,6 +152,9 @@ export const SITE = {
   fullName: "Amirhossein Souri",
   location: "Tehran, Iran",
   photoSrc: "/photo.jpg",
+  portraitAnimationSrc: "/animations/steps-20-5s-256.mp4",
+  // Skip the synthetic static prelude and begin at the actual diffusion trajectory.
+  portraitAnimationStart: 0.16,
   resumeSrc: "/resume.pdf",
   footerLastUpdated: "September 2026",
 } as const;

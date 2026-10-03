@@ -10,6 +10,7 @@ import ManuscriptSection from "./sections/ManuscriptSection";
 import ContactSection from "./sections/ContactSection";
 import Footer from "./components/Footer";
 import ScrollReveal from "./components/ScrollReveal";
+import { SITE } from "./portfolio";
 
 export default function Home() {
   return (
@@ -23,6 +24,7 @@ export default function Home() {
             name: "Amirhossein Souri",
             alternateName: "امیرحسین صوری",
             url: "https://souuri.ir",
+            image: new URL(SITE.photoSrc, "https://souuri.ir").href,
             sameAs: [
               "https://github.com/Amir14Souri",
               "https://linkedin.com/in/amirhossein-souri",

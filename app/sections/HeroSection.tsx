@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import DiffusionPortrait from "@/app/components/DiffusionPortrait";
 import { ArrowDown, FileText, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import NavigationContents from "@/app/components/NavigationContents";
@@ -46,7 +46,7 @@ export default function HeroSection() {
             {[ [48,120], [432,360], [120,432], [360,48] ].map(([cx, cy]) => <circle key={`${cx}-${cy}`} cx={cx} cy={cy} r="4" fill="currentColor" />)}
             <path d="M85 85H105M85 85V105M395 85H375M395 85V105M85 395H105M85 395V375M395 395H375M395 395V375" stroke="currentColor" />
           </svg>
-          <div className="lab-photo-frame"><Image src={SITE.photoSrc} alt={SITE.fullName} fill className="object-cover" priority sizes="(max-width: 767px) 163px, 230px" /></div>
+          <DiffusionPortrait />
           <div className="lab-profile-ruler" aria-hidden="true"><span /><span /><span /><span /><span /></div>
         </div>
       </div>

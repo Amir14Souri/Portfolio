@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { ThemeProvider } from "./components/ThemeProvider";
+import { SITE } from "./portfolio";
 
 import { TooltipProvider } from "@/components/ui/tooltip";
 import "./globals.css";
@@ -38,6 +39,18 @@ export const metadata: Metadata = {
     description: "Research and software projects in machine learning, visual reasoning, and engineering.",
     url: "https://souuri.ir",
     type: "website",
+    images: [{
+      url: SITE.photoSrc,
+      width: 826,
+      height: 826,
+      alt: `Portrait of ${SITE.fullName}`,
+    }],
+  },
+  twitter: {
+    card: "summary",
+    title: "Amirhossein Souri",
+    description: "Research and software projects in machine learning, visual reasoning, and engineering.",
+    images: [{ url: SITE.photoSrc, alt: `Portrait of ${SITE.fullName}` }],
   },
 };
 
