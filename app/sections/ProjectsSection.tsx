@@ -18,8 +18,11 @@ export default function ProjectsSection() {
   const contentRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
   const reducedMotion = useReducedMotion();
-  const featuredProjects = PROJECTS.filter((project) => project.featured);
-  const otherProjects = PROJECTS.filter((project) => !project.featured);
+  // Follow the array order; reveal the leading featured entries initially.
+  const firstAdditionalIndex = PROJECTS.findIndex((project) => !project.featured);
+  const splitIndex = firstAdditionalIndex === -1 ? PROJECTS.length : firstAdditionalIndex;
+  const initialProjects = PROJECTS.slice(0, splitIndex);
+  const otherProjects = PROJECTS.slice(splitIndex);
 
   useLayoutEffect(() => {
     const container = disclosureRef.current;
@@ -167,7 +170,7 @@ export default function ProjectsSection() {
           subtitle="Selected research, software, and coursework projects"
         />
         <div className="lab-project-grid grid gap-5 md:grid-cols-2">
-          {featuredProjects.map(renderProject)}
+          {initialProjects.map(renderProject)}
         </div>
         <div
           ref={disclosureRef}

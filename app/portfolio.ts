@@ -235,16 +235,6 @@ export const PROJECTS: Project[] = [
     featured: true,
   },
   {
-    title: "Machine Unlearning and Robustness Exercises",
-    period: "Dec 2025",
-    description:
-      "Implemented class unlearning in a conditional VAE using Fisher information and evaluated recovery attacks.",
-    tags: ["Python", "TorchVision", "PyTorch"],
-    github: "https://github.com/Amir14Souri/LabTask",
-    live: "",
-    featured: true,
-  },
-  {
     title: "Deep Learning Practical Assignments",
     period: "Spring 2026",
     description:
@@ -255,12 +245,32 @@ export const PROJECTS: Project[] = [
     featured: true,
   },
   {
-    title: "SimpleNote — Android",
+    title: "Machine Unlearning and Robustness Exercises",
+    period: "Dec 2025",
     description:
-      "Built an offline-first Android note-taking app with local persistence, authentication, search, and synchronization.",
-    tags: ["Kotlin", "Jetpack Compose", "SQLDelight"],
-    github: "https://github.com/Amir14Souri/SimpleNote",
+      "Implemented class unlearning in a conditional VAE using Fisher information and evaluated recovery attacks.",
+    tags: ["Python", "TorchVision", "PyTorch"],
+    github: "https://github.com/Amir14Souri/LabTask",
     live: "",
+    featured: true,
+  },
+  {
+    title: "Hardwar Website",
+    period: "Feb–May 2025",
+    description: "Built the frontend, backend, and infrastructure for the Hardwar event website at SUT.",
+    tags: ["Python", "Django", "TypeScript", "React", "PostgreSQL", "Docker"],
+    github: "https://github.com/HardWar-Sharif",
+    live: "https://hardwar-sharif.ir",
+    featured: true,
+  },
+  {
+    title: "BugsBuzzy Website",
+    period: "Oct 2025",
+    description: "Contributed to the backend of the BugsBuzzy event website.",
+    tags: ["Python", "Django", "PostgreSQL"],
+    github: "https://github.com/Bugs-Buzzy/BugsBuzzy-Backend",
+    live: "",
+    featured: true,
   },
   {
     title: "Machine Learning Models Collection",
@@ -269,6 +279,15 @@ export const PROJECTS: Project[] = [
       "Implemented and explained supervised and unsupervised learning methods, with scikit-learn baselines for comparison.",
     tags: ["Python", "NumPy", "Scikit-Learn"],
     github: "https://github.com/Amir14Souri/ML-Exercises/",
+    live: "",
+  },
+  {
+    title: "SimpleNote — Android",
+    period: "Spring 2025",
+    description:
+      "Built an offline-first Android note-taking app with local persistence, authentication, search, and synchronization.",
+    tags: ["Kotlin", "Jetpack Compose", "SQLDelight"],
+    github: "https://github.com/Amir14Souri/SimpleNote",
     live: "",
   },
   {
@@ -281,29 +300,12 @@ export const PROJECTS: Project[] = [
     live: "",
   },
   {
-    title: "Hardwar Website",
-    description: "Built the frontend, backend, and infrastructure for the Hardwar event website at SUT.",
-    tags: ["Python", "Django", "TypeScript", "React", "PostgreSQL", "Docker"],
-    github: "https://github.com/HardWar-Sharif",
-    live: "https://hardwar-sharif.ir",
-    featured: true,
-  },
-  {
     title: "Portfolio Website",
     period: "Feb 2026–Present",
     description: "Built a responsive personal portfolio to present research, software projects, experience, and skills.",
     tags: ["TypeScript", "Next.js"],
     github: "https://github.com/Amir14Souri/Portfolio",
     live: "https://souuri.ir",
-  },
-  {
-    title: "BugsBuzzy Website",
-    period: "Oct 2025",
-    description: "Contributed to the backend of the BugsBuzzy event website (Oct 2025, SUT).",
-    tags: ["Python", "Django", "PostgreSQL"],
-    github: "https://github.com/Bugs-Buzzy/BugsBuzzy-Backend",
-    live: "",
-    featured: true,
   },
   {
     title: "Vim (Clone)",
@@ -316,6 +318,7 @@ export const PROJECTS: Project[] = [
   },
   {
     title: "Stronghold: Crusader (Clone)",
+    period: "Spring 2023",
     description:
       "Implemented a simplified real-time version of Stronghold: Crusader with additional features for an Advanced Programming course project.",
     tags: ["Java", "JavaFX", "Git"],
@@ -324,6 +327,7 @@ export const PROJECTS: Project[] = [
   },
   {
     title: "aa Game",
+    period: "May 2023",
     description:
       "Implemented a version of the aa game for an Advanced Programming practical assignment.",
     tags: ["Java", "JavaFX"],
@@ -479,7 +483,7 @@ export const TA_EXPERIENCES: TAExperience[] = [
 export const TEACHING_RESOURCES: TeachingResource[] = [
   {
     title: "Machine Learning Course Materials",
-    description: "Introductory slides and example notebooks on machine learning fundamentals. Materials in Persian.",
+    description: "Introductory slides and notebooks on machine learning fundamentals. Materials in Persian.",
     github: "https://github.com/Amir14Souri/ML-Course",
   },
   {
