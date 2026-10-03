@@ -1,4 +1,4 @@
-import { BookOpen } from "lucide-react";
+import { BookOpen, Github } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
@@ -8,6 +8,7 @@ import {
   EXPERIENCE_CATEGORY_CONFIG,
   EXPERIENCES,
   TA_EXPERIENCES,
+  TEACHING_RESOURCES,
 } from "@/app/portfolio";
 
 export default function ExperienceSection() {
@@ -92,6 +93,30 @@ export default function ExperienceSection() {
                   <p className="text-sm font-semibold text-foreground pb-0.5">{ta.course}</p>
                   <p className="text-xs text-muted-foreground">{ta.organization}</p>
                   <p className="text-xs font-mono text-muted-foreground/80">{ta.period}</p>
+                </div>
+              </Card>
+            ))}
+            {TEACHING_RESOURCES.map((resource, index) => (
+              <Card
+                data-reveal
+                data-reveal-delay={Math.min(index, 2) * 60}
+                variant="left"
+                key={resource.title}
+                className={`${EXPERIENCE_CATEGORY_CONFIG.teaching.accent} lab-teaching flex items-start gap-3 p-3 text-left`}>
+                <div className="lab-category-icon flex h-9 w-9 shrink-0 items-center justify-center rounded-xl">
+                  <BookOpen className="h-4 w-4" aria-hidden="true" />
+                </div>
+                <div className="min-w-0">
+                  <h3 className="pb-0.5 text-sm font-semibold text-foreground">{resource.title}</h3>
+                  <p className="text-xs text-muted-foreground">{resource.description}</p>
+                  <a
+                    href={resource.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="lab-action-link mt-1">
+                    <Github className="h-4 w-4" aria-hidden="true" />
+                    GitHub
+                  </a>
                 </div>
               </Card>
             ))}

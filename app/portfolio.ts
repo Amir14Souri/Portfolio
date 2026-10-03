@@ -137,6 +137,12 @@ export type TAExperience = {
   period: string;
 };
 
+export type TeachingResource = {
+  title: string;
+  description: string;
+  github: string;
+};
+
 export type ContactLink = {
   icon: LucideIcon | IconType;
   label: string;
@@ -249,6 +255,14 @@ export const PROJECTS: Project[] = [
     featured: true,
   },
   {
+    title: "SimpleNote — Android",
+    description:
+      "Built an offline-first Android note-taking app with local persistence, authentication, search, and synchronization.",
+    tags: ["Kotlin", "Jetpack Compose", "SQLDelight"],
+    github: "https://github.com/Amir14Souri/SimpleNote",
+    live: "",
+  },
+  {
     title: "Machine Learning Models Collection",
     period: "Sep 2023",
     description:
@@ -261,7 +275,7 @@ export const PROJECTS: Project[] = [
     title: "Artificial Intelligence Practical Assignments",
     period: "Spring 2024",
     description:
-      "Implemented search, constraint satisfaction, Bayesian inference, HMMs, and reinforcement learning algorithms for AI coursework.",
+      "Implemented search, constraint satisfaction, Bayesian inference, HMMs, reinforcement learning, and U-Net semantic segmentation for AI coursework.",
     tags: ["Python", "TorchVision", "NumPy", "PyTorch"],
     github: "https://github.com/Amir14Souri/AI-Exercises",
     live: "",
@@ -459,6 +473,19 @@ export const TA_EXPERIENCES: TAExperience[] = [
     course: "Fundamentals of Programming (Python)",
     organization: "SUT • Mr. Malekzadeh",
     period: "Fall 2023",
+  },
+];
+
+export const TEACHING_RESOURCES: TeachingResource[] = [
+  {
+    title: "Machine Learning Course Materials",
+    description: "Course slides and example notebooks. Materials in Persian.",
+    github: "https://github.com/Amir14Souri/ML-Course",
+  },
+  {
+    title: "Git Workshop",
+    description: "Workshop slides covering version control and collaboration, with a Persian recording.",
+    github: "https://github.com/Amir14Souri/GitWorkshop",
   },
 ];
 
