@@ -57,13 +57,22 @@ export default function SkillsSection() {
                           style={{ "--skill-light": brandColors[skill.name].light, "--skill-dark": brandColors[skill.name].dark } as CSSProperties}>
                           <Icon className="h-4 w-4" />
                         </span>}
-                        {skill.logo && <span className="lab-skill-logo h-4 w-4 shrink-0" aria-hidden="true">
-                          <span className="lab-skill-logo-mask" style={{
-                            maskImage: `url(${skill.logo})`, maskSize: "contain",
-                            maskPosition: "center", maskRepeat: "no-repeat",
-                          }} />
-                          <Image src={skill.logo} alt="" width={16} height={16} className="lab-skill-logo-color h-4 w-4" />
-                        </span>}
+                        {skill.logo && (skill.logoTreatment === "monochrome" ?
+                          <span className="lab-skill-icon lab-skill-monochrome-logo h-4 w-4 shrink-0" aria-hidden="true"
+                            style={{
+                              "--skill-light": brandColors[skill.name].light,
+                              "--skill-dark": brandColors[skill.name].dark,
+                              maskImage: `url(${skill.logo})`, maskSize: "contain",
+                              maskPosition: "center", maskRepeat: "no-repeat",
+                            } as CSSProperties} /> :
+                          <span className={`lab-skill-logo h-4 w-4 shrink-0${skill.logoTreatment === "grayscale" ? " lab-skill-logo-grayscale" : ""}`} aria-hidden="true">
+                            {skill.logoTreatment !== "grayscale" && <span className="lab-skill-logo-mask" style={{
+                              maskImage: `url(${skill.logo})`, maskSize: "contain",
+                              maskPosition: "center", maskRepeat: "no-repeat",
+                            }} />}
+                            <Image src={skill.logo} alt="" width={16} height={16} className="lab-skill-logo-color h-4 w-4 object-contain" />
+                          </span>
+                        )}
                         {skill.name}
                       </span>
                     );

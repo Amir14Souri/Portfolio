@@ -396,18 +396,22 @@ section[id] { scroll-margin-top: 92px; }
 /* Category hover reveals decorative brand marks; touch starts in color. */
 .lab-skill-icon { color: var(--skill-light); transition: color 160ms ease-out; }
 .dark .lab-skill-icon { color: var(--skill-dark); }
+.lab-skill-monochrome-logo { background-color: currentColor; }
 .lab-skill-logo { position: relative; }
-.lab-skill-logo > * { position: absolute; inset: 0; transition: opacity 160ms ease-out; }
+.lab-skill-logo > * { position: absolute; inset: 0; transition: opacity 160ms ease-out, filter 160ms ease-out; }
 .lab-skill-logo-mask { background: var(--muted-foreground); opacity: 0; }
 .lab-skill-logo-color { opacity: 1; }
 @media (hover: hover) and (pointer: fine) {
   .lab-skills-card .lab-skill-icon { color: var(--muted-foreground); }
   .lab-skills-card .lab-skill-logo-mask { opacity: 1; }
   .lab-skills-card .lab-skill-logo-color { opacity: 0; }
+  /* Opaque assets need grayscale instead of an alpha mask. */
+  .lab-skills-card .lab-skill-logo-grayscale .lab-skill-logo-color { opacity: 0.7; filter: grayscale(1); }
   .lab-skills-card:hover .lab-skill-icon { color: var(--skill-light); }
   .dark .lab-skills-card:hover .lab-skill-icon { color: var(--skill-dark); }
   .lab-skills-card:hover .lab-skill-logo-mask { opacity: 0; }
   .lab-skills-card:hover .lab-skill-logo-color { opacity: 1; }
+  .lab-skills-card:hover .lab-skill-logo-grayscale .lab-skill-logo-color { opacity: 1; filter: none; }
 }
 
 .lab-project-disclosure { height: 0; opacity: 0; overflow: clip; overflow-anchor: none; }
