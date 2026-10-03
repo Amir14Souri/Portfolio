@@ -107,10 +107,17 @@ export default function ProjectsSection() {
       className="lab-project h-full">
       <CardContent className="flex h-full flex-col gap-4 p-5">
         <div className="flex items-start justify-between gap-3">
-          <div className="space-y-2 text-left">
-            <h3 className="text-base font-semibold text-foreground">
-              {project.title}
-            </h3>
+          <div className="min-w-0 space-y-2 text-left">
+            <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+              <h3 className="text-base font-semibold text-foreground">
+                {project.title}
+              </h3>
+              {project.period && (
+                <span className="whitespace-nowrap font-mono text-xs text-muted-foreground">
+                  {project.period}
+                </span>
+              )}
+            </div>
             <p className="text-sm leading-relaxed text-muted-foreground">
               {project.description}
             </p>

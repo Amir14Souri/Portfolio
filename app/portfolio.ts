@@ -72,6 +72,7 @@ export type QuickFact = {
 
 export type Project = {
   title: string;
+  period?: string;
   description: string;
   tags: string[];
   github: string;
@@ -202,6 +203,7 @@ export const ABOUT = {
 export const PROJECTS: Project[] = [
   {
     title: "Question-Conditioned Visual Grounding",
+    period: "Jul 2026",
     description:
       "Trained an attention-based model on CLIP patch and question embeddings to localize answer-relevant image regions. Converted predicted heatmaps into bounding boxes and evaluated their effect on downstream VQA with Qwen2.5-VL-3B-Instruct.",
     tags: ["Python", "PyTorch", "Transformers"],
@@ -211,6 +213,7 @@ export const PROJECTS: Project[] = [
   },
   {
     title: "Modern Information Retrieval Project",
+    period: "Spring 2026",
     description:
       "Built a Goodreads search engine with BM25 and ranking evaluation, plus hybrid multimodal product search with dense and sparse retrieval and reranking.",
     tags: ["Python", "Jupyter", "PyTorch", "Transformers", "FAISS"],
@@ -220,6 +223,7 @@ export const PROJECTS: Project[] = [
   },
   {
     title: "Machine Unlearning and Robustness Exercises",
+    period: "Dec 2025",
     description:
       "Implemented class unlearning in a conditional VAE using Fisher information and evaluated recovery attacks.",
     tags: ["Python", "Jupyter", "PyTorch"],
@@ -229,6 +233,7 @@ export const PROJECTS: Project[] = [
   },
   {
     title: "Deep Learning Practical Assignments",
+    period: "Spring 2026",
     description:
       "Completed 15 notebooks spanning neural networks, LoRA/QLoRA, RAG, generative models, and self-supervised vision methods.",
     tags: ["Python", "Jupyter", "PyTorch", "PEFT", "FAISS"],
@@ -238,6 +243,7 @@ export const PROJECTS: Project[] = [
   },
   {
     title: "Machine Learning Models Collection",
+    period: "Sep 2023",
     description:
       "Implemented and explained supervised and unsupervised learning methods, with scikit-learn baselines for comparison.",
     tags: ["Python", "Jupyter", "Scikit-Learn"],
@@ -246,6 +252,7 @@ export const PROJECTS: Project[] = [
   },
   {
     title: "Artificial Intelligence Practical Assignments",
+    period: "Spring 2024",
     description:
       "Implemented search, constraint satisfaction, Bayesian inference, HMMs, and reinforcement learning algorithms for AI coursework.",
     tags: ["Python", "Jupyter", "NumPy", "PyTorch"],
@@ -262,6 +269,7 @@ export const PROJECTS: Project[] = [
   },
   {
     title: "Portfolio Website",
+    period: "Feb 2026–Present",
     description: "Built a responsive personal portfolio to present research, software projects, experience, and skills.",
     tags: ["TypeScript", "Next.js"],
     github: "https://github.com/Amir14Souri/Portfolio",
@@ -269,6 +277,7 @@ export const PROJECTS: Project[] = [
   },
   {
     title: "BugsBuzzy Website",
+    period: "Oct 2025",
     description: "Contributed to the backend of the BugsBuzzy event website (Oct 2025, SUT).",
     tags: ["Python", "Django", "PostgreSQL"],
     github: "https://github.com/Bugs-Buzzy/BugsBuzzy-Backend",
@@ -277,6 +286,7 @@ export const PROJECTS: Project[] = [
   },
   {
     title: "Vim (Clone)",
+    period: "Jan–Feb 2023",
     description:
       "Implemented core Vim editor commands for a Fundamentals of Programming course project.",
     tags: ["C", "Vim", "Ncurses"],
@@ -301,6 +311,7 @@ export const PROJECTS: Project[] = [
   },
   {
     title: "Todo List",
+    period: "May 2024",
     description: "Built a simple todo list with persistent local storage.",
     tags: ["Python", "Flask", "HTML", "CSS"],
     github: "https://github.com/Amir14Souri/Todo-List",
