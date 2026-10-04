@@ -1,6 +1,5 @@
 @import "tailwindcss";
 @import "tw-animate-css";
-@import "shadcn/tailwind.css";
 
 @custom-variant dark (&:where(.dark, .dark *));
 
@@ -69,60 +68,6 @@ html {
 
 body {
   font-family: var(--font-geist-sans), system-ui, sans-serif;
-}
-
-/* Rotating Tools Carousel Animations */
-@keyframes slide {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
-}
-
-.animate-slide {
-  animation: slide 30s linear infinite;
-}
-
-.group:hover .animate-slide {
-  animation-play-state: paused;
-}
-
-@keyframes carousel-scroll {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
-}
-
-.animate-carousel {
-  animation: carousel-scroll 20s linear infinite;
-}
-
-.group:hover .animate-carousel {
-  animation-play-state: paused;
-}
-
-/* Professional marquee scroll for skills section */
-@keyframes marquee-scroll {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-33.333%);
-  }
-}
-
-/* Smooth hover effects for tool items */
-.tool-item {
-  transition: all 0.2s ease-in-out;
-}
-
-.tool-item:hover {
-  transform: translateY(-2px);
 }
 
 :root {
@@ -447,7 +392,6 @@ section[id] { scroll-margin-top: 92px; }
 }
 @media (prefers-reduced-motion: reduce) {
   [data-reveal] { opacity: 1 !important; transform: none !important; }
-  .tool-item:hover { transform: none; }
 }
 
 /* Viewport height is a minimum: text zoom and very short screens can grow it. */

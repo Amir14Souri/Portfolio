@@ -164,8 +164,10 @@ export type Skill = {
 };
 
 export const SITE = {
+  url: "https://souuri.ir",
   brand: "Souri",
   fullName: "Amirhossein Souri",
+  aliases: ["Amir Souri", "Souri", "souuri", "امیرحسین صوری", "امیر صوری", "صوری"],
   location: "Tehran, Iran",
   photoSrc: "/photo.jpg",
   portraitAnimationSrc: "/animations/steps-20-5s-256.mp4",
@@ -260,7 +262,7 @@ export const PROJECTS: Project[] = [
     description: "Built the frontend, backend, and infrastructure for the Hardwar event website at SUT.",
     tags: ["Python", "Django", "TypeScript", "React", "PostgreSQL", "Docker"],
     github: "https://github.com/HardWar-Sharif",
-    live: "https://hardwar-sharif.ir",
+    live: "",
     featured: true,
   },
   {

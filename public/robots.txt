@@ -1,9 +1,0 @@
-# *
-User-agent: *
-Allow: /
-
-# Host
-Host: https://souuri.ir
-
-# Sitemaps
-Sitemap: https://souuri.ir/sitemap.xml

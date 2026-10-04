@@ -40,6 +40,12 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# Local portrait asset generation and review artifacts
+# Local audits, review artifacts, and machine-specific configuration
+/TECHNICAL_AUDIT.md
+/artifacts/
+/.agents/
+/.codex/
+/.aws/
+
+# Local portrait asset generation tools
 /scripts/diffusion-portrait/
-/artifacts/diffusion-portrait/

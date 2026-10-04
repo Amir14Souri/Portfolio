@@ -1,43 +1,37 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import { ThemeProvider } from "./components/ThemeProvider";
 import { SITE } from "./portfolio";
 
-import { TooltipProvider } from "@/components/ui/tooltip";
 import "./globals.css";
 
-const geistSans = Geist({
+const geistSans = localFont({
+  src: "./fonts/Geist.woff2",
+  weight: "100 900",
+  display: "swap",
   variable: "--font-geist-sans",
-  subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
+const geistMono = localFont({
+  src: "./fonts/GeistMono.woff2",
+  weight: "100 900",
+  display: "swap",
   variable: "--font-geist-mono",
-  subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
-  title: "Amirhossein Souri",
+  title: SITE.fullName,
   description:
     "Amirhossein Souri is a computer science and engineering student and research assistant at Sharif University of Technology, working on visual reasoning and machine learning.",
-  keywords: [
-    "Amirhossein Souri",
-    "امیرحسین صوری",
-    "Souri",
-    "صوری",
-    "Amir Souri",
-    "امیر صوری",
-    "souuri",
-    "portfolio",
-  ],
-  authors: [{ name: "Amirhossein Souri" }],
-  creator: "Amirhossein Souri",
-  metadataBase: new URL("https://souuri.ir"),
+  keywords: [SITE.fullName, ...SITE.aliases, "portfolio"],
+  authors: [{ name: SITE.fullName }],
+  creator: SITE.fullName,
+  metadataBase: new URL(SITE.url),
   alternates: { canonical: "/" },
   openGraph: {
-    title: "Amirhossein Souri",
+    title: SITE.fullName,
     description: "Research and software projects in machine learning, visual reasoning, and engineering.",
-    url: "https://souuri.ir",
+    url: SITE.url,
     type: "website",
     images: [{
       url: SITE.photoSrc,
@@ -48,7 +42,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary",
-    title: "Amirhossein Souri",
+    title: SITE.fullName,
     description: "Research and software projects in machine learning, visual reasoning, and engineering.",
     images: [{ url: SITE.photoSrc, alt: `Portrait of ${SITE.fullName}` }],
   },
@@ -61,11 +55,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <head />
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
-          <TooltipProvider>{children}</TooltipProvider>
+          {children}
         </ThemeProvider>
       </body>
     </html>

@@ -1,5 +1,3 @@
-"use client";
-
 import DiffusionPortrait from "@/app/components/DiffusionPortrait";
 import { ArrowDown, FileText, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";

@@ -1,167 +1,78 @@
-"use client";
-
-import { useLayoutEffect, useRef, useState } from "react";
-import { ChevronDown, ExternalLink, Github } from "lucide-react";
-
+import { ExternalLink, Github } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import SectionHeading from "../components/SectionHeading";
+import ProjectDisclosure from "../components/ProjectDisclosure";
 import { PROJECTS } from "@/app/portfolio";
-import { useReducedMotion } from "../components/useReducedMotion";
+
+const renderProject = (project: (typeof PROJECTS)[number], index: number) => (
+  <Card
+    data-reveal
+    data-reveal-key={project.title}
+    data-reveal-delay={Math.min(index, 2) * 60}
+    variant="top"
+    key={project.title}
+    className="lab-project h-full">
+    <CardContent className="flex h-full flex-col gap-4 p-5">
+      <div className="min-w-0 space-y-2 text-left">
+        <div className="flex flex-wrap-reverse items-start justify-between gap-x-3 gap-y-2">
+          <h3 className="min-w-0 flex-1 basis-64 text-base font-semibold text-foreground">
+            {project.title}
+          </h3>
+          {project.period && (
+            <Badge variant="outline" className="lab-date ml-auto shrink-0 text-xs">
+              {project.period}
+            </Badge>
+          )}
+        </div>
+        <p className="text-sm leading-relaxed text-muted-foreground">
+          {project.description}
+        </p>
+      </div>
+      <div className="lab-project-footer mt-auto flex flex-wrap items-center justify-between gap-x-4 gap-y-1">
+        <div className="lab-project-tags flex min-w-0 flex-1 basis-48 flex-wrap items-center gap-2">
+          {project.tags.map((tag) => (
+            <Badge key={tag} variant="outline" className="rounded-sm px-3 py-0.5 text-xs font-medium">
+              {tag}
+            </Badge>
+          ))}
+        </div>
+        <div className="lab-project-links flex shrink-0 items-center gap-3 text-muted-foreground">
+          {project.github && (
+            <a
+              href={project.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="lab-action-link">
+              <Github className="h-4 w-4" aria-hidden="true" />
+              GitHub
+            </a>
+          )}
+          {project.live && (
+            <a
+              href={project.live}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="lab-action-link">
+              <ExternalLink className="h-4 w-4" aria-hidden="true" />
+              Live
+            </a>
+          )}
+        </div>
+      </div>
+    </CardContent>
+  </Card>
+);
 
 export default function ProjectsSection() {
-  const [showAll, setShowAll] = useState(false);
-  const [collapsed, setCollapsed] = useState(true);
-  const sectionRef = useRef<HTMLElement>(null);
-  const disclosureRef = useRef<HTMLDivElement>(null);
-  const contentRef = useRef<HTMLDivElement>(null);
-  const buttonRef = useRef<HTMLButtonElement>(null);
-  const reducedMotion = useReducedMotion();
   // Follow the array order; reveal the leading featured entries initially.
   const firstAdditionalIndex = PROJECTS.findIndex((project) => !project.featured);
   const splitIndex = firstAdditionalIndex === -1 ? PROJECTS.length : firstAdditionalIndex;
   const initialProjects = PROJECTS.slice(0, splitIndex);
   const otherProjects = PROJECTS.slice(splitIndex);
 
-  useLayoutEffect(() => {
-    const container = disclosureRef.current;
-    const content = contentRef.current;
-    if (!container || !content) return;
-
-    let animation: Animation | undefined;
-    let scrollFrame = 0;
-    let targetHeight = -1;
-    let disposed = false;
-
-    const freeze = () => {
-      const height = container.getBoundingClientRect().height;
-      const opacity = getComputedStyle(container).opacity;
-      animation?.cancel();
-      container.style.height = `${height}px`;
-      container.style.opacity = opacity;
-      return { height, opacity };
-    };
-    const finish = () => {
-      container.style.height = showAll ? "auto" : "0px";
-      container.style.opacity = showAll ? "1" : "0";
-      if (showAll) return;
-      setCollapsed(true);
-      scrollFrame = requestAnimationFrame(() => {
-        const section = sectionRef.current;
-        if (!section) return;
-        buttonRef.current?.focus({ preventScroll: true });
-        window.scrollTo({
-          top: window.scrollY + section.getBoundingClientRect().bottom - window.innerHeight + 24,
-          behavior: reducedMotion ? "instant" : "smooth",
-        });
-      });
-    };
-    const transition = () => {
-      const nextHeight = showAll ? content.getBoundingClientRect().height : 0;
-      if (nextHeight === targetHeight) return;
-      targetHeight = nextHeight;
-      const from = freeze();
-      container.style.height = `${nextHeight}px`;
-      container.style.opacity = showAll ? "1" : "0";
-      if (reducedMotion || !container.animate) {
-        finish();
-        return;
-      }
-      const current = container.animate([
-        { height: `${from.height}px`, opacity: from.opacity },
-        { height: `${nextHeight}px`, opacity: showAll ? 1 : 0 },
-      ], { duration: 280, easing: "cubic-bezier(.2, .65, .3, 1)" });
-      animation = current;
-      void current.finished.then(() => {
-        if (!disposed && animation === current) {
-          animation = undefined;
-          finish();
-        }
-      }).catch(() => { /* A new toggle or size change cancels this transition. */ });
-    };
-
-    transition();
-    const observer = new ResizeObserver(() => {
-      if (showAll) transition();
-    });
-    observer.observe(content);
-    return () => {
-      disposed = true;
-      cancelAnimationFrame(scrollFrame);
-      observer.disconnect();
-      freeze();
-    };
-  }, [showAll, reducedMotion]);
-
-  const toggleProjects = () => {
-    if (!showAll) setCollapsed(false);
-    setShowAll(!showAll);
-    buttonRef.current?.focus({ preventScroll: true });
-  };
-
-  const renderProject = (project: (typeof PROJECTS)[number], index: number) => (
-    <Card
-      data-reveal
-      data-reveal-key={project.title}
-      data-reveal-delay={Math.min(index, 2) * 60}
-      variant="top"
-      key={project.title}
-      className="lab-project h-full">
-      <CardContent className="flex h-full flex-col gap-4 p-5">
-        <div className="min-w-0 space-y-2 text-left">
-          <div className="flex flex-wrap-reverse items-start justify-between gap-x-3 gap-y-2">
-            <h3 className="min-w-0 flex-1 basis-64 text-base font-semibold text-foreground">
-              {project.title}
-            </h3>
-            {project.period && (
-              <Badge variant="outline" className="lab-date ml-auto shrink-0 text-xs">
-                {project.period}
-              </Badge>
-            )}
-          </div>
-          <p className="text-sm leading-relaxed text-muted-foreground">
-            {project.description}
-          </p>
-        </div>
-        <div className="lab-project-footer mt-auto flex flex-wrap items-center justify-between gap-x-4 gap-y-1">
-          <div className="lab-project-tags flex min-w-0 flex-1 basis-48 flex-wrap items-center gap-2">
-            {project.tags.map((tag) => (
-              <Badge key={tag} variant="outline" className="rounded-sm px-3 py-0.5 text-xs font-medium">
-                {tag}
-              </Badge>
-            ))}
-          </div>
-          <div className="lab-project-links flex shrink-0 items-center gap-3 text-muted-foreground">
-            {project.github && (
-              <a
-                href={project.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="lab-action-link">
-                <Github className="h-4 w-4" aria-hidden="true" />
-                GitHub
-              </a>
-            )}
-            {project.live && (
-              <a
-                href={project.live}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="lab-action-link">
-                <ExternalLink className="h-4 w-4" aria-hidden="true" />
-                Live
-              </a>
-            )}
-          </div>
-        </div>
-      </CardContent>
-    </Card>
-  );
-
   return (
     <section
-      ref={sectionRef}
       id="projects"
       className="lab-section lab-section-grid relative px-6 py-24">
       <div className="relative z-10 mx-auto max-w-6xl">
@@ -172,29 +83,11 @@ export default function ProjectsSection() {
         <div className="lab-project-grid grid gap-5 md:grid-cols-2">
           {initialProjects.map(renderProject)}
         </div>
-        <div
-          ref={disclosureRef}
-          id="additional-projects"
-          data-project-disclosure
-          className="lab-project-disclosure"
-          hidden={collapsed}
-          inert={!showAll}
-          aria-hidden={!showAll}>
-          {!collapsed && <div ref={contentRef} className="lab-project-more grid gap-5 md:grid-cols-2">
+        {otherProjects.length > 0 && (
+          <ProjectDisclosure count={otherProjects.length}>
             {otherProjects.map(renderProject)}
-          </div>}
-        </div>
-        <Button
-          ref={buttonRef}
-          type="button"
-          variant="outline"
-          className="lab-project-toggle mt-8 flex gap-2"
-          aria-expanded={showAll}
-          aria-controls="additional-projects"
-          onClick={toggleProjects}>
-          <ChevronDown className="lab-project-chevron h-4 w-4" aria-hidden="true" />
-          {showAll ? "Show less" : <>More projects <span className="lab-project-count">({otherProjects.length})</span></>}
-        </Button>
+          </ProjectDisclosure>
+        )}
       </div>
     </section>
   );

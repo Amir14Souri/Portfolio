@@ -21,10 +21,11 @@ export default function Home() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Person",
-            name: "Amirhossein Souri",
-            alternateName: "امیرحسین صوری",
-            url: "https://souuri.ir",
-            image: new URL(SITE.photoSrc, "https://souuri.ir").href,
+            "@id": `${SITE.url}/#person`,
+            name: SITE.fullName,
+            alternateName: SITE.aliases,
+            url: SITE.url,
+            image: new URL(SITE.photoSrc, SITE.url).href,
             sameAs: [
               "https://github.com/Amir14Souri",
               "https://linkedin.com/in/amirhossein-souri",

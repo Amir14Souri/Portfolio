@@ -260,7 +260,7 @@ export default function DiffusionPortrait() {
   return (
     <>
       <div className="lab-photo-frame">
-        <Image src={SITE.photoSrc} alt={SITE.fullName} fill className="object-cover" priority sizes="(max-width: 767px) 163px, 230px" />
+        <Image src={SITE.photoSrc} alt={`Portrait of ${SITE.fullName}`} fill className="object-cover" preload sizes="(max-width: 767px) 163px, 230px" />
         {!complete && <>
           <video ref={videoRef} className="lab-diffusion-layer" width={256} height={256}
             muted playsInline preload="none" aria-hidden="true" tabIndex={-1}

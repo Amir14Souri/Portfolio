@@ -46,3 +46,13 @@ The following is a **September 2026 snapshot**, not an instruction to publish ev
 3. For meaningful code/content changes, run `npm ci` if dependencies are absent, then `npm run lint` and `npm run build`. Check the actual page at mobile and desktop widths in both themes when layout or interaction changes. Report any checks you could not run and pre-existing failures separately from your edits.
 4. Verify visible links, section anchors, résumé download, and metadata affected by the change. Keep external links safe (`rel="noopener noreferrer"` for new-tab links), images accessible, and motion optional where appropriate.
 5. Summarize what changed, how it was checked, and any fact that still needs the owner's decision. Do not deploy, publish, push, or replace the public résumé unless the current request authorizes it.
+
+<!-- BEGIN:nextjs-agent-rules -->
+
+# This is NOT the Next.js you know
+
+This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` (resolved from this file's directory; in monorepos the `next` package may not be visible from the repo root) before writing any code. Heed deprecation notices.
+
+This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
+
+<!-- END:nextjs-agent-rules -->
