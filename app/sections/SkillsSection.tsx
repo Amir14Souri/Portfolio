@@ -33,6 +33,11 @@ export default function SkillsSection() {
                   <h3 className="text-lg font-semibold text-foreground">
                     {category.title}
                   </h3>
+                  <span className="lab-skill-count">
+                    <span className="sr-only">{category.title}: </span>
+                    {category.skills.length}
+                    <span className="sr-only"> skills</span>
+                  </span>
                 </div>
                 <div className="flex flex-wrap gap-2">
                   {category.skills.map((skillName) => {

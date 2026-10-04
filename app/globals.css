@@ -216,6 +216,18 @@ section[id] { scroll-margin-top: 92px; }
 .lab-preprint h3 { font-size: 20px; letter-spacing: -.025em; line-height: 1.45; }
 .lab-preprint-authors { font-size: 13px; line-height: 1.65; }
 #skills h3 { font-size: 16px; line-height: 1.5; }
+.lab-skill-count {
+  flex-shrink: 0;
+  min-width: 30px;
+  padding: 2px 7px;
+  border: 1px solid color-mix(in srgb, var(--lab-cyan) 22%, transparent);
+  border-radius: 3px;
+  background: color-mix(in srgb, var(--lab-cyan) 6%, transparent);
+  color: var(--lab-cyan);
+  font: 500 12px/1.5 var(--font-geist-mono), monospace;
+  font-variant-numeric: tabular-nums;
+  text-align: center;
+}
 .lab-skill { font-size: 13px; line-height: 1.6; padding: 6px 9px; gap: 6px; }
 .lab-service > div { display: grid; grid-template-columns: 44px 1fr; column-gap: 18px; padding: 25px; }
 .lab-service > div > div:first-child { grid-row: 1 / 4; width: 44px; height: 44px; border: 1px solid var(--border); border-radius: 4px; }
