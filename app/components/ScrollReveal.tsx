@@ -39,7 +39,10 @@ export default function ScrollReveal() {
       if (!hash) return;
       try {
         const target = document.getElementById(decodeURIComponent(hash.slice(1)));
-        if (target) revealWithin(target);
+        // Reveal an anchored card immediately, but let cards inside an anchored
+        // section keep their entrance animation until they reach the viewport.
+        const element = target?.closest<HTMLElement>(SELECTOR);
+        if (element) reveal(element);
       } catch { /* A malformed fragment must not prevent enhancement. */ }
     };
     const register = (element: HTMLElement) => {
