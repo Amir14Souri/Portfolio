@@ -3,6 +3,12 @@
 These assets identify the corresponding tools; the original projects retain
 their logos and trademarks. Files are served locally for the static export.
 
+Raster logos are resized for their displayed dimensions. Large SVGs that
+contained embedded bitmaps or extensive paths use a transparent 192 px
+PNG inside an SVG wrapper, preserving their URLs and CSS mask behavior.
+Colors and silhouettes retain the source appearance. Small skill PNGs
+are capped at 64 px for their 16 px display size.
+
 | Local asset | Official source | Treatment |
 | --- | --- | --- |
 | `bitsandbytes.png` | [bitsandbytes README](https://github.com/bitsandbytes-foundation/bitsandbytes/blob/main/README.md), [foundation avatar](https://avatars.githubusercontent.com/u/175231607?s=200&v=4) | Original image and colors |
