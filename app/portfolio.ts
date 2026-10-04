@@ -667,11 +667,11 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
     title: "Frontend Development",
     skills: ["React", "Next.js", "Tailwind CSS", "Ant Design", "Zustand", "TanStack Query", "React Router", "Chakra UI"],
   },
-  {
-    id: "soft",
-    title: "Soft Skills",
-    skills: ["Accountability", "Critical Thinking", "Collaboration", "Leadership", "Adaptability"],
-  },
+  // {
+  //   id: "soft",
+  //   title: "Soft Skills",
+  //   skills: ["Accountability", "Critical Thinking", "Collaboration", "Leadership", "Adaptability"],
+  // },
   {
     id: "others",
     title: "Other Technical",
