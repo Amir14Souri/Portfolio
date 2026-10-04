@@ -19,7 +19,7 @@ export default function ExperienceSection() {
       <div className="mx-auto max-w-6xl relative z-10">
         <SectionHeading
           title="Experience"
-          subtitle="Technical, research, and teaching experiences"
+          subtitle="Technical, research, and teaching experience"
         />
 
         <div className="mb-8 flex flex-wrap justify-start gap-4">
